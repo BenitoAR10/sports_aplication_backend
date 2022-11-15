@@ -12,3 +12,11 @@ VALUES ('Mario', 'Clements', false, '580-708-5752', 'Vilares', '2022-06-20', 207
 
 SELECT * FROM sp_persona;
 
+-- INSERTS DEPORTE
+insert into sp_deporte (deporte, estado, tx_correo, tx_fecha, tx_host) values ('Atletismo', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+insert into sp_deporte (deporte, estado, tx_correo, tx_fecha, tx_host) values ('Futbol', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+insert into sp_deporte (deporte, estado, tx_correo, tx_fecha, tx_host) values ('Basquet', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+insert into sp_deporte (deporte, estado, tx_correo, tx_fecha, tx_host) values ('Tenis', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+insert into sp_deporte (deporte, estado, tx_correo, tx_fecha, tx_host) values ('Voley', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+
+SELECT * FROM sp_deporte;
