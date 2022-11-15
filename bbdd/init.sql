@@ -20,3 +20,10 @@ insert into sp_deporte (deporte, estado, tx_correo, tx_fecha, tx_host) values ('
 insert into sp_deporte (deporte, estado, tx_correo, tx_fecha, tx_host) values ('Voley', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_deporte;
+
+-- INSERTS ROLES
+
+INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('usuario', 'Rol para los usuarios normales de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+
+SELECT * FROM sp_roles;
