@@ -1,0 +1,10 @@
+# Definimos en que puerto va a correr nuestra aplicación
+server:
+  port: 7777
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver # Driver de conexión a la base de datos
+    url: spdatabase-do-user-12861783-0.b.db.ondigitalocean.com # URL de conexión a la base de datos
+    username: doadmin # Usuario de la base de datos
+    password: AVNS_NU8zwq9QyxXqBi5dWd_ # Contraseña de la base de datos
