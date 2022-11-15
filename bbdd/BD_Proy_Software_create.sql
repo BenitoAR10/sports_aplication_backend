@@ -20,7 +20,7 @@ CREATE TABLE h_sp_persona (
     tx_correo varchar(100)  NOT NULL,
     tx_fecha timestamp  NOT NULL,
     tx_host varchar(100)  NOT NULL,
-    CONSTRAINT sp_persona_pk PRIMARY KEY (id_h_persona)
+    CONSTRAINT h_sp_persona_pk PRIMARY KEY (id_h_persona)
 );
 
 -- Table: sp_color
