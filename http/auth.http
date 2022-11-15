@@ -3,3 +3,13 @@
 ### Path Variable: http://localhost:25060/api/v1/auth/{idCuenta}
 ### Request Param: http://localhost:25060/api/v1/auth?idCuenta=1 ESTO SE UTILIZA PARA PAGINACIÓN
 GET http://localhost:25060/api/v1/auth/1
+
+### Autenticacion
+POST http://localhost:25060/api/v1/auth/
+Content-Type: application/json
+Accept: aplicacion/json
+
+{
+    "correo": "amirb@gmail.com",
+    "secret": "123456"
+}
