@@ -21,9 +21,40 @@ insert into sp_deporte (deporte, estado, tx_correo, tx_fecha, tx_host) values ('
 
 SELECT * FROM sp_deporte;
 
+-- INSERTS CUENTA
+
+INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+VALUES (2, 1, 'amaral@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+
+SELECT * FROM sp_cuenta;
+
 -- INSERTS ROLES
 
 INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('usuario', 'Rol para los usuarios normales de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_roles;
+
+-- INSERT GRUPOS
+
+INSERT INTO sp_grupos (grupo, descripcion, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('clientes', 'Clientes de la aplicaion', true,'alampaert1@businessweek.com', now(), '167.130.231.107');
+
+SELECT * FROM sp_grupos;
+
+
+-- INSERTS GRUPO-ROLES
+
+INSERT INTO sp_grupo_roles (id_grupos, id_roles, estado, tx_correo, tx_fecha, tx_host)
+VALUES (1, 1, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+
+SELECT * FROM sp_grupo_roles;
+
+-- INSERTS CUENTA-GRUPOS
+
+INSERT INTO sp_cuenta_grupos (id_cuenta, id_grupos, estado, tx_correo, tx_fecha, tx_host)
+VALUES (1, 1, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+
+SELECT * FROM sp_cuenta_grupos;
+
+
