@@ -2,25 +2,25 @@ package bo.edu.ucb.spapp.Sports.App.entity;
 
 import java.util.Date;
 import java.util.Objects;
-
+// Creamos la clase SpCuenta con sus atributos, constructor y metodos get y set
 public class SpCuenta {
     private Integer idCuenta;
     private Integer idPersona;
-    private Integer ipDerpote;
+    private Integer ipDeporte;
     private String correo;
     private String secret;
     private Boolean estado;
     private String tx_correo;
     private Date tx_fecha;
     private String tx_host;
-
+    // Constructor vacio de la clase.
     public SpCuenta() {
     }
-
-    public SpCuenta(Integer idCuenta, Integer idPersona, Integer ipDerpote, String correo, String secret, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
+    // Constructor con parametros de la clase.
+    public SpCuenta(Integer idCuenta, Integer idPersona, Integer ipDeporte, String correo, String secret, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
         this.idCuenta = idCuenta;
         this.idPersona = idPersona;
-        this.ipDerpote = ipDerpote;
+        this.ipDeporte = ipDeporte;
         this.correo = correo;
         this.secret = secret;
         this.estado = estado;
@@ -28,7 +28,7 @@ public class SpCuenta {
         this.tx_fecha = tx_fecha;
         this.tx_host = tx_host;
     }
-
+    // Metodos get y ser para cada atributo de la clase.
     public Integer getIdCuenta() {
         return idCuenta;
     }
@@ -45,12 +45,12 @@ public class SpCuenta {
         this.idPersona = idPersona;
     }
 
-    public Integer getIpDerpote() {
-        return ipDerpote;
+    public Integer getIpDeporte() {
+        return ipDeporte;
     }
 
-    public void setIpDerpote(Integer ipDerpote) {
-        this.ipDerpote = ipDerpote;
+    public void setIpDeporte(Integer ipDeporte) {
+        this.ipDeporte = ipDeporte;
     }
 
     public String getCorreo() {
@@ -100,13 +100,13 @@ public class SpCuenta {
     public void setTx_host(String tx_host) {
         this.tx_host = tx_host;
     }
-
+    // Metodo toString para mostrar los datos de la clase.
     @Override
     public String toString() {
         return "SpCuenta{" +
                 "idCuenta=" + idCuenta +
                 ", idPersona=" + idPersona +
-                ", ipDerpote=" + ipDerpote +
+                ", ipDeporte=" + ipDeporte +
                 ", correo='" + correo + '\'' +
                 ", secret='" + secret + '\'' +
                 ", estado=" + estado +
@@ -115,7 +115,8 @@ public class SpCuenta {
                 ", tx_host='" + tx_host + '\'' +
                 '}';
     }
-
+    // Metodo equals para comparar los datos de la clase.
+    // En este caso solo comparamos el idCuenta.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -123,9 +124,9 @@ public class SpCuenta {
         SpCuenta spCuenta = (SpCuenta) o;
         return idCuenta.equals(spCuenta.idCuenta);
     }
-
+    // Metodo hashCode para comparar el idCuenta.
     @Override
     public int hashCode() {
         return Objects.hash(idCuenta);
     }
-}
+} // Fin de la clase SpCuenta.

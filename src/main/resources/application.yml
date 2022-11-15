@@ -1,6 +1,6 @@
 # Definimos en que puerto va a correr nuestra aplicación
 server:
-  port: 7777
+  port: 25060
 
 spring:
   datasource:
