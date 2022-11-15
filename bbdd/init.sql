@@ -57,4 +57,12 @@ VALUES (1, 1, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_cuenta_grupos;
 
-
+SELECT sr.rol, sr.descripcion
+FROM
+    sp_cuenta sc
+    LEFT JOIN sp_cuenta_grupos scg ON scg.id_cuenta = sc.id_cuenta
+    LEFT JOIN sp_grupos sg ON sg.id_grupos = scg.id_grupos
+    LEFT JOIN sp_grupo_roles sgr ON sgr.id_grupos = sg.id_grupos
+    LEFT JOIN sp_roles sr ON sgr.id_roles = sr.id_roles
+WHERE
+    sc.correo = 'amaral@gmail.com';
