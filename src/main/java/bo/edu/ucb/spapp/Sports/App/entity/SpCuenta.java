@@ -6,7 +6,7 @@ import java.util.Objects;
 public class SpCuenta {
     private Integer idCuenta;
     private Integer idPersona;
-    private Integer ipDeporte;
+    private Integer idDeporte;
     private String correo;
     private String secret;
     private Boolean estado;
@@ -17,10 +17,11 @@ public class SpCuenta {
     public SpCuenta() {
     }
     // Constructor con parametros de la clase.
-    public SpCuenta(Integer idCuenta, Integer idPersona, Integer ipDeporte, String correo, String secret, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
+
+    public SpCuenta(Integer idCuenta, Integer idPersona, Integer idDeporte, String correo, String secret, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
         this.idCuenta = idCuenta;
         this.idPersona = idPersona;
-        this.ipDeporte = ipDeporte;
+        this.idDeporte = idDeporte;
         this.correo = correo;
         this.secret = secret;
         this.estado = estado;
@@ -28,7 +29,9 @@ public class SpCuenta {
         this.tx_fecha = tx_fecha;
         this.tx_host = tx_host;
     }
+
     // Metodos get y ser para cada atributo de la clase.
+
     public Integer getIdCuenta() {
         return idCuenta;
     }
@@ -45,12 +48,12 @@ public class SpCuenta {
         this.idPersona = idPersona;
     }
 
-    public Integer getIpDeporte() {
-        return ipDeporte;
+    public Integer getIdDeporte() {
+        return idDeporte;
     }
 
-    public void setIpDeporte(Integer ipDeporte) {
-        this.ipDeporte = ipDeporte;
+    public void setIdDeporte(Integer idDeporte) {
+        this.idDeporte = idDeporte;
     }
 
     public String getCorreo() {
@@ -100,13 +103,15 @@ public class SpCuenta {
     public void setTx_host(String tx_host) {
         this.tx_host = tx_host;
     }
+
     // Metodo toString para mostrar los datos de la clase.
+
     @Override
     public String toString() {
         return "SpCuenta{" +
                 "idCuenta=" + idCuenta +
                 ", idPersona=" + idPersona +
-                ", ipDeporte=" + ipDeporte +
+                ", idDeporte=" + idDeporte +
                 ", correo='" + correo + '\'' +
                 ", secret='" + secret + '\'' +
                 ", estado=" + estado +
@@ -115,6 +120,7 @@ public class SpCuenta {
                 ", tx_host='" + tx_host + '\'' +
                 '}';
     }
+
     // Metodo equals para comparar los datos de la clase.
     // En este caso solo comparamos el idCuenta.
     @Override

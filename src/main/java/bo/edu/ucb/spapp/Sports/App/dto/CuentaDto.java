@@ -3,19 +3,22 @@ package bo.edu.ucb.spapp.Sports.App.dto;
 public class CuentaDto {
     private Integer idCuenta;
     private Integer idPersona;
-    private Integer ipDerpote;
+    private Integer idDeporte;
     private String correo;
     // Constructor vacio.
     public CuentaDto() {
     }
-    // Constructor con todos los parametros.
-    public CuentaDto(Integer idCuenta, Integer idPersona, Integer ipDerpote, String correo) {
+
+    public CuentaDto(Integer idCuenta, Integer idPersona, Integer idDeporte, String correo) {
         this.idCuenta = idCuenta;
         this.idPersona = idPersona;
-        this.ipDerpote = ipDerpote;
+        this.idDeporte = idDeporte;
         this.correo = correo;
     }
+
+    // Constructor con todos los parametros.
     // Metodos Getters y Setters.
+
     public Integer getIdCuenta() {
         return idCuenta;
     }
@@ -32,12 +35,12 @@ public class CuentaDto {
         this.idPersona = idPersona;
     }
 
-    public Integer getIpDerpote() {
-        return ipDerpote;
+    public Integer getIdDeporte() {
+        return idDeporte;
     }
 
-    public void setIpDerpote(Integer ipDerpote) {
-        this.ipDerpote = ipDerpote;
+    public void setIdDeporte(Integer idDeporte) {
+        this.idDeporte = idDeporte;
     }
 
     public String getCorreo() {
@@ -47,13 +50,17 @@ public class CuentaDto {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+
     // Metodo toString para mostrar los datos de la clase.
+
+
     @Override
     public String toString() {
         return "CuentaDto{" +
                 "idCuenta=" + idCuenta +
                 ", idPersona=" + idPersona +
-                ", ipDerpote=" + ipDerpote +
+                ", idDeporte=" + idDeporte +
                 ", correo='" + correo + '\'' +
                 '}';
     }
