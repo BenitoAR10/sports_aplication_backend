@@ -2,7 +2,7 @@
 ### Dos opciones:
 ### Path Variable: http://localhost:25060/api/v1/auth/{idCuenta}
 ### Request Param: http://localhost:25060/api/v1/auth?idCuenta=1 ESTO SE UTILIZA PARA PAGINACIÓN
-GET http://localhost:25060/api/v1/auth/1
+GET http://localhost:25060/api/v1/auth/2
 
 ### Autenticacion
 POST http://localhost:25060/api/v1/auth/

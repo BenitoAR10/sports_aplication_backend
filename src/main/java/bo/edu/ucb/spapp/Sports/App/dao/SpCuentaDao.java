@@ -1,6 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.dao;
 
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 // Creamos una interfaz para poder usar MyBatis y poder hacer consultas a la base de datos de manera mas sencilla.
 public interface SpCuentaDao {
@@ -11,7 +12,7 @@ public interface SpCuentaDao {
                 sp_cuenta
             WHERE
                 id_cuenta = #{idCuenta}
-                AND estado = true;
+                AND estado = true
             """)
     SpCuenta findByPrimarykey(Integer idCuenta);
 
@@ -21,7 +22,11 @@ public interface SpCuentaDao {
                 sp_cuenta
             WHERE
                 correo = #{correo}
-                AND estado = true;
+                AND estado = true
             """)
     String findByCorreoAndContrasenia(String correo);
+
+
+
+
 }
