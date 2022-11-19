@@ -76,3 +76,20 @@ FROM
     LEFT JOIN sp_roles sr ON sgr.id_roles = sr.id_roles
 WHERE
     sc.correo = 'amirb@gmail.com';
+
+
+-- PROCEDURE insert sp_cuenta y sp_persona en una sola transaccion.
+
+CREATE OR REPLACE PROCEDURE sp_insert_cuenta_persona()
+LANGUAGE plpgsql
+AS $$
+    BEGIN
+        INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+        VALUES (1, 1, 'camilal@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+
+        INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, cat_persona_status, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, estado, tx_correo, tx_fecha, tx_host)
+        VALUES ('Camila', 'Lopez', true, '12-3232-4141','La Paz', true,'2022-06-20', 160, 65, 20, 'http://dummyimage.com/133x100.png/ff4444/ffffff', true, 'camilal@gmail.com', now(),'167.130.231.107');
+
+END;$$;
+
+call sp_insert_cuenta_persona();

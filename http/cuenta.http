@@ -1,0 +1,18 @@
+### Creamos nuevo usuario
+
+POST http://localhost:25060/api/v1/cuenta/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nombres": "Amir",
+    "apellidos": "Rojas",
+    "numero_telefono": "123456789",
+    "correo": "amirr@gmail.com",
+    "contrasenia": "123456789",
+    "genero": 1,
+    "fecha_nacimiento": "1999-01-01",
+    "altura": 177.5,
+    "peso": 70,
+    "deporte": 1
+}

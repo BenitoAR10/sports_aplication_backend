@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 // Le indicamos a Spring que busque los mappers en este paquete
 @MapperScan("bo.edu.ucb.spapp.Sports.App.dao")
 public class SportsAppApplication {
+	// SqlSessionFactory es un objeto que nos permite crear sesiones de MyBatis.
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
