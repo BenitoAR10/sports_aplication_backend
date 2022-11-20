@@ -93,3 +93,10 @@ AS $$
 END;$$;
 
 call sp_insert_cuenta_persona();
+
+-- crear trigger para la funcin anterior.
+
+
+
+
+
