@@ -152,4 +152,6 @@ ALTER TABLE sp_persona ALTER COLUMN tx_host DROP NOT NULL;
 
 -- elinar trigger y procedimiento.
 DROP TRIGGER inst_cuenta ON sp_persona;
->>>>>>> 7911d42c1f26ee48c9361039538898bab89d927c
+
+SELECT contrasenia FROM sp_cuenta WHERE correo = 'pablex.com';
+

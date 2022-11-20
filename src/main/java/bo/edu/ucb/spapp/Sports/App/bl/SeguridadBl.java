@@ -27,16 +27,17 @@ public class SeguridadBl {
     }
     // Este metodo se encarga de la autenticacion de usuarios, va a buscar la contraseña
     // en la base de datos y la va a comparar con su equivalente en BCRYPT.
-    public RespAutenticacionDto authentication(SoliAutenticacionDto credentials){
+    public RespAutenticacionDto authenticate(SoliAutenticacionDto credentials){
         RespAutenticacionDto result = null;
         System.out.println("Comenzando autenticacion: "+ credentials);
-        String currentPasswordInBCrypt = spCuentaDao.findByCorreoAndContrasenia(credentials.correo());
+        String currentPasswordInBCrypt = spCuentaDao.findByCorreoAndContrasenia(credentials.getCorreo());
         System.out.println("Se encontro la contraseña en la base de datos: "+ currentPasswordInBCrypt);
         // Consulto si las constraseñas coinciden.
         if (currentPasswordInBCrypt != null){
-            BCrypt.Result bcryptResult = BCrypt.verifyer().verify(credentials.secret().toCharArray(), currentPasswordInBCrypt);
             System.out.println("Se procede a verificar si las contraseñas coinciden");
-            if (bcryptResult.verified){
+            // comparamos las contraseñas.
+            BCrypt.Result verifyResult = BCrypt.verifyer().verify(credentials.getContrasenia().toCharArray(), currentPasswordInBCrypt);
+            if (verifyResult.verified){
                 //Se procede a generar el token de autenticacion.
                 System.out.println("Las contraseñas coinciden");
                 result.setToken("TEST TOKEN");
@@ -50,6 +51,12 @@ public class SeguridadBl {
             throw new RuntimeException("Contraseña y secret no coinciden");
         }
 
+        return result;
+    }
+
+    // Este metodo genera tokens JWT
+    private RespAutenticacionDto generateTokenJwt(String suject, int expirationTime){
+        RespAutenticacionDto result = new RespAutenticacionDto();
         return result;
     }
 

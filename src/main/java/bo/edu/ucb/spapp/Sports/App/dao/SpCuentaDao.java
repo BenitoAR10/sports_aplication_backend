@@ -1,7 +1,6 @@
 package bo.edu.ucb.spapp.Sports.App.dao;
 
-import bo.edu.ucb.spapp.Sports.App.entity.SpCrearCuenta;
-import bo.edu.ucb.spapp.Sports.App.entity.SpCrearPersona;
+import bo.edu.ucb.spapp.Sports.App.entity.SpPersona;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -35,16 +34,16 @@ public interface SpCuentaDao {
                 (#{nombres}, #{apellidos}, #{genero}, #{numeroTelefono}, #{ciudad}, #{catPersonaStatus}, #{fechaNacimiento}, #{altura}, #{peso}, #{indiceMasaCorporal}, #{foto}, true, 'anonymous', now(), 'localhost')
             """)
 
-    void crearPersona(SpCrearPersona spCrearCuenta);
+    void crearPersona(SpPersona spCrearCuenta);
 
     @Insert("""
             INSERT INTO sp_cuenta
                (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
             VALUES
-               (#{idPersona}, 1, #{correo}, #{contrasenia}, true, 'anonymous', now(), 'localhost')
+               (#{idPersona}, 1, #{correo}, #{secret}, true, 'anonymous', now(), 'localhost')
             """)
 
-    void crearCuenta(SpCrearCuenta spCrearCuenta);
+    void crearCuenta(SpCuenta spCuenta);
 
 
 

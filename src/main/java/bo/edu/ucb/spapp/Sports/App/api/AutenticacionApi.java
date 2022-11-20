@@ -26,6 +26,6 @@ public class AutenticacionApi {
 
     @PostMapping()
     public RespAutenticacionDto authentication(@RequestBody SoliAutenticacionDto soliAutenticacionDto){
-        return seguridadBl.authentication(soliAutenticacionDto);
+        return seguridadBl.authenticate(soliAutenticacionDto);
     }
 }

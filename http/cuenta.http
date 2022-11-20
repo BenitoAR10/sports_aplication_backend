@@ -6,6 +6,6 @@ Accept: application/json
 
 {
     "idPersona": 1,
-    "correo": "omarr@gmail.com",
+    "correo": "pablex.com",
     "contrasenia": "123456789"
 }

@@ -4,7 +4,7 @@ package bo.edu.ucb.spapp.Sports.App.bl;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
-import bo.edu.ucb.spapp.Sports.App.entity.SpCrearCuenta;
+import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.springframework.stereotype.Service;
 
 @Service // Lo marcamos como service para que Spring lo pueda inyectar.
@@ -16,13 +16,13 @@ public class CuentaBl {
         this.spCuentaDao = spCuentaDao;
     }
     public void crearCuenta(CrearCuentaDto crearCuentaDto){
-        SpCrearCuenta spCrearCuenta = new SpCrearCuenta();
-        spCrearCuenta.setIdPersona(crearCuentaDto.getIdPersona());
-        spCrearCuenta.setIdDeporte(crearCuentaDto.getIdDeporte());
-        spCrearCuenta.setCorreo(crearCuentaDto.getCorreo());
+        SpCuenta spCuenta = new SpCuenta();
+        spCuenta.setIdPersona(crearCuentaDto.getIdPersona());
+        spCuenta.setIdDeporte(crearCuentaDto.getIdDeporte());
+        spCuenta.setCorreo(crearCuentaDto.getCorreo());
         String contrasenia = BCrypt.withDefaults().hashToString(12, crearCuentaDto.getContrasenia().toCharArray());
         crearCuentaDto.getContrasenia();
-        spCrearCuenta.setContrasenia(contrasenia);
-        this.spCuentaDao.crearCuenta(spCrearCuenta);
+        spCuenta.setSecret(contrasenia);
+        this.spCuentaDao.crearCuenta(spCuenta);
     }
 }
