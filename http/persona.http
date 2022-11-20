@@ -1,0 +1,20 @@
+### Creasmos nueva persona
+
+POST http://localhost:25060/api/v1/persona/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nombres": "Pepito",
+  "apellidos": "Perez",
+  "genero": true,
+  "numeroTelefono": "123456789",
+  "ciudad": "Bogota",
+  "catPersonaStatus": "ACTIVO",
+  "fechaNacimiento": "1990-01-01",
+  "altura": 1.80,
+  "peso": 80.0,
+  "indiceMasaCorporal": 24.69,
+  "foto": "https://www.google.com.co/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+
+}

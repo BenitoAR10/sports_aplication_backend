@@ -10,6 +10,12 @@ VALUES ('Amara', 'Lampaert', false, '994-560-9729', 'Binzhou', '2022-09-08', 204
 INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, cat_persona_status, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Mario', 'Clements', false, '580-708-5752', 'Vilares', '2022-06-20', 207, 41, 29, 'http://dummyimage.com/133x100.png/ff4444/ffffff', false, true, 'mclementsb@flickr.com', now(), '142.158.189.231');
 
+INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, cat_persona_status, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Carlitos', 'Sucha', false, '580-708-5752', 'Vilares', '2022-06-20', 207, 41, 29, 'http://dummyimage.com/133x100.png/ff4444/ffffff', false, true, 'carlitos@gmail.com', now(), '142.158.189.231');
+
+INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, cat_persona_status, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Camila', 'Sucha', false, '580-708-5752', 'Vilares', '2022-06-20', 207, 41, 29, 'http://dummyimage.com/133x100.png/ff4444/ffffff', false, true, 'carlitos@gmail.com', now(), '142.158.189.231');
+
 SELECT * FROM sp_persona;
 
 -- INSERTS DEPORTE
@@ -84,12 +90,57 @@ CREATE OR REPLACE PROCEDURE sp_insert_cuenta_persona()
 LANGUAGE plpgsql
 AS $$
     BEGIN
-        INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
-        VALUES (1, 1, 'camilal@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
         INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, cat_persona_status, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, estado, tx_correo, tx_fecha, tx_host)
         VALUES ('Camila', 'Lopez', true, '12-3232-4141','La Paz', true,'2022-06-20', 160, 65, 20, 'http://dummyimage.com/133x100.png/ff4444/ffffff', true, 'camilal@gmail.com', now(),'167.130.231.107');
 
+        INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+        VALUES (1, 1, 'camilal@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+
 END;$$;
 
 call sp_insert_cuenta_persona();
+
+
+CREATE OR REPLACE FUNCTION inst_cuenta()
+returns trigger as
+$$
+BEGIN
+    INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+    VALUES (new.id_persona, 1, '', '', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+return new;
+END;
+$$
+language plpgsql;
+
+-- Trigger
+
+CREATE TRIGGER inst_cuenta
+AFTER INSERT ON sp_persona
+FOR EACH ROW
+EXECUTE PROCEDURE inst_cuenta();
+
+
+-- Cambiando campos a nulleables en la tabla sp_cuenta.
+ALTER TABLE sp_cuenta ALTER COLUMN estado DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN tx_correo DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN tx_fecha DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN tx_host DROP NOT NULL;
+
+
+-- Cambiando campos a nulleables en la tabla sp_persona.
+ALTER TABLE sp_persona ALTER COLUMN genero DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN cat_persona_status DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN ciudad DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN fecha_nacimiento DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN altura DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN peso DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN indice_masa_corporal DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN foto DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN estado DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN tx_correo DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN tx_fecha DROP NOT NULL;
+ALTER TABLE sp_persona ALTER COLUMN tx_host DROP NOT NULL;
+
+-- elinar trigger y procedimiento.
+DROP TRIGGER inst_cuenta ON sp_persona;
