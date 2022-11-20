@@ -6,7 +6,12 @@ import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespAutenticacionDto;
 import bo.edu.ucb.spapp.Sports.App.dto.SoliAutenticacionDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 // Creamos una clase que implemente la interfaz de la capa de acceso a datos y la interfaz de la capa de negocio.
 @Service // Service nos indica que podremos inyectar esta clase en otras clases.
@@ -40,8 +45,8 @@ public class SeguridadBl {
             if (verifyResult.verified){
                 //Se procede a generar el token de autenticacion.
                 System.out.println("Las contraseñas coinciden");
-                result.setToken("TEST TOKEN");
-                result.setRefresh("TEST  TOKEN");
+                result = generateTokenJwt(credentials.getCorreo(), 300, new String[]{"admin", "user"});
+
             } else {
                 System.out.println("Las contraseñas no coinciden");
                 throw new RuntimeException("Contraseña y secret no coinciden");
@@ -55,8 +60,30 @@ public class SeguridadBl {
     }
 
     // Este metodo genera tokens JWT
-    private RespAutenticacionDto generateTokenJwt(String suject, int expirationTime){
+    private RespAutenticacionDto generateTokenJwt(String suject, int expirationTimeInSeconds, String [] roles){
         RespAutenticacionDto result = new RespAutenticacionDto();
+        // Generamos el token.
+        try{
+            Algorithm algorithm = Algorithm.HMAC256("contrasenia");
+            String token = JWT.create()
+                    .withIssuer("ucb")
+                    .withSubject(suject)
+                    .withArrayClaim("roles", roles)
+                    .withClaim("refresh", false)
+                    .withExpiresAt(new Date(System.currentTimeMillis() + (expirationTimeInSeconds * 1000)))
+                    .sign(algorithm);
+            result.setToken(token);
+            String refreshToken = JWT.create()
+                    .withIssuer("ucb")
+                    .withSubject(suject)
+                    .withClaim("refresh", true)
+                    .withExpiresAt(new Date(System.currentTimeMillis() + (expirationTimeInSeconds * 1000 * 2)))
+                    .sign(algorithm);
+            result.setRefresh(refreshToken);
+        }catch (JWTCreationException e){
+            throw new RuntimeException("Error al generar el token", e);
+        }
+
         return result;
     }
 
