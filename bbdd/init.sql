@@ -155,3 +155,6 @@ DROP TRIGGER inst_cuenta ON sp_persona;
 
 SELECT contrasenia FROM sp_cuenta WHERE correo = 'pablex.com';
 
+-- CONSTRAINT DE UNIQUE para correo en sp_cuenta.
+ALTER TABLE sp_cuenta ADD CONSTRAINT sp_cuenta_correo UNIQUE (correo);
+

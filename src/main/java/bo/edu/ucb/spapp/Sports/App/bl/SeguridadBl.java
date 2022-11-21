@@ -2,25 +2,33 @@ package bo.edu.ucb.spapp.Sports.App.bl;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
+import bo.edu.ucb.spapp.Sports.App.dao.SpRolesDao;
 import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespAutenticacionDto;
 import bo.edu.ucb.spapp.Sports.App.dto.SoliAutenticacionDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
+import bo.edu.ucb.spapp.Sports.App.entity.SpRoles;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 // Creamos una clase que implemente la interfaz de la capa de acceso a datos y la interfaz de la capa de negocio.
 @Service // Service nos indica que podremos inyectar esta clase en otras clases.
 public class SeguridadBl {
 
     private SpCuentaDao spCuentaDao;
+
+
+    private SpRolesDao spRolesDao;
     // Constructor de la clase.
-    public SeguridadBl(SpCuentaDao spCuentaDao){
+    public SeguridadBl(SpCuentaDao spCuentaDao, SpRolesDao spRolesDao) {
         this.spCuentaDao = spCuentaDao;
+        this.spRolesDao = spRolesDao;
     }
     // Metodo para obtener un usuario por su id.
     public CuentaDto getUserByPk(Integer idCuenta){
@@ -45,7 +53,13 @@ public class SeguridadBl {
             if (verifyResult.verified){
                 //Se procede a generar el token de autenticacion.
                 System.out.println("Las contraseñas coinciden");
-                result = generateTokenJwt(credentials.getCorreo(), 300, new String[]{"admin", "user"});
+                // consultamos los roles que tiene el usuario.
+                List<SpRoles> roles = spRolesDao.findRolesByCorreo(credentials.getCorreo());
+                List<String> rolesAdString = new ArrayList<>();
+                for (SpRoles rol: roles) {
+                    rolesAdString.add(rol.getRol());
+                }
+                result = generateTokenJwt(credentials.getCorreo(), 300, rolesAdString);
 
             } else {
                 System.out.println("Las contraseñas no coinciden");
@@ -60,7 +74,7 @@ public class SeguridadBl {
     }
 
     // Este metodo genera tokens JWT
-    private RespAutenticacionDto generateTokenJwt(String suject, int expirationTimeInSeconds, String [] roles){
+    private RespAutenticacionDto generateTokenJwt(String suject, int expirationTimeInSeconds, List<String> roles){
         RespAutenticacionDto result = new RespAutenticacionDto();
         // Generamos el token.
         try{
@@ -68,7 +82,7 @@ public class SeguridadBl {
             String token = JWT.create()
                     .withIssuer("ucb")
                     .withSubject(suject)
-                    .withArrayClaim("roles", roles)
+                    .withArrayClaim("roles", roles.toArray(new String[roles.size()]))
                     .withClaim("refresh", false)
                     .withExpiresAt(new Date(System.currentTimeMillis() + (expirationTimeInSeconds * 1000)))
                     .sign(algorithm);
