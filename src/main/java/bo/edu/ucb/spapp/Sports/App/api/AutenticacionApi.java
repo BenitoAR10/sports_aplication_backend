@@ -2,10 +2,10 @@ package bo.edu.ucb.spapp.Sports.App.api;
 
 
 import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
-import bo.edu.ucb.spapp.Sports.App.entity.dto.CuentaDto;
-import bo.edu.ucb.spapp.Sports.App.entity.dto.RespAutenticacionDto;
-import bo.edu.ucb.spapp.Sports.App.entity.dto.RespuestaDto;
-import bo.edu.ucb.spapp.Sports.App.entity.dto.SoliAutenticacionDto;
+import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
+import bo.edu.ucb.spapp.Sports.App.dto.RespAutenticacionDto;
+import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
+import bo.edu.ucb.spapp.Sports.App.dto.SoliAutenticacionDto;
 import bo.edu.ucb.spapp.Sports.App.util.SpException;
 import org.springframework.web.bind.annotation.*;
 
