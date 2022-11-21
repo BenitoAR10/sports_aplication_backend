@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package bo.edu.ucb.spapp.Sports.App.entity;public class SpTipoPlanEntrenamiento {
 =======
+=======
+>>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
 package bo.edu.ucb.spapp.Sports.App.entity;
 import java.sql.Date;
 
@@ -89,5 +92,8 @@ public class SpTipoPlanEntrenamiento {
     public void setTx_host(String tx_host) {
         this.tx_host = tx_host;
     }
+<<<<<<< HEAD
+>>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
+=======
 >>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
 }
