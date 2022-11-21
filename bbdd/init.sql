@@ -57,6 +57,12 @@ INSERT INTO sp_grupos (grupo, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('clientes', 'Clientes de la aplicaion', true,'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_grupos (grupo, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Entrenador', 'Entrenadores de la aplicacion', true,'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_grupos (grupo, descripcion, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Dueño de tienda', 'Duenios de tiendas de la aplicacion', true,'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_grupos (grupo, descripcion, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Servicio de comida', 'Servicio de comida de la aplicacion', true,'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_grupos (grupo, descripcion, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Duenios de lugares de entrenamiento', 'Duenios de lugares de entrenamiento de la aplicaion', true,'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_grupos;
 
