@@ -44,6 +44,10 @@ INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Agregar entrenamientos', 'Rol para los entrenadores de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Agregar tienda', 'Rol para los dueños de tienda(s) de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Agregar comida', 'Rol para los servicios de comida de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Agregar lugar de entrenamiento', 'Rol para los duenios de lugaremos de entrenamiento', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_roles;
 
