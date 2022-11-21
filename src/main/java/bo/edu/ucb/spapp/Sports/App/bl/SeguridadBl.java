@@ -3,11 +3,12 @@ package bo.edu.ucb.spapp.Sports.App.bl;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpRolesDao;
-import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
-import bo.edu.ucb.spapp.Sports.App.dto.RespAutenticacionDto;
-import bo.edu.ucb.spapp.Sports.App.dto.SoliAutenticacionDto;
+import bo.edu.ucb.spapp.Sports.App.entity.dto.CuentaDto;
+import bo.edu.ucb.spapp.Sports.App.entity.dto.RespAutenticacionDto;
+import bo.edu.ucb.spapp.Sports.App.entity.dto.SoliAutenticacionDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import bo.edu.ucb.spapp.Sports.App.entity.SpRoles;
+import bo.edu.ucb.spapp.Sports.App.util.SpException;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -20,6 +21,7 @@ import java.util.List;
 // Creamos una clase que implemente la interfaz de la capa de acceso a datos y la interfaz de la capa de negocio.
 @Service // Service nos indica que podremos inyectar esta clase en otras clases.
 public class SeguridadBl {
+    private final static String JWT_SECRET = "contrasenia";
 
     private SpCuentaDao spCuentaDao;
 
@@ -43,7 +45,7 @@ public class SeguridadBl {
     public RespAutenticacionDto authenticate(SoliAutenticacionDto credentials){
         RespAutenticacionDto result = null;
         System.out.println("Comenzando autenticacion: "+ credentials);
-        String currentPasswordInBCrypt = spCuentaDao.findByCorreoAndContrasenia(credentials.getCorreo());
+        String currentPasswordInBCrypt = spCuentaDao.findSecretByCorreo(credentials.getCorreo());
         System.out.println("Se encontro la contraseña en la base de datos: "+ currentPasswordInBCrypt);
         // Consulto si las constraseñas coinciden.
         if (currentPasswordInBCrypt != null){
@@ -63,11 +65,11 @@ public class SeguridadBl {
 
             } else {
                 System.out.println("Las contraseñas no coinciden");
-                throw new RuntimeException("Contraseña y secret no coinciden");
+                throw new RuntimeException("La cuenta y la contraseña son incorrectos");
             }
         }else{
             System.out.println("Usuario no existe");
-            throw new RuntimeException("Contraseña y secret no coinciden");
+            throw new SpException("La cuenta y la contraseña son incorrectos");
         }
 
         return result;
@@ -78,7 +80,7 @@ public class SeguridadBl {
         RespAutenticacionDto result = new RespAutenticacionDto();
         // Generamos el token.
         try{
-            Algorithm algorithm = Algorithm.HMAC256("contrasenia");
+            Algorithm algorithm = Algorithm.HMAC256(JWT_SECRET);
             String token = JWT.create()
                     .withIssuer("ucb")
                     .withSubject(suject)
@@ -99,6 +101,34 @@ public class SeguridadBl {
         }
 
         return result;
+    }
+
+    /** Este metodo se encarga de validar un token JWT y retornar una SpCuenta si el token es valido.
+     * @param jwt
+     * @return
+     */
+    public SpCuenta validateJwtToken(String jwt){
+        SpCuenta result = null;
+        try{
+            String correo = JWT.require(Algorithm.HMAC256(JWT_SECRET))
+                    .build()
+                    .verify(jwt)
+                    .getSubject();
+            result = spCuentaDao.findByCorreo(correo);
+        } catch (Exception e){
+            throw new SpException("La cuenta y la contraseña son incorrectos", e);
+        }
+        return result;
+    }
+
+
+    // Este metodo valida un token jwt y retorna si contiene o no el rol
+    public boolean tokenHasRole(String jwt, String role){
+        List<String> roles = JWT.require(Algorithm.HMAC256(JWT_SECRET))
+                .build()
+                .verify(jwt)
+                .getClaim("roles").asList(String.class);
+        return roles.contains(role);
     }
 
 }

@@ -5,8 +5,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "nombres": "Pepito",
-  "apellidos": "Perez",
+  "nombres": "Carlos",
+  "apellidos": "Lopez",
   "genero": true,
   "numeroTelefono": "123456789",
   "ciudad": "Bogota",
@@ -16,4 +16,12 @@ Accept: application/json
   "peso": 80.0,
   "indiceMasaCorporal": 24.69,
   "foto": "https://www.google.com.co/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+}
+
+### Datos vacios
+POST http://localhost:25060/api/v1/persona/
+Content-Type: application/json
+Accept: application/json
+
+{
 }

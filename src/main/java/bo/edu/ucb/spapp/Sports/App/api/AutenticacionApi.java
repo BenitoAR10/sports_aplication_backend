@@ -2,9 +2,11 @@ package bo.edu.ucb.spapp.Sports.App.api;
 
 
 import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
-import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
-import bo.edu.ucb.spapp.Sports.App.dto.RespAutenticacionDto;
-import bo.edu.ucb.spapp.Sports.App.dto.SoliAutenticacionDto;
+import bo.edu.ucb.spapp.Sports.App.entity.dto.CuentaDto;
+import bo.edu.ucb.spapp.Sports.App.entity.dto.RespAutenticacionDto;
+import bo.edu.ucb.spapp.Sports.App.entity.dto.RespuestaDto;
+import bo.edu.ucb.spapp.Sports.App.entity.dto.SoliAutenticacionDto;
+import bo.edu.ucb.spapp.Sports.App.util.SpException;
 import org.springframework.web.bind.annotation.*;
 
 // Creamos una clase API para las peticiones de autenticaion de usuarios.
@@ -19,13 +21,32 @@ public class AutenticacionApi {
         this.seguridadBl = seguridadBl;
     }
     // Metodo para obtener un usuario por su id.
+    /**
+     * Endpoint para probar la busqueda por llave primaria.
+     * @param idCuenta
+     * @return
+     */
     @GetMapping("/{idCuenta}")
     public CuentaDto test(@PathVariable(name = "idCuenta") Integer idCuenta){
         return this.seguridadBl.getUserByPk(idCuenta);
     }
-
+    /**
+     * Endpoint para autenticar un usuario.
+     * @param soliAutenticacionDto
+     * @return
+     */
     @PostMapping()
-    public RespAutenticacionDto authentication(@RequestBody SoliAutenticacionDto soliAutenticacionDto){
-        return seguridadBl.authenticate(soliAutenticacionDto);
+    public RespuestaDto<RespAutenticacionDto> authentication(@RequestBody SoliAutenticacionDto soliAutenticacionDto){
+        if (soliAutenticacionDto != null && soliAutenticacionDto.getCorreo() != null && soliAutenticacionDto.getContrasenia() != null) {
+            // retorna los tokens, null porque no hay erro y true porque fue exitoso.
+            try{
+                return new RespuestaDto<>(seguridadBl.authenticate(soliAutenticacionDto), null, true);
+            }catch (SpException e){
+                return new RespuestaDto<>(null, e.getMessage(), false);
+            }
+
+        }else{
+            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
+        }
     }
 }

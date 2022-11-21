@@ -2,7 +2,7 @@ package bo.edu.ucb.spapp.Sports.App.bl;
 
 
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
-import bo.edu.ucb.spapp.Sports.App.dto.CrearPersonaDto;
+import bo.edu.ucb.spapp.Sports.App.entity.dto.CrearPersonaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpPersona;
 import org.springframework.stereotype.Service;
 
