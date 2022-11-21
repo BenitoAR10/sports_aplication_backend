@@ -1,0 +1,30 @@
+### Creamos serivicio de comida
+
+POST http://localhost:25060/api/v1/comida
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xhbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGNvbWlkYSJdLCJpc3MiOiJ1Y2IiLCJyZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjY5MDEyNDIzfQ.wAEVAhm53NnJBN-R3DRGysUSamBEWiSML5_P5UyPo2o
+
+{
+  "idCuenta": 29,
+  "nombreLugar": "Burger King",
+  "logo": "https://www.mcdonalds.com/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Biscuit.jpg",
+  "nombrePropietario": "Juan",
+  "apellidoPropietario": "Perez",
+  "nit": "123456789",
+  "telefono": "123456789",
+  "correo": "mcdonal@gmail.com",
+  "direccion": "Calle 123",
+  "latitud": 123.123,
+  "longitud": 123.123
+}
+
+### Datos vacios
+
+POST http://localhost:25060/api/v1/comida
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xhbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGNvbWlkYSJdLCJpc3MiOiJ1Y2IiLCJyZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjY5MDEyMDI5fQ.JATXFJEK6Daq2h0MgFRMfxy3piIWTT_Rn6i5O4Hw2qk
+
+{
+}

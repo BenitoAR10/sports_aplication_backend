@@ -35,6 +35,8 @@ INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_c
 VALUES (1, 1, 'amirb@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
 VALUES (26, null, 'carlos@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+VALUES (23, null, 'colan@gmail.com', '$2a$12$lZC5vCrthu/3S/NnI2oC5On64GA.TY1JT9qtoVDEdyQq5uIf/OEJq', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_cuenta;
 
@@ -46,19 +48,12 @@ INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Agregar entrenamientos', 'Rol para los entrenadores de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Agregar tienda', 'Rol para los dueños de tienda(s) de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
+
 INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Agregar comida', 'Rol para los servicios de comida de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Agregar lugar de entrenamiento', 'Rol para los duenios de lugaremos de entrenamiento', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
-<<<<<<< HEAD
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
-=======
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
+
 
 SELECT * FROM sp_roles;
 
@@ -86,6 +81,8 @@ INSERT INTO sp_grupo_roles (id_grupos, id_roles, estado, tx_correo, tx_fecha, tx
 VALUES (2, 2, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_grupo_roles (id_grupos, id_roles, estado, tx_correo, tx_fecha, tx_host)
 VALUES (3, 3, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_grupo_roles (id_grupos, id_roles, estado, tx_correo, tx_fecha, tx_host)
+VALUES (4, 4, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_grupo_roles;
 
@@ -97,6 +94,8 @@ INSERT INTO sp_cuenta_grupos (id_cuenta, id_grupos, estado, tx_correo, tx_fecha,
 VALUES (2, 2, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_cuenta_grupos (id_cuenta, id_grupos, estado, tx_correo, tx_fecha, tx_host)
 VALUES (28, 3, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta_grupos (id_cuenta, id_grupos, estado, tx_correo, tx_fecha, tx_host)
+VALUES (29, 4, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_cuenta_grupos;
 
@@ -128,12 +127,7 @@ END;$$;
 
 call sp_insert_cuenta_persona();
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
->>>>>>> 350df928f3f27f4842be6ddc448c8b10938e84c7
 -- crear trigger para la funcin anterior.
 
 
@@ -193,8 +187,7 @@ ALTER TABLE sp_tienda ALTER COLUMN tx_host DROP NOT NULL;
 -- elinar trigger y procedimiento.
 DROP TRIGGER inst_cuenta ON sp_persona;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 --------------SP_TIENDA----------------
 
 insert into sp_tienda (id_cuenta, nombre_tienda, nombre_propietario, apellido_propietario, foto_tienda, telefono, NIT, direccion, latitud, longitud, estado, tx_correo, tx_fecha, tx_host) values (16,'Watsica, Mosciski and Leffler', 'Nonna', 'Warden', 'http://dummyimage.com/248x244.png/5fa2dd/ffffff', '703-824-17', 6186364, '8773 Merry Street', 359.13, 56.31, true, 'nwarden0@amazon.com', '2022/9/23', '192.168.0.1');
@@ -278,19 +271,10 @@ insert into sp_producto_cuenta (id_tienda_producto, id_cuenta, estado) values (1
 insert into sp_producto_cuenta (id_tienda_producto, id_cuenta, estado) values (5, 7, false);
 insert into sp_producto_cuenta (id_tienda_producto, id_cuenta, estado) values (8, 20, false);
 
-=======
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
-=======
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
+
 SELECT contrasenia FROM sp_cuenta WHERE correo = 'pablex.com';
 
 -- CONSTRAINT DE UNIQUE para correo en sp_cuenta.
 ALTER TABLE sp_cuenta ADD CONSTRAINT sp_cuenta_correo UNIQUE (correo);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
-=======
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
