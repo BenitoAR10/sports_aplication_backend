@@ -1,0 +1,12 @@
+### Creamos entrenado
+POST http://localhost:25060/api/v1/entrenador/
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2NjkwMTQwMjJ9.FjahHLGb57USkOUCvjabodYKTGieZaOdafVvUXt9E_g
+
+{
+  "idCuenta": 2,
+  "fotoEntrenador": "https://cdn.bulbagarden.net/upload/thumb/5/5f/Red_%28anime%29.png/250px-Red_%28anime%29.png",
+  "nit": "123456789",
+  "correo": "entrenador@gmail.com"
+}

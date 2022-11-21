@@ -84,6 +84,7 @@ VALUES (3, 3, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_grupo_roles (id_grupos, id_roles, estado, tx_correo, tx_fecha, tx_host)
 VALUES (4, 4, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
+
 SELECT * FROM sp_grupo_roles;
 
 -- INSERTS CUENTA-GRUPOS
