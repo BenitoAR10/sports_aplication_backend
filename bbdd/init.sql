@@ -42,6 +42,8 @@ INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('usuario', 'Rol para los usuarios normales de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Agregar entrenamientos', 'Rol para los entrenadores de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_roles (rol, descripcion, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Agregar tienda', 'Rol para los dueños de tienda(s) de la aplicacion', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_roles;
 
@@ -152,4 +154,9 @@ ALTER TABLE sp_persona ALTER COLUMN tx_host DROP NOT NULL;
 
 -- elinar trigger y procedimiento.
 DROP TRIGGER inst_cuenta ON sp_persona;
->>>>>>> 7911d42c1f26ee48c9361039538898bab89d927c
+
+SELECT contrasenia FROM sp_cuenta WHERE correo = 'pablex.com';
+
+-- CONSTRAINT DE UNIQUE para correo en sp_cuenta.
+ALTER TABLE sp_cuenta ADD CONSTRAINT sp_cuenta_correo UNIQUE (correo);
+

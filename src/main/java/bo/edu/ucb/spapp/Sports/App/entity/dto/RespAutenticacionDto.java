@@ -1,4 +1,4 @@
-package bo.edu.ucb.spapp.Sports.App.dto;
+package bo.edu.ucb.spapp.Sports.App.entity.dto;
 
 public class RespAutenticacionDto {
     private String token;

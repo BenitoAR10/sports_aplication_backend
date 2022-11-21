@@ -3,9 +3,10 @@
 POST http://localhost:25060/api/v1/cuenta/
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWFyYWxAZ21haWwuY29tIiwicm9sZXMiOlsidXN1YXJpbyJdLCJpc3MiOiJ1Y2IiLCJyZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjY5MDAwMTU2fQ.v6SSsB_YMMo8_vr81JiCeI1I95vluqm4eQh3RYOjiwc
 
 {
     "idPersona": 1,
-    "correo": "omarr@gmail.com",
+    "correo": "pablex.com",
     "contrasenia": "123456789"
 }
