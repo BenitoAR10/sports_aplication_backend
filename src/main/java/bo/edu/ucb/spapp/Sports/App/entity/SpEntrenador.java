@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+package bo.edu.ucb.spapp.Sports.App.entity;public class SpEntrenador {
+=======
+=======
+>>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
 package bo.edu.ucb.spapp.Sports.App.entity;
 
 public class SpEntrenador {
@@ -67,4 +73,8 @@ public class SpEntrenador {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+<<<<<<< HEAD
+>>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
+=======
+>>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
 }

@@ -1,3 +1,4 @@
+
 package bo.edu.ucb.spapp.Sports.App.entity;
 
 import java.sql.Date;
@@ -135,4 +136,5 @@ public class SpLugarEntrenamiento {
                 ", tx_host='" + tx_host + '\'' +
                 '}';
     }
+
 }

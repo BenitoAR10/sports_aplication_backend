@@ -687,5 +687,3 @@ ALTER TABLE sp_tipo_plan_entrenamiento ADD CONSTRAINT sp_tipo_plan_entrenamiento
     INITIALLY IMMEDIATE
 ;
 
--- End of file.
-

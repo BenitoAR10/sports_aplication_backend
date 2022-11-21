@@ -1,3 +1,4 @@
+
 package bo.edu.ucb.spapp.Sports.App.entity;
 
 import java.sql.Date;
@@ -169,4 +170,5 @@ public class SpServicioComida {
     public void setTx_host(String tx_host) {
         this.tx_host = tx_host;
     }
+
 }
