@@ -2,7 +2,7 @@ package bo.edu.ucb.spapp.Sports.App.entity;
 
 import java.util.Date;
 
-public class SpCrearPersona {
+public class SpPersona {
     private String nombres;
     private String apellidos;
     private Boolean genero;
@@ -15,10 +15,10 @@ public class SpCrearPersona {
     private Double indiceMasaCorporal;
     private String foto;
 
-    public SpCrearPersona() {
+    public SpPersona() {
     }
 
-    public SpCrearPersona(String nombres, String apellidos, Boolean genero, String numeroTelefono, String ciudad, String catPersonaStatus, Date fechaNacimiento, Double altura, Double peso, Double indiceMasaCorporal, String foto) {
+    public SpPersona(String nombres, String apellidos, Boolean genero, String numeroTelefono, String ciudad, String catPersonaStatus, Date fechaNacimiento, Double altura, Double peso, Double indiceMasaCorporal, String foto) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.genero = genero;

@@ -1,19 +1,30 @@
-package bo.edu.ucb.spapp.Sports.App.entity;
-
-public class SpCrearCuenta {
+package bo.edu.ucb.spapp.Sports.App.entity.dto;
+// Creamos una clase DTO para los datos que queremos retornar al cliente via API.
+public class CuentaDto {
+    private Integer idCuenta;
     private Integer idPersona;
     private Integer idDeporte;
     private String correo;
-    private String contrasenia;
-
-    public SpCrearCuenta() {
+    // Constructor vacio.
+    public CuentaDto() {
     }
 
-    public SpCrearCuenta(Integer idPersona, Integer idDeporte, String correo, String contrasenia) {
+    public CuentaDto(Integer idCuenta, Integer idPersona, Integer idDeporte, String correo) {
+        this.idCuenta = idCuenta;
         this.idPersona = idPersona;
         this.idDeporte = idDeporte;
         this.correo = correo;
-        this.contrasenia = contrasenia;
+    }
+
+    // Constructor con todos los parametros.
+    // Metodos Getters y Setters.
+
+    public Integer getIdCuenta() {
+        return idCuenta;
+    }
+
+    public void setIdCuenta(Integer idCuenta) {
+        this.idCuenta = idCuenta;
     }
 
     public Integer getIdPersona() {
@@ -40,22 +51,17 @@ public class SpCrearCuenta {
         this.correo = correo;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
+    // Metodo toString para mostrar los datos de la clase.
+
 
     @Override
     public String toString() {
-        return "SpCrearCuenta{" +
-                "idPersona=" + idPersona +
+        return "CuentaDto{" +
+                "idCuenta=" + idCuenta +
+                ", idPersona=" + idPersona +
                 ", idDeporte=" + idDeporte +
                 ", correo='" + correo + '\'' +
-                ", contrasenia='" + contrasenia + '\'' +
                 '}';
     }
 }
-
