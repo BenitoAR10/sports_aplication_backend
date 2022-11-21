@@ -3,7 +3,7 @@ package bo.edu.ucb.spapp.Sports.App.api;
 
 import bo.edu.ucb.spapp.Sports.App.bl.CuentaBl;
 import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
-import bo.edu.ucb.spapp.Sports.App.entity.dto.CrearCuentaDto;
+import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -34,7 +34,6 @@ public class CuentaApi {
             jwt = headers.get("authorization").split(" ")[1];
         }
 
-        System.out.println("El token enviado es: " + jwt);
         if (this.seguridadBl.tokenHasRole(jwt, "Agregar entrenamientos")){
             cuentaBl.crearCuenta(crearCuentaDto);
             return Map.of("message", "Cuenta creada");

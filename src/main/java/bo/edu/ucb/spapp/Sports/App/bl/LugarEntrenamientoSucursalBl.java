@@ -3,8 +3,6 @@ package bo.edu.ucb.spapp.Sports.App.bl;
 import bo.edu.ucb.spapp.Sports.App.dao.SpLugarEntrenamientoSucursalDao;
 import bo.edu.ucb.spapp.Sports.App.dto.LugarEntrenamientoSucursalDto;
 import bo.edu.ucb.spapp.Sports.App.entity.EtyLugarEntrenamiento;
-import bo.edu.ucb.spapp.Sports.App.entity.SpLugarEntrenamiento;
-import bo.edu.ucb.spapp.Sports.App.entity.SpLugarEntrenamientoSucursal;
 import org.springframework.stereotype.Service;
 
 @Service

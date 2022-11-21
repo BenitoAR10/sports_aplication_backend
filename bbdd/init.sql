@@ -33,6 +33,8 @@ INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_c
 VALUES (2, 1, 'amaral@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
 VALUES (1, 1, 'amirb@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+VALUES (26, null, 'carlos@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_cuenta;
 
@@ -73,6 +75,8 @@ INSERT INTO sp_grupo_roles (id_grupos, id_roles, estado, tx_correo, tx_fecha, tx
 VALUES (1, 1, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_grupo_roles (id_grupos, id_roles, estado, tx_correo, tx_fecha, tx_host)
 VALUES (2, 2, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_grupo_roles (id_grupos, id_roles, estado, tx_correo, tx_fecha, tx_host)
+VALUES (3, 3, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_grupo_roles;
 
@@ -82,6 +86,8 @@ INSERT INTO sp_cuenta_grupos (id_cuenta, id_grupos, estado, tx_correo, tx_fecha,
 VALUES (1, 1, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 INSERT INTO sp_cuenta_grupos (id_cuenta, id_grupos, estado, tx_correo, tx_fecha, tx_host)
 VALUES (2, 2, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta_grupos (id_cuenta, id_grupos, estado, tx_correo, tx_fecha, tx_host)
+VALUES (28, 3, true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_cuenta_grupos;
 
@@ -113,14 +119,14 @@ END;$$;
 
 call sp_insert_cuenta_persona();
 
-<<<<<<< HEAD
+
 -- crear trigger para la funcin anterior.
 
 
 
 
 
-=======
+
 
 CREATE OR REPLACE FUNCTION inst_cuenta()
 returns trigger as
@@ -161,6 +167,14 @@ ALTER TABLE sp_persona ALTER COLUMN estado DROP NOT NULL;
 ALTER TABLE sp_persona ALTER COLUMN tx_correo DROP NOT NULL;
 ALTER TABLE sp_persona ALTER COLUMN tx_fecha DROP NOT NULL;
 ALTER TABLE sp_persona ALTER COLUMN tx_host DROP NOT NULL;
+
+-- Cambiando campos a nulleables en la tabla sp_tienda.
+ALTER TABLE sp_tienda ALTER COLUMN latitud DROP NOT NULL;
+ALTER TABLE sp_tienda ALTER COLUMN longitud DROP NOT NULL;
+ALTER TABLE sp_tienda ALTER COLUMN estado DROP NOT NULL;
+ALTER TABLE sp_tienda ALTER COLUMN tx_correo DROP NOT NULL;
+ALTER TABLE sp_tienda ALTER COLUMN tx_fecha DROP NOT NULL;
+ALTER TABLE sp_tienda ALTER COLUMN tx_host DROP NOT NULL;
 
 -- elinar trigger y procedimiento.
 DROP TRIGGER inst_cuenta ON sp_persona;
