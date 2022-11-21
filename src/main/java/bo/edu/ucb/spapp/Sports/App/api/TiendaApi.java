@@ -20,7 +20,19 @@ public class TiendaApi {
         this.tiendaBl = tiendaBl;
         this.seguridadBl = seguridadBl;
     }
+    // Metodo para verificar si los campos estan vacios o no y si no estan vacios, se crea la tienda.
+    @PostMapping
+    public RespuestaDto<CrearTiendaDto>  crearTienda(@RequestBody CrearTiendaDto crearTiendaDto){
+        if(crearTiendaDto != null && crearTiendaDto.getNombreTienda() != null && crearTiendaDto.getNombrePropietario() != null && crearTiendaDto.getApellidoPropietario() != null && crearTiendaDto.getNit() != null && crearTiendaDto.getTelefono() != null && crearTiendaDto.getCorreo() != null && crearTiendaDto.getFoto() != null && crearTiendaDto.getDireccion() != null ){
+            this.tiendaBl.crearTienda(crearTiendaDto);
+            return new RespuestaDto<>(crearTiendaDto, "Tienda creada correctamente", true);
+        }else{
+            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
+        }
+    }
 
+    // Metodo de autorizacion para crear una tienda
+    /*
     @PostMapping
     public Map crearTienda(@RequestHeader Map<String, String> headers, @RequestBody CrearTiendaDto crearTiendaDto){
 
@@ -42,15 +54,9 @@ public class TiendaApi {
         }
 
     }
-    /*
-    @PostMapping
-    public RespuestaDto<CrearTiendaDto>  crearTienda(@RequestBody CrearTiendaDto crearTiendaDto){
-        if(crearTiendaDto != null && crearTiendaDto.getNombreTienda() != null && crearTiendaDto.getNombrePropietario() != null && crearTiendaDto.getApellidoPropietario() != null && crearTiendaDto.getNit() != null && crearTiendaDto.getTelefono() != null && crearTiendaDto.getCorreo() != null && crearTiendaDto.getFoto() != null && crearTiendaDto.getDireccion() != null ){
-            this.tiendaBl.crearTienda(crearTiendaDto);
-            return new RespuestaDto<>(crearTiendaDto, "Tienda creada correctamente", true);
-        }else{
-            return new RespuestaDto<>(null, "Error al crear la tienda", false);
-        }
-    }*/
+    */
+
+
+
 
 }
