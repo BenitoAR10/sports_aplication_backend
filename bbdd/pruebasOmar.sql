@@ -59,7 +59,7 @@ values ('2', '10', '3500', '2021-01-01', '2021-04-01', 'algo@gmail.com', '2022-0
 select * from sp_compra_plan;
 
 
--- Consulta para ver los planes adquiridos por una persona en entrenamientos
+-- Consulta para ver los planes adquiridos en entrenamientos segun el id del lugar de entrenamiento
 select c.id_cuenta, p.nombres, p.apellidos, t.cantidad_meses, t.costo
 from sp_cuenta c
 inner join sp_persona p on c.id_persona = p.id_persona
@@ -69,7 +69,7 @@ inner join sp_plan_lugar_entrenamiento t on tp.id_plan_lugar_entrenamiento = t.i
 inner join sp_lugar_entrenamiento_sucursal s on t.id_lugar_entrenamiento_sucursal = s.id_lugar_entrenamiento_sucursal
 where s.id_cuenta = 2;
 
--- Hacer una consulta para ver los planes de comida adquiridos por una persona
+-- Hacer una consulta para ver los planes de comida adquiridos segun el id del servicio de comida
 select c.id_cuenta, p.nombres, p.apellidos, tp.duracion, t.costo_mes
 from sp_cuenta c
 inner join sp_persona p on c.id_persona = p.id_persona
@@ -79,7 +79,7 @@ inner join sp_plan_comida t on tp.id_plan_comida = t.id_plan_comida
 inner join sp_servicio_comida s on t.id_servicio_comida = s.id_servicio_comida
 where s.id_cuenta = 1;
 
--- Hacer una consulta para ver los planes de entrenador adquiridos por una persona
+-- Hacer una consulta para ver los planes de entrenador adquiridos por una persona segun el id del entrenador
 select c.id_cuenta, p.nombres, p.apellidos, t.cantidad_meses, t.costo
 from sp_cuenta c
 inner join sp_persona p on c.id_persona = p.id_persona
@@ -97,7 +97,85 @@ inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
 inner join sp_tipo_plan_entrenamiento tp on cp.id_tipo_plan_entrenamiento = tp.id_tipo_plan_entrenamiento
 inner join sp_plan_lugar_entrenamiento t on tp.id_plan_lugar_entrenamiento = t.id_plan_lugar_entrenamiento
 inner join sp_lugar_entrenamiento_sucursal s on t.id_lugar_entrenamiento_sucursal = s.id_lugar_entrenamiento_sucursal
-where cu.id_cuenta = 5;
+where cu.id_cuenta = 5
+and s.id_cuenta=2;
+
+-- ver el historial de planes adquiridos por una persona segun su id en comida
+select c.nombres, c.apellidos, t.costo_mes, t.nombre_plan, cp.fecha_compra, cp.fecha_fin
+from sp_cuenta cu
+inner join sp_persona c on cu.id_persona = c.id_persona
+inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
+inner join sp_tipo_plan_entrenamiento tp on cp.id_tipo_plan_entrenamiento = tp.id_tipo_plan_entrenamiento
+inner join sp_plan_comida t on tp.id_plan_comida = t.id_plan_comida
+inner join sp_servicio_comida s on t.id_servicio_comida = s.id_servicio_comida
+where cu.id_cuenta = 5
+and s.id_cuenta=1;
+
+-- ver el historial de planes adquiridos por una persona segun su id en entrenador
+select c.nombres, c.apellidos, t.cantidad_meses, t.costo, cp.fecha_compra, cp.fecha_fin
+from sp_cuenta cu
+inner join sp_persona c on cu.id_persona = c.id_persona
+inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
+inner join sp_tipo_plan_entrenamiento tp on cp.id_tipo_plan_entrenamiento = tp.id_tipo_plan_entrenamiento
+inner join sp_plan_entrenador t on tp.id_plan_entrenador = t.id_plan_entrenador
+inner join sp_entrenador s on t.id_entrenador = s.id_entrenador
+where cu.id_cuenta = 5
+and s.id_cuenta=2;
+
+-- ver planes de entrenamiento de un lugar de entrenamiento segun su id
+select t.cantidad_meses, t.costo
+from sp_plan_lugar_entrenamiento t
+inner join sp_lugar_entrenamiento_sucursal s on t.id_lugar_entrenamiento_sucursal = s.id_lugar_entrenamiento_sucursal
+where s.id_cuenta = 2;
+
+-- ver planes de comida de un servicio de comida segun su id
+select t.nombre_plan, t.costo_mes, t.descripcion
+from sp_plan_comida t
+inner join sp_servicio_comida s on t.id_servicio_comida = s.id_servicio_comida
+where s.id_cuenta = 1;
+
+-- ver planes de entrenador de un entrenador segun su id
+select t.cantidad_meses, t.costo
+from sp_plan_entrenador t
+inner join sp_entrenador s on t.id_entrenador = s.id_entrenador
+where s.id_cuenta = 2;
+
+
+
+
+-- consulta para ver el lugar de entrenamiento a partir del id de la cuenta de la sucusal
+select s.id_lugar_entrenamiento_sucursal,sle.nombre_lugar, sle.logo_lugar, s.direccion
+from sp_lugar_entrenamiento_sucursal s
+inner join sp_lugar_entrenamiento sle on s.id_lugar_entrenamiento = sle.id_lugar_entrenamiento
+where s.id_cuenta = 2;
+
+-- la anterior consulta en base a sp_lugar_entrenamiento
+select le.id_lugar_entrenamiento, le.nombre_lugar, le.logo_lugar
+from sp_lugar_entrenamiento le
+inner join sp_lugar_entrenamiento_sucursal sles on le.id_lugar_entrenamiento = sles.id_lugar_entrenamiento
+where sles.id_cuenta = 2;
+
+
+-- consulta para ver el servicio de comida a partir del id de la cuenta de la sucusal
+select s.nombre_lugar, s.logo, s.direccion
+from sp_servicio_comida s
+where s.id_cuenta = 1;
+
+-- consulta para ver el entrenador a partir del id de la cuenta de la sucusal
+select p.nombres, p.apellidos, s.foto_entrenador, c.correo
+from sp_entrenador s
+inner join sp_cuenta c on s.id_cuenta = c.id_cuenta
+inner join sp_persona p on c.id_persona = p.id_persona
+where s.id_cuenta = 2;
+
+
+--prueba
+SELECT id_lugar_entrenamiento
+FROM
+    sp_lugar_entrenamiento_sucursal
+WHERE
+        id_cuenta = 2;
+
 
 
 
