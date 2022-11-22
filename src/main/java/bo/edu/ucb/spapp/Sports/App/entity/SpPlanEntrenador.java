@@ -1,3 +1,4 @@
+
 package bo.edu.ucb.spapp.Sports.App.entity;
 import java.sql.Date;
 
@@ -88,4 +89,5 @@ public class SpPlanEntrenador {
     public void setTxHost(String txHost) {
         this.txHost = txHost;
     }
+
 }

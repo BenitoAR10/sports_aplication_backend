@@ -1,61 +1,40 @@
+package bo.edu.ucb.spapp.Sports.App.dto;
 
-package bo.edu.ucb.spapp.Sports.App.entity;
-
-import java.sql.Date;
-
-public class SpServicioComida {
-    private int idServicioComida;
-    private int idCuenta;
+public class CrearServicioComidaDto {
+    private Integer idCuenta;
     private String nombreLugar;
+    private String logo;
     private String nombrePropietario;
     private String apellidoPropietario;
+    private String nit;
     private String telefono;
     private String correo;
-    private String nit;
-    private String logo;
     private String direccion;
     private double latitud;
     private double longitud;
-    private boolean estado;
-    private String txCorreo;
-    private Date txFecha;
-    private String txHost;
 
-    public SpServicioComida() {
+    public CrearServicioComidaDto() {
     }
 
-    public SpServicioComida(int idServicioComida, int idCuenta, String nombreLugar, String nombrePropietario, String apellidoPropietario, String telefono, String correo, String nit, String logo, String direccion, double latitud, double longitud, boolean estado, String txCorreo, Date txFecha, String txHost) {
-        this.idServicioComida = idServicioComida;
+    public CrearServicioComidaDto(Integer idCuenta, String nombreLugar, String logo, String nombrePropietario, String apellidoPropietario, String nit, String telefono, String correo, String direccion, double latitud, double longitud) {
         this.idCuenta = idCuenta;
         this.nombreLugar = nombreLugar;
+        this.logo = logo;
         this.nombrePropietario = nombrePropietario;
         this.apellidoPropietario = apellidoPropietario;
+        this.nit = nit;
         this.telefono = telefono;
         this.correo = correo;
-        this.nit = nit;
-        this.logo = logo;
         this.direccion = direccion;
         this.latitud = latitud;
         this.longitud = longitud;
-        this.estado = estado;
-        this.txCorreo = txCorreo;
-        this.txFecha = txFecha;
-        this.txHost = txHost;
     }
 
-    public int getIdServicioComida() {
-        return idServicioComida;
-    }
-
-    public void setIdServicioComida(int idServicioComida) {
-        this.idServicioComida = idServicioComida;
-    }
-
-    public int getIdCuenta() {
+    public Integer getIdCuenta() {
         return idCuenta;
     }
 
-    public void setIdCuenta(int idCuenta) {
+    public void setIdCuenta(Integer idCuenta) {
         this.idCuenta = idCuenta;
     }
 
@@ -65,6 +44,14 @@ public class SpServicioComida {
 
     public void setNombreLugar(String nombreLugar) {
         this.nombreLugar = nombreLugar;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public String getNombrePropietario() {
@@ -83,6 +70,14 @@ public class SpServicioComida {
         this.apellidoPropietario = apellidoPropietario;
     }
 
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
     public String getTelefono() {
         return telefono;
     }
@@ -97,22 +92,6 @@ public class SpServicioComida {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getNit() {
-        return nit;
-    }
-
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
     }
 
     public String getDireccion() {
@@ -139,58 +118,20 @@ public class SpServicioComida {
         this.longitud = longitud;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
-    public String getTxCorreo() {
-        return txCorreo;
-    }
-
-    public void setTxCorreo(String txCorreo) {
-        this.txCorreo = txCorreo;
-    }
-
-    public Date getTxFecha() {
-        return txFecha;
-    }
-
-    public void setTxFecha(Date txFecha) {
-        this.txFecha = txFecha;
-    }
-
-    public String getTxHost() {
-        return txHost;
-    }
-
-    public void setTxHost(String txHost) {
-        this.txHost = txHost;
-    }
-
     @Override
     public String toString() {
-        return "SpServicioComida{" +
-                "idServicioComida=" + idServicioComida +
-                ", idCuenta=" + idCuenta +
-                ", nombreLugar='" + nombreLugar + '\'' +
+        return "CrearServicioComidaDto{" +
+                "idCuenta=" + idCuenta +
+                "nombreLugar='" + nombreLugar + '\'' +
+                ", logo='" + logo + '\'' +
                 ", nombrePropietario='" + nombrePropietario + '\'' +
                 ", apellidoPropietario='" + apellidoPropietario + '\'' +
+                ", nit='" + nit + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", correo='" + correo + '\'' +
-                ", nit='" + nit + '\'' +
-                ", logo='" + logo + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", latitud=" + latitud +
                 ", longitud=" + longitud +
-                ", estado=" + estado +
-                ", txCorreo='" + txCorreo + '\'' +
-                ", txFecha=" + txFecha +
-                ", txHost='" + txHost + '\'' +
                 '}';
     }
-
 }

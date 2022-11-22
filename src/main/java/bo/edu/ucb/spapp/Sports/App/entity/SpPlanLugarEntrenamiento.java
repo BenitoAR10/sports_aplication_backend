@@ -1,3 +1,4 @@
+
 package bo.edu.ucb.spapp.Sports.App.entity;
 
 import java.math.BigDecimal;
@@ -90,4 +91,5 @@ public class SpPlanLugarEntrenamiento {
     public void setTxHost(String txHost) {
         this.txHost = txHost;
     }
+
 }

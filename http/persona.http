@@ -5,7 +5,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "nombres": "Carlos",
+  "nombres": "Andres",
   "apellidos": "Lopez",
   "genero": true,
   "numeroTelefono": "123456789",
