@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-11-15 02:37:02.279
+-- Last modification date: 2022-11-22 02:50:01.411
 
 -- tables
 -- Table: h_sp_persona
@@ -23,30 +23,21 @@ CREATE TABLE h_sp_persona (
     CONSTRAINT h_sp_persona_pk PRIMARY KEY (id_h_persona)
 );
 
--- Table: sp_color
-CREATE TABLE sp_color (
-    id_color serial  NOT NULL,
-    color Varchar(100)  NOT NULL,
-    descripcion Varchar(200)  NULL,
-    estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(500)  NOT NULL,
-    CONSTRAINT sp_color_pk PRIMARY KEY (id_color)
-);
-
 -- Table: sp_compra_plan
 CREATE TABLE sp_compra_plan (
     id_compra_plan serial  NOT NULL,
-    id_tipo_plan_entrenamiento int  NOT NULL,
     id_cuenta int  NOT NULL,
+    id_plan_entrenador int  NULL,
+    id_plan_lugar_entrenamiento int  NULL,
+    id_plan_comida int  NULL,
     costo_plan money  NOT NULL,
-    detalle_comida Varchar(100)  NULL,
+    detalle_comida Varchar(200)  NULL,
     fecha_compra date  NOT NULL,
     fecha_fin date  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
+    estado boolean  NOT NULL,
+    tx_correo Varchar(100)  NULL,
+    tx_fecha timestamp  NULL,
+    tx_host Varchar(100)  NULL,
     CONSTRAINT sp_compra_plan_pk PRIMARY KEY (id_compra_plan)
 );
 
@@ -119,9 +110,9 @@ CREATE TABLE sp_entrenador (
     correo Varchar(200)  NOT NULL,
     foto_entrenador Varchar(500)  NOT NULL,
     estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
+    tx_correo Varchar(100)  NULL,
+    tx_fecha timestamp  NULL,
+    tx_host Varchar(100)  NULL,
     CONSTRAINT sp_entrenador_pk PRIMARY KEY (id_entrenador)
 );
 
@@ -159,9 +150,9 @@ CREATE TABLE sp_lugar_entrenamiento (
     NIT Varchar(100)  NOT NULL,
     logo_lugar varchar(500)  NOT NULL,
     estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
+    tx_correo Varchar(100)  NULL,
+    tx_fecha timestamp  NULL,
+    tx_host Varchar(100)  NULL,
     CONSTRAINT sp_lugar_entrenamiento_pk PRIMARY KEY (id_lugar_entrenamiento)
 );
 
@@ -177,9 +168,9 @@ CREATE TABLE sp_lugar_entrenamiento_sucursal (
     latitud decimal(12,9)  NOT NULL,
     longitud decimal(12,9)  NOT NULL,
     estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
+    tx_correo Varchar(100)  NULL,
+    tx_fecha timestamp  NULL,
+    tx_host Varchar(100)  NULL,
     CONSTRAINT sp_lugar_entrenamiento_sucursal_pk PRIMARY KEY (id_lugar_entrenamiento_sucursal)
 );
 
@@ -262,9 +253,9 @@ CREATE TABLE sp_plan_comida (
     descripcion Varchar(200)  NOT NULL,
     costo_mes money  NOT NULL,
     estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
+    tx_correo Varchar(100)  NULL,
+    tx_fecha timestamp  NULL,
+    tx_host Varchar(100)  NULL,
     CONSTRAINT sp_plan_comida_pk PRIMARY KEY (id_plan_comida)
 );
 
@@ -275,9 +266,9 @@ CREATE TABLE sp_plan_entrenador (
     costo money  NOT NULL,
     cantidad_meses int  NOT NULL,
     estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
+    tx_correo Varchar(100)  NULL,
+    tx_fecha timestamp  NULL,
+    tx_host Varchar(100)  NULL,
     CONSTRAINT sp_plan_entrenador_pk PRIMARY KEY (id_plan_entrenador)
 );
 
@@ -288,17 +279,15 @@ CREATE TABLE sp_plan_lugar_entrenamiento (
     costo money  NOT NULL,
     cantidad_meses int  NOT NULL,
     estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
+    tx_correo Varchar(100)  NULL,
+    tx_fecha timestamp  NULL,
+    tx_host Varchar(100)  NULL,
     CONSTRAINT sp_plan_lugar_entrenamiento_pk PRIMARY KEY (id_plan_lugar_entrenamiento)
 );
 
 -- Table: sp_producto
 CREATE TABLE sp_producto (
     id_producto serial  NOT NULL,
-    id_talla int  NULL,
-    id_color int  NULL,
     nombre Varchar(100)  NOT NULL,
     descripcion Varchar(200)  NULL,
     imagen Varchar(500)  NOT NULL,
@@ -311,6 +300,8 @@ CREATE TABLE sp_producto (
     numero_de_comparaciones int  NULL,
     tipo_producto Varchar(50)  NOT NULL,
     estado boolean  NOT NULL,
+    color varchar(50)  NOT NULL,
+    talla decimal(5,2)  NULL,
     tx_correo Varchar(100)  NOT NULL,
     tx_fecha timestamp  NOT NULL,
     tx_host Varchar(500)  NOT NULL,
@@ -369,21 +360,10 @@ CREATE TABLE sp_servicio_comida (
     direccion Varchar(100)  NOT NULL,
     longitud decimal(12,9)  NOT NULL,
     estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
+    tx_correo Varchar(100)  NULL,
+    tx_fecha timestamp  NULL,
+    tx_host Varchar(100)  NULL,
     CONSTRAINT sp_servicio_comida_pk PRIMARY KEY (id_servicio_comida)
-);
-
--- Table: sp_tallas
-CREATE TABLE sp_tallas (
-    id_talla serial  NOT NULL,
-    talla Varchar(100)  NOT NULL,
-    estado boolean  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(500)  NOT NULL,
-    CONSTRAINT sp_tallas_pk PRIMARY KEY (id_talla)
 );
 
 -- Table: sp_tienda
@@ -407,21 +387,6 @@ CREATE TABLE sp_tienda (
     CONSTRAINT sp_tienda_pk PRIMARY KEY (id_tienda)
 );
 
--- Table: sp_tipo_plan_entrenamiento
-CREATE TABLE sp_tipo_plan_entrenamiento (
-    id_tipo_plan_entrenamiento Serial  NOT NULL,
-    id_plan_comida int  NULL,
-    id_plan_lugar_entrenamiento int  NULL,
-    id_plan_entrenador int  NULL,
-    duracion int  NOT NULL,
-    estado boolean  NOT NULL,
-    tipo_plan Varchar(100)  NOT NULL,
-    tx_correo Varchar(100)  NOT NULL,
-    tx_fecha timestamp  NOT NULL,
-    tx_host Varchar(100)  NOT NULL,
-    CONSTRAINT sp_tipo_plan_entrenamiento_pk PRIMARY KEY (id_tipo_plan_entrenamiento)
-);
-
 -- foreign keys
 -- Reference: sp_compra_plan_sp_cuenta (table: sp_compra_plan)
 ALTER TABLE sp_compra_plan ADD CONSTRAINT sp_compra_plan_sp_cuenta
@@ -431,10 +396,26 @@ ALTER TABLE sp_compra_plan ADD CONSTRAINT sp_compra_plan_sp_cuenta
     INITIALLY IMMEDIATE
 ;
 
--- Reference: sp_compra_plan_sp_plan_entrenamiento (table: sp_compra_plan)
-ALTER TABLE sp_compra_plan ADD CONSTRAINT sp_compra_plan_sp_plan_entrenamiento
-    FOREIGN KEY (id_tipo_plan_entrenamiento)
-    REFERENCES sp_tipo_plan_entrenamiento (id_tipo_plan_entrenamiento)  
+-- Reference: sp_compra_plan_sp_plan_comida (table: sp_compra_plan)
+ALTER TABLE sp_compra_plan ADD CONSTRAINT sp_compra_plan_sp_plan_comida
+    FOREIGN KEY (id_plan_comida)
+    REFERENCES sp_plan_comida (id_plan_comida)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: sp_compra_plan_sp_plan_entrenador (table: sp_compra_plan)
+ALTER TABLE sp_compra_plan ADD CONSTRAINT sp_compra_plan_sp_plan_entrenador
+    FOREIGN KEY (id_plan_entrenador)
+    REFERENCES sp_plan_entrenador (id_plan_entrenador)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: sp_compra_plan_sp_plan_lugar_entrenamiento (table: sp_compra_plan)
+ALTER TABLE sp_compra_plan ADD CONSTRAINT sp_compra_plan_sp_plan_lugar_entrenamiento
+    FOREIGN KEY (id_plan_lugar_entrenamiento)
+    REFERENCES sp_plan_lugar_entrenamiento (id_plan_lugar_entrenamiento)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -591,22 +572,6 @@ ALTER TABLE sp_plan_entrenador ADD CONSTRAINT sp_plan_entrenador_sp_entrenador
     INITIALLY IMMEDIATE
 ;
 
--- Reference: sp_plan_entrenamiento_sp_plan_comida (table: sp_tipo_plan_entrenamiento)
-ALTER TABLE sp_tipo_plan_entrenamiento ADD CONSTRAINT sp_plan_entrenamiento_sp_plan_comida
-    FOREIGN KEY (id_plan_comida)
-    REFERENCES sp_plan_comida (id_plan_comida)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: sp_plan_entrenamiento_sp_plan_lugar_entrenamiento (table: sp_tipo_plan_entrenamiento)
-ALTER TABLE sp_tipo_plan_entrenamiento ADD CONSTRAINT sp_plan_entrenamiento_sp_plan_lugar_entrenamiento
-    FOREIGN KEY (id_plan_lugar_entrenamiento)
-    REFERENCES sp_plan_lugar_entrenamiento (id_plan_lugar_entrenamiento)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
 -- Reference: sp_plan_lugar_entrenamiento_sp_lugar_entrenamiento_sucursal (table: sp_plan_lugar_entrenamiento)
 ALTER TABLE sp_plan_lugar_entrenamiento ADD CONSTRAINT sp_plan_lugar_entrenamiento_sp_lugar_entrenamiento_sucursal
     FOREIGN KEY (id_lugar_entrenamiento_sucursal)
@@ -623,28 +588,10 @@ ALTER TABLE sp_producto_cuenta ADD CONSTRAINT sp_producto_cuenta_sp_cuenta
     INITIALLY IMMEDIATE
 ;
 
-DROP TABLE sp_tallas;
-
 -- Reference: sp_producto_cuenta_sp_producto_tienda (table: sp_producto_cuenta)
 ALTER TABLE sp_producto_cuenta ADD CONSTRAINT sp_producto_cuenta_sp_producto_tienda
     FOREIGN KEY (id_tienda_producto)
     REFERENCES sp_producto_tienda (id_tienda_producto)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: sp_producto_sp_color (table: sp_producto)
-ALTER TABLE sp_producto ADD CONSTRAINT sp_producto_sp_color
-    FOREIGN KEY (id_color)
-    REFERENCES sp_color (id_color)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: sp_producto_sp_tallas (table: sp_producto)
-ALTER TABLE sp_producto ADD CONSTRAINT sp_producto_sp_tallas
-    FOREIGN KEY (id_talla)
-    REFERENCES sp_tallas (id_talla)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -681,13 +628,6 @@ ALTER TABLE sp_tienda ADD CONSTRAINT sp_tienda_sp_cuenta
     INITIALLY IMMEDIATE
 ;
 
--- Reference: sp_tipo_plan_entrenamiento_sp_plan_entrenador (table: sp_tipo_plan_entrenamiento)
-ALTER TABLE sp_tipo_plan_entrenamiento ADD CONSTRAINT sp_tipo_plan_entrenamiento_sp_plan_entrenador
-    FOREIGN KEY (id_plan_entrenador)
-    REFERENCES sp_plan_entrenador (id_plan_entrenador)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
 
--- End of file.
-
+ALTER TABLE sp_producto ALTER COLUMN color DROP NOT NULL;
+ALTER TABLE sp_producto ALTER COLUMN talla DROP NOT NULL;

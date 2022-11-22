@@ -7,22 +7,22 @@ public class SpPlanEntrenador {
     private double costo;
     private int cantidadMeses;
     private boolean estado;
-    private String tx_correo;
-    private Date tx_fecha;
-    private String tx_host;
+    private String txCorreo;
+    private Date txFecha;
+    private String txHost;
 
     public SpPlanEntrenador() {
     }
 
-    public SpPlanEntrenador(int idPlanEntrenador, int idEntrenador, double costo, int cantidadMeses, boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
+    public SpPlanEntrenador(int idPlanEntrenador, int idEntrenador, double costo, int cantidadMeses, boolean estado, String txCorreo, Date txFecha, String txHost) {
         this.idPlanEntrenador = idPlanEntrenador;
         this.idEntrenador = idEntrenador;
         this.costo = costo;
         this.cantidadMeses = cantidadMeses;
         this.estado = estado;
-        this.tx_correo = tx_correo;
-        this.tx_fecha = tx_fecha;
-        this.tx_host = tx_host;
+        this.txCorreo = txCorreo;
+        this.txFecha = txFecha;
+        this.txHost = txHost;
     }
 
     public int getIdPlanEntrenador() {
@@ -65,27 +65,27 @@ public class SpPlanEntrenador {
         this.estado = estado;
     }
 
-    public String getTx_correo() {
-        return tx_correo;
+    public String getTxCorreo() {
+        return txCorreo;
     }
 
-    public void setTx_correo(String tx_correo) {
-        this.tx_correo = tx_correo;
+    public void setTxCorreo(String txCorreo) {
+        this.txCorreo = txCorreo;
     }
 
-    public Date getTx_fecha() {
-        return tx_fecha;
+    public Date getTxFecha() {
+        return txFecha;
     }
 
-    public void setTx_fecha(Date tx_fecha) {
-        this.tx_fecha = tx_fecha;
+    public void setTxFecha(Date txFecha) {
+        this.txFecha = txFecha;
     }
 
-    public String getTx_host() {
-        return tx_host;
+    public String getTxHost() {
+        return txHost;
     }
 
-    public void setTx_host(String tx_host) {
-        this.tx_host = tx_host;
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
     }
 }

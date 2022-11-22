@@ -8,32 +8,32 @@ public class SpLugarEntrenamientoSucursal {
     private Integer idCuenta;
     private String nombreEncargado;
     private String apellidoEncargado;
-    private String telefono;
+    private String telefonoSucursal;
     private String direccion;
     private double latitud;
     private double longitud;
-    private boolean estadoSucursal;
-    private String tx_correo;
-    private Date tx_fecha;
-    private String tx_host;
+    private boolean estado;
+    private String txCorreo;
+    private Date txFecha;
+    private String txHost;
 
     public SpLugarEntrenamientoSucursal() {
     }
 
-    public SpLugarEntrenamientoSucursal(Integer idLugarEntrenamientoSucursal, Integer idLugarEntrenamiento, Integer idCuenta, String nombreEncargado, String apellidoEncargado, String telefono, String direccion, double latitud, double longitud, boolean estadoSucursal, String tx_correo, Date tx_fecha, String tx_host) {
+    public SpLugarEntrenamientoSucursal(Integer idLugarEntrenamientoSucursal, Integer idLugarEntrenamiento, Integer idCuenta, String nombreEncargado, String apellidoEncargado, String telefonoSucursal, String direccion, double latitud, double longitud, boolean estado, String txCorreo, Date txFecha, String txHost) {
         this.idLugarEntrenamientoSucursal = idLugarEntrenamientoSucursal;
         this.idLugarEntrenamiento = idLugarEntrenamiento;
         this.idCuenta = idCuenta;
         this.nombreEncargado = nombreEncargado;
         this.apellidoEncargado = apellidoEncargado;
-        this.telefono = telefono;
+        this.telefonoSucursal = telefonoSucursal;
         this.direccion = direccion;
         this.latitud = latitud;
         this.longitud = longitud;
-        this.estadoSucursal = estadoSucursal;
-        this.tx_correo = tx_correo;
-        this.tx_fecha = tx_fecha;
-        this.tx_host = tx_host;
+        this.estado = estado;
+        this.txCorreo = txCorreo;
+        this.txFecha = txFecha;
+        this.txHost = txHost;
     }
 
     public Integer getIdLugarEntrenamientoSucursal() {
@@ -76,12 +76,12 @@ public class SpLugarEntrenamientoSucursal {
         this.apellidoEncargado = apellidoEncargado;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getTelefonoSucursal() {
+        return telefonoSucursal;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefonoSucursal(String telefonoSucursal) {
+        this.telefonoSucursal = telefonoSucursal;
     }
 
     public String getDireccion() {
@@ -108,54 +108,35 @@ public class SpLugarEntrenamientoSucursal {
         this.longitud = longitud;
     }
 
-    public boolean isEstadoSucursal() {
-        return estadoSucursal;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setEstadoSucursal(boolean estadoSucursal) {
-        this.estadoSucursal = estadoSucursal;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
-    public String getTx_correo() {
-        return tx_correo;
+    public String getTxCorreo() {
+        return txCorreo;
     }
 
-    public void setTx_correo(String tx_correo) {
-        this.tx_correo = tx_correo;
+    public void setTxCorreo(String txCorreo) {
+        this.txCorreo = txCorreo;
     }
 
-    public Date getTx_fecha() {
-        return tx_fecha;
+    public Date getTxFecha() {
+        return txFecha;
     }
 
-    public void setTx_fecha(Date tx_fecha) {
-        this.tx_fecha = tx_fecha;
+    public void setTxFecha(Date txFecha) {
+        this.txFecha = txFecha;
     }
 
-    public String getTx_host() {
-        return tx_host;
+    public String getTxHost() {
+        return txHost;
     }
 
-    public void setTx_host(String tx_host) {
-        this.tx_host = tx_host;
-    }
-
-    @Override
-    public String toString() {
-        return "SpLugarEntrenamientoSucursal{" +
-                "idLugarEntrenamientoSucursal=" + idLugarEntrenamientoSucursal +
-                ", idLugarEntrenamiento=" + idLugarEntrenamiento +
-                ", idCuenta=" + idCuenta +
-                ", nombreEncargado='" + nombreEncargado + '\'' +
-                ", apellidoEncargado='" + apellidoEncargado + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", latitud=" + latitud +
-                ", longitud=" + longitud +
-                ", estadoSucursal=" + estadoSucursal +
-                ", tx_correo='" + tx_correo + '\'' +
-                ", tx_fecha=" + tx_fecha +
-                ", tx_host='" + tx_host + '\'' +
-                '}';
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
     }
 }

@@ -1,4 +1,4 @@
-package bo.edu.ucb.spapp.Sports.App.entity.dto;
+package bo.edu.ucb.spapp.Sports.App.dto;
 
 import java.sql.Date;
 

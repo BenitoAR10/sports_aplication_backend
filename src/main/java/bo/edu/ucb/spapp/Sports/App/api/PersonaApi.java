@@ -2,11 +2,9 @@ package bo.edu.ucb.spapp.Sports.App.api;
 
 
 import bo.edu.ucb.spapp.Sports.App.bl.PersonaBl;
-import bo.edu.ucb.spapp.Sports.App.entity.dto.CrearPersonaDto;
-import bo.edu.ucb.spapp.Sports.App.entity.dto.RespuestaDto;
+import bo.edu.ucb.spapp.Sports.App.dto.CrearPersonaDto;
+import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/persona")

@@ -1,23 +1,22 @@
-package bo.edu.ucb.spapp.Sports.App.entity;
+package bo.edu.ucb.spapp.Sports.App.dto;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class SpPlanLugarEntrenamiento {
-    private int idPlanLugarEntrenamiento;
-    private int idLugarEntrenamientoSucursal;
+public class PlanesEntrenamientoDto {
+
+    private Integer idLugarEntrenamientoSucursal;
     private BigDecimal costo;
-    private int cantidadMeses;
-    private boolean estado;
+    private Integer cantidadMeses;
+    private Boolean estado;
     private String txCorreo;
     private Date txFecha;
     private String txHost;
 
-    public SpPlanLugarEntrenamiento() {
+    public PlanesEntrenamientoDto() {
     }
 
-    public SpPlanLugarEntrenamiento(int idPlanLugarEntrenamiento, int idLugarEntrenamientoSucursal, BigDecimal costo, int cantidadMeses, boolean estado, String txCorreo, Date txFecha, String txHost) {
-        this.idPlanLugarEntrenamiento = idPlanLugarEntrenamiento;
+    public PlanesEntrenamientoDto(Integer idLugarEntrenamientoSucursal, BigDecimal costo, Integer cantidadMeses, Boolean estado, String txCorreo, Date txFecha, String txHost) {
         this.idLugarEntrenamientoSucursal = idLugarEntrenamientoSucursal;
         this.costo = costo;
         this.cantidadMeses = cantidadMeses;
@@ -27,19 +26,11 @@ public class SpPlanLugarEntrenamiento {
         this.txHost = txHost;
     }
 
-    public int getIdPlanLugarEntrenamiento() {
-        return idPlanLugarEntrenamiento;
-    }
-
-    public void setIdPlanLugarEntrenamiento(int idPlanLugarEntrenamiento) {
-        this.idPlanLugarEntrenamiento = idPlanLugarEntrenamiento;
-    }
-
-    public int getIdLugarEntrenamientoSucursal() {
+    public Integer getIdLugarEntrenamientoSucursal() {
         return idLugarEntrenamientoSucursal;
     }
 
-    public void setIdLugarEntrenamientoSucursal(int idLugarEntrenamientoSucursal) {
+    public void setIdLugarEntrenamientoSucursal(Integer idLugarEntrenamientoSucursal) {
         this.idLugarEntrenamientoSucursal = idLugarEntrenamientoSucursal;
     }
 
@@ -51,19 +42,19 @@ public class SpPlanLugarEntrenamiento {
         this.costo = costo;
     }
 
-    public int getCantidadMeses() {
+    public Integer getCantidadMeses() {
         return cantidadMeses;
     }
 
-    public void setCantidadMeses(int cantidadMeses) {
+    public void setCantidadMeses(Integer cantidadMeses) {
         this.cantidadMeses = cantidadMeses;
     }
 
-    public boolean isEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 

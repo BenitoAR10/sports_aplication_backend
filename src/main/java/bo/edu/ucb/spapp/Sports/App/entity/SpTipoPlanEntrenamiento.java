@@ -8,11 +8,25 @@ public class SpTipoPlanEntrenamiento {
     private int idPlanEntrenador;
     private int duracion;
     private boolean estado;
-    private String tx_correo;
-    private Date tx_fecha;
-    private String tx_host;
+    private String tipoPlan;
+    private String txCorreo;
+    private Date txFecha;
+    private String txHost;
 
     public SpTipoPlanEntrenamiento() {
+    }
+
+    public SpTipoPlanEntrenamiento(int idTipoPlanEntrenamiento, int idPlanComida, int idPlanLugarEntrenamiento, int idPlanEntrenador, int duracion, boolean estado, String tipoPlan, String txCorreo, Date txFecha, String txHost) {
+        this.idTipoPlanEntrenamiento = idTipoPlanEntrenamiento;
+        this.idPlanComida = idPlanComida;
+        this.idPlanLugarEntrenamiento = idPlanLugarEntrenamiento;
+        this.idPlanEntrenador = idPlanEntrenador;
+        this.duracion = duracion;
+        this.estado = estado;
+        this.tipoPlan = tipoPlan;
+        this.txCorreo = txCorreo;
+        this.txFecha = txFecha;
+        this.txHost = txHost;
     }
 
     public int getIdTipoPlanEntrenamiento() {
@@ -63,27 +77,35 @@ public class SpTipoPlanEntrenamiento {
         this.estado = estado;
     }
 
-    public String getTx_correo() {
-        return tx_correo;
+    public String getTipoPlan() {
+        return tipoPlan;
     }
 
-    public void setTx_correo(String tx_correo) {
-        this.tx_correo = tx_correo;
+    public void setTipoPlan(String tipoPlan) {
+        this.tipoPlan = tipoPlan;
     }
 
-    public Date getTx_fecha() {
-        return tx_fecha;
+    public String getTxCorreo() {
+        return txCorreo;
     }
 
-    public void setTx_fecha(Date tx_fecha) {
-        this.tx_fecha = tx_fecha;
+    public void setTxCorreo(String txCorreo) {
+        this.txCorreo = txCorreo;
     }
 
-    public String getTx_host() {
-        return tx_host;
+    public Date getTxFecha() {
+        return txFecha;
     }
 
-    public void setTx_host(String tx_host) {
-        this.tx_host = tx_host;
+    public void setTxFecha(Date txFecha) {
+        this.txFecha = txFecha;
+    }
+
+    public String getTxHost() {
+        return txHost;
+    }
+
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
     }
 }
