@@ -1,14 +1,14 @@
 package bo.edu.ucb.spapp.Sports.App.bl;
 
 import bo.edu.ucb.spapp.Sports.App.dao.SpLugarEntrenamientoSucursalDao;
-import bo.edu.ucb.spapp.Sports.App.dto.ClientesLugarEntrenamientoDto;
+
 import bo.edu.ucb.spapp.Sports.App.dto.LugarEntrenamientoSucursalDto;
-<<<<<<< HEAD
+
 import bo.edu.ucb.spapp.Sports.App.dto.PlanesEntrenamientoDto;
 import bo.edu.ucb.spapp.Sports.App.entity.*;
-=======
+
 import bo.edu.ucb.spapp.Sports.App.entity.EtyLugarEntrenamiento;
->>>>>>> 90ba6ef3aee9ee7e0062c4ba08e2b76dc7bf3f3a
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

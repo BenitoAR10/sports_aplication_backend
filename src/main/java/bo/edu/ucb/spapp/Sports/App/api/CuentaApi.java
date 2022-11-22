@@ -4,10 +4,9 @@ package bo.edu.ucb.spapp.Sports.App.api;
 import bo.edu.ucb.spapp.Sports.App.bl.CuentaBl;
 import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
-<<<<<<< HEAD
-=======
+
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
->>>>>>> 90ba6ef3aee9ee7e0062c4ba08e2b76dc7bf3f3a
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;

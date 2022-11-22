@@ -18,7 +18,7 @@ public class EntrenadorBl {
         SpEntrenador spCrearEntrenador = new SpEntrenador();
         spCrearEntrenador.setIdCuenta(crearEntrenadorDto.getIdCuenta());
         spCrearEntrenador.setNit(crearEntrenadorDto.getNit());
-        spCrearEntrenador.setFoto(crearEntrenadorDto.getFotoEntrenador());
+        spCrearEntrenador.setFotoEntrenador(crearEntrenadorDto.getFotoEntrenador());
         spCrearEntrenador.setCorreo(crearEntrenadorDto.getCorreo());
         this.spEntrenadorDao.crearEntrenador(spCrearEntrenador);
     }

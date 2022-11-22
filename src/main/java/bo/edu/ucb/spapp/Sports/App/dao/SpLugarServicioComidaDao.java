@@ -12,4 +12,5 @@ public interface SpLugarServicioComidaDao {
             """)
     SpServicioComida encontrarServicioComida(Integer idCuenta);
 
+
 }
