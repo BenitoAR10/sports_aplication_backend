@@ -1,6 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.dto;
 
 public class LugarComidaDto {
+    private Integer idLugarComida;
     private String nombreLugar;
     private String logo;
     private String direccion;
@@ -8,10 +9,19 @@ public class LugarComidaDto {
     public LugarComidaDto() {
     }
 
-    public LugarComidaDto(String nombreLugar, String logo, String direccion) {
+    public LugarComidaDto(Integer idLugarComida, String nombreLugar, String logo, String direccion) {
+        this.idLugarComida = idLugarComida;
         this.nombreLugar = nombreLugar;
         this.logo = logo;
         this.direccion = direccion;
+    }
+
+    public Integer getIdLugarComida() {
+        return idLugarComida;
+    }
+
+    public void setIdLugarComida(Integer idLugarComida) {
+        this.idLugarComida = idLugarComida;
     }
 
     public String getNombreLugar() {
