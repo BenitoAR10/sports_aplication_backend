@@ -4,32 +4,32 @@ import java.sql.Date;
 
 public class SpCompraPlan {
     private int idCompraPlan;
-    private int idTipoPlan;
+    private int idTipoPlanEntrenamiento;
     private int idCuenta;
-    private double costo;
+    private double costoPlan;
     private String detalleComida;
-    private Date fechaInicio;
+    private Date fechaCompra;
     private Date fechaFin;
     private boolean estado;
-    private String tx_correo;
-    private Date tx_fecha;
-    private String tx_host;
+    private String txCorreo;
+    private Date txFecha;
+    private String txHost;
 
     public SpCompraPlan() {
     }
 
-    public SpCompraPlan(int idCompraPlan, int idTipoPlan, int idCuenta, double costo, String detalleComida, Date fechaInicio, Date fechaFin, boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
+    public SpCompraPlan(int idCompraPlan, int idTipoPlanEntrenamiento, int idCuenta, double costoPlan, String detalleComida, Date fechaCompra, Date fechaFin, boolean estado, String txCorreo, Date txFecha, String txHost) {
         this.idCompraPlan = idCompraPlan;
-        this.idTipoPlan = idTipoPlan;
+        this.idTipoPlanEntrenamiento = idTipoPlanEntrenamiento;
         this.idCuenta = idCuenta;
-        this.costo = costo;
+        this.costoPlan = costoPlan;
         this.detalleComida = detalleComida;
-        this.fechaInicio = fechaInicio;
+        this.fechaCompra = fechaCompra;
         this.fechaFin = fechaFin;
         this.estado = estado;
-        this.tx_correo = tx_correo;
-        this.tx_fecha = tx_fecha;
-        this.tx_host = tx_host;
+        this.txCorreo = txCorreo;
+        this.txFecha = txFecha;
+        this.txHost = txHost;
     }
 
     public int getIdCompraPlan() {
@@ -40,12 +40,12 @@ public class SpCompraPlan {
         this.idCompraPlan = idCompraPlan;
     }
 
-    public int getIdTipoPlan() {
-        return idTipoPlan;
+    public int getIdTipoPlanEntrenamiento() {
+        return idTipoPlanEntrenamiento;
     }
 
-    public void setIdTipoPlan(int idTipoPlan) {
-        this.idTipoPlan = idTipoPlan;
+    public void setIdTipoPlanEntrenamiento(int idTipoPlanEntrenamiento) {
+        this.idTipoPlanEntrenamiento = idTipoPlanEntrenamiento;
     }
 
     public int getIdCuenta() {
@@ -56,12 +56,12 @@ public class SpCompraPlan {
         this.idCuenta = idCuenta;
     }
 
-    public double getCosto() {
-        return costo;
+    public double getCostoPlan() {
+        return costoPlan;
     }
 
-    public void setCosto(double costo) {
-        this.costo = costo;
+    public void setCostoPlan(double costoPlan) {
+        this.costoPlan = costoPlan;
     }
 
     public String getDetalleComida() {
@@ -72,12 +72,12 @@ public class SpCompraPlan {
         this.detalleComida = detalleComida;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public Date getFechaCompra() {
+        return fechaCompra;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechaCompra(Date fechaCompra) {
+        this.fechaCompra = fechaCompra;
     }
 
     public Date getFechaFin() {
@@ -96,28 +96,28 @@ public class SpCompraPlan {
         this.estado = estado;
     }
 
-    public String getTx_correo() {
-        return tx_correo;
+    public String getTxCorreo() {
+        return txCorreo;
     }
 
-    public void setTx_correo(String tx_correo) {
-        this.tx_correo = tx_correo;
+    public void setTxCorreo(String txCorreo) {
+        this.txCorreo = txCorreo;
     }
 
-    public Date getTx_fecha() {
-        return tx_fecha;
+    public Date getTxFecha() {
+        return txFecha;
     }
 
-    public void setTx_fecha(Date tx_fecha) {
-        this.tx_fecha = tx_fecha;
+    public void setTxFecha(Date txFecha) {
+        this.txFecha = txFecha;
     }
 
-    public String getTx_host() {
-        return tx_host;
+    public String getTxHost() {
+        return txHost;
     }
 
-    public void setTx_host(String tx_host) {
-        this.tx_host = tx_host;
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
     }
 
 }

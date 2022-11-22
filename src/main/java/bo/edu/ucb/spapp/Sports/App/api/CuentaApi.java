@@ -4,6 +4,9 @@ package bo.edu.ucb.spapp.Sports.App.api;
 import bo.edu.ucb.spapp.Sports.App.bl.CuentaBl;
 import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
+
+import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -20,6 +23,21 @@ public class CuentaApi {
         this.cuentaBl = cuentaBl;
         this.seguridadBl = seguridadBl;
     }
+
+    // Metodo para verificar que los campos no esten vacios
+    @PostMapping
+    public RespuestaDto<CrearCuentaDto> crearCuenta(@RequestBody CrearCuentaDto crearCuentaDto){
+        if (crearCuentaDto != null && crearCuentaDto.getIdPersona()!= null && crearCuentaDto.getIdDeporte() != null && crearCuentaDto.getCorreo() != null && crearCuentaDto.getContrasenia() != null){
+            this.cuentaBl.crearCuenta(crearCuentaDto);
+            return new RespuestaDto<>(crearCuentaDto, "Cuenta creada correctamente", true);
+        }
+        else {
+            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
+        }
+    }
+
+    // Metodo de autorizacion para super usuario de la aplicacion que permite crear cuentas de usuario.
+    /*
     @PostMapping
     public Map crearCuenta(@RequestHeader Map<String, String> headers, @RequestBody CrearCuentaDto crearCuentaDto){
         if (headers.get("Authorization") == null && headers.get("authorization") == null){
@@ -34,7 +52,6 @@ public class CuentaApi {
             jwt = headers.get("authorization").split(" ")[1];
         }
 
-        System.out.println("El token enviado es: " + jwt);
         if (this.seguridadBl.tokenHasRole(jwt, "Agregar entrenamientos")){
             cuentaBl.crearCuenta(crearCuentaDto);
             return Map.of("message", "Cuenta creada");
@@ -45,4 +62,6 @@ public class CuentaApi {
 
 
     }
+    */
+
 }

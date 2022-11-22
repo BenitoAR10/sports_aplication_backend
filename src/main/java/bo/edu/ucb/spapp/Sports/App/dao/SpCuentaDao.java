@@ -51,7 +51,7 @@ public interface SpCuentaDao {
             INSERT INTO sp_cuenta
                (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
             VALUES
-               (#{idPersona}, 1, #{correo}, #{secret}, true, 'anonymous', now(), 'localhost')
+               (#{idPersona}, #{idDeporte}, #{correo}, #{secret}, true, 'anonymous', now(), 'localhost')
             """)
 
     void crearCuenta(SpCuenta spCuenta);

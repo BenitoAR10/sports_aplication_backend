@@ -1,29 +1,34 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-package bo.edu.ucb.spapp.Sports.App.entity;public class SpEntrenador {
-=======
-=======
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
+
 package bo.edu.ucb.spapp.Sports.App.entity;
+
+import java.sql.Date;
 
 public class SpEntrenador {
     private int idEntrenador;
     private int idCuenta;
     private String nit;
     private String correo;
-    private String foto;
+    private String fotoEntrenador;
     private boolean estado;
+    private String txCorreo;
+    private Date txFecha;
+    private String txHost;
+
+
 
     public SpEntrenador() {
     }
 
-    public SpEntrenador(int idEntrenador, int idCuenta, String nit, String correo, String foto, boolean estado) {
+    public SpEntrenador(int idEntrenador, int idCuenta, String nit, String correo, String fotoEntrenador, boolean estado, String txCorreo, Date txFecha, String txHost) {
         this.idEntrenador = idEntrenador;
         this.idCuenta = idCuenta;
         this.nit = nit;
         this.correo = correo;
-        this.foto = foto;
+        this.fotoEntrenador = fotoEntrenador;
         this.estado = estado;
+        this.txCorreo = txCorreo;
+        this.txFecha = txFecha;
+        this.txHost = txHost;
     }
 
     public int getIdEntrenador() {
@@ -58,12 +63,12 @@ public class SpEntrenador {
         this.correo = correo;
     }
 
-    public String getFoto() {
-        return foto;
+    public String getFotoEntrenador() {
+        return fotoEntrenador;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setFotoEntrenador(String fotoEntrenador) {
+        this.fotoEntrenador = fotoEntrenador;
     }
 
     public boolean isEstado() {
@@ -73,8 +78,28 @@ public class SpEntrenador {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-<<<<<<< HEAD
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
-=======
->>>>>>> 3ae0e97316869906df40233a17b97468a36a42bd
+
+    public String getTxCorreo() {
+        return txCorreo;
+    }
+
+    public void setTxCorreo(String txCorreo) {
+        this.txCorreo = txCorreo;
+    }
+
+    public Date getTxFecha() {
+        return txFecha;
+    }
+
+    public void setTxFecha(Date txFecha) {
+        this.txFecha = txFecha;
+    }
+
+    public String getTxHost() {
+        return txHost;
+    }
+
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
+    }
 }

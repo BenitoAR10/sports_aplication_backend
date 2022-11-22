@@ -1,0 +1,4 @@
+### Datos del lugar de Servicio de comida
+GET http://localhost:25060/api/v1/LugarComida/1
+### lista de clientes de un lugar de servicio de comida
+GET http://localhost:25060/api/v1/LugarComida/1/Clientes
