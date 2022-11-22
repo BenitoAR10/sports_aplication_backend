@@ -124,19 +124,10 @@ SELECT  * from sp_producto;
 
 --Obtener los productos con mayor numero de vistas--
 
-select numero_de_vistas, nombre, marca from sp_producto order by numero_de_vistas desc limit 3;
+select numero_de_vistas, nombre, marca
+from sp_producto order by numero_de_vistas desc limit 3;
 
 --Obtener los productos con menor precio y su marca--
-
-select op.precio_oferta, p.nombre, p.marca
-from sp_oferta_producto op, sp_producto p, sp_ofertas o
-where op.id_producto = p.id_producto
-  and op.id_ofertas = o.id_ofertas
-  and o.estado = true
-  and op.estado = true
-order by op.precio_oferta asc limit 3;
-
---Redesign the last query with the JOINS --
 
 select op.precio_oferta, p.nombre, p.marca
 from sp_oferta_producto op
@@ -147,17 +138,6 @@ where o.estado = true
 order by op.precio_oferta asc limit 3;
 
 -- Obtener los productos con mayor numero de vistas --
-
-select p.numero_de_vistas, p.nombre, p.marca, pt.precio,  op.precio_oferta
-from sp_producto p, sp_oferta_producto op, sp_producto_tienda pt
-where p.id_producto = op.id_producto
-  and p.id_producto = pt.id_producto
-  and op.estado = true
-  and pt.estado = true
-  and p.estado = true
-order by p.numero_de_vistas desc limit 3;
-
---Redesign the last query with JOINS
 
 select p.numero_de_vistas, p.nombre, p.marca, pt.precio,  op.precio_oferta
 from sp_producto p
@@ -184,7 +164,6 @@ WHERE p.id_producto = pt.id_producto
   AND t.id_tienda = pt.id_tienda
   AND pt.estado = true;
 
--- Redesign the last query and update with the model with JOINS
 --Obtener los productos que se encuentran activos en que tiendas
 SELECT p.nombre, p.descripcion, t.nombre_tienda, t.direccion
 FROM sp_producto p
@@ -205,10 +184,10 @@ WHERE p.numero_de_vistas = (SELECT MAX(numero_de_vistas) FROM sp_producto);
 select * from sp_producto;
 
 
-SELECT * from sp_producto;
-SELECT * from sp_tienda;
-SELECT * from sp_ofertas;
-SELECT * from sp_oferta_producto;
-SELECT * from sp_oferta_cuenta;
-SELECT * from sp_producto_tienda;
-SELECT * from sp_producto_cuenta;
+--SELECT * from sp_producto;
+--SELECT * from sp_tienda;
+--SELECT * from sp_ofertas;
+--SELECT * from sp_oferta_producto;
+--SELECT * from sp_oferta_cuenta;
+--SELECT * from sp_producto_tienda;
+--SELECT * from sp_producto_cuenta;

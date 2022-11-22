@@ -7,10 +7,7 @@ spring:
     driver-class-name: org.postgresql.Driver # Driver de conexion a la base de datos
     url: jdbc:postgresql://dbsportsv2-do-user-12861795-0.b.db.ondigitalocean.com:25060/defaultdb # URL de conexion a la base de datos
     username: doadmin # Usuario de la base de datos
-<<<<<<< HEAD
+
     password: AVNS_HIFAM2kovcJBQA8LwR5 # Contrasenia de la base de datos
-=======
-    password: AVNS_NU8zwq9QyxXqBi5dWd_ # Contrasenia de la base de datos
 
-
->>>>>>> 90ba6ef3aee9ee7e0062c4ba08e2b76dc7bf3f3a
+//    password: AVNS_NU8zwq9QyxXqBi5dWd_ # Contrasenia de la base de datos

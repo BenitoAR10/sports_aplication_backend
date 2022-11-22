@@ -1,4 +1,3 @@
-
 package bo.edu.ucb.spapp.Sports.App.entity;
 
 import java.sql.Date;
