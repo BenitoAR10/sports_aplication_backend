@@ -1,25 +1,29 @@
 package bo.edu.ucb.spapp.Sports.App.bl;
 
-
-import bo.edu.ucb.spapp.Sports.App.dao.SpProductoDao;
+import bo.edu.ucb.spapp.Sports.App.dao.SpProductoTiendaOfertaDao;
 import bo.edu.ucb.spapp.Sports.App.dto.ProductoDto;
+import bo.edu.ucb.spapp.Sports.App.entity.EtyProductoTiendaOferta;
 import bo.edu.ucb.spapp.Sports.App.entity.SpProducto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductoBl {
-    private SpProductoDao spProductoDao;
+    private SpProductoTiendaOfertaDao spProductoTiendaOfertaDao;
 
-    public ProductoBl(SpProductoDao spProductoDao) {
+    public ProductoBl(SpProductoTiendaOfertaDao spProductoTiendaOfertaDao) {
 
-        this.spProductoDao = spProductoDao;
+        this.spProductoTiendaOfertaDao = spProductoTiendaOfertaDao;
     }
+
+    public List<EtyProductoTiendaOferta> mostrarTopProductos(int idProducto) {
+        List<EtyProductoTiendaOferta> etyProductoTiendaOferta = spProductoTiendaOfertaDao.findTop3ProductosMasVistos(idProducto);
+        return etyProductoTiendaOferta;
+    }
+
     public void crearProducto(ProductoDto productoDto){
         SpProducto spCrearProducto = new SpProducto();
-        spCrearProducto.setNombre(productoDto.getNombre());
-        spCrearProducto.setDescripcion(productoDto.getDescripcion());
-        spCrearProducto.setPrecio(productoDto.getPrecio());
-        spCrearProducto.setFoto(productoDto.getFoto());
 
     }
 
