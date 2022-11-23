@@ -17,6 +17,7 @@ Accept: application/json
   "contrasenia": "123456789"
 }
 ### Autenticacion con valores vacios
+
 POST http://localhost:25060/api/v1/auth/
 Content-Type: application/json
 Accept: application/json

@@ -16,7 +16,7 @@ public class CuentaBl {
     private CuentaPersonaDao cuentaPersonaDao;
 
     // Inyectamos el dao para poder usarlo.
-    public CuentaBl(SpCuentaDao spCuentaDao) {
+    public CuentaBl(SpCuentaDao spCuentaDao, CuentaPersonaDao cuentaPersonaDao) {
 
         this.spCuentaDao = spCuentaDao;
         this.cuentaPersonaDao = cuentaPersonaDao;

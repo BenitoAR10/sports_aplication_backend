@@ -22,5 +22,7 @@ Accept: application/json
 {
 }
 ### Consultamos el usuario autenticado
-
 GET http://localhost:25060/api/v1/cuenta/
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2NjkyMTEwMDB9.lZOBDKfsE-PMP5rnJuDmVF5MyrgttLmW1sw8v1RwB6w
