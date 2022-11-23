@@ -4,7 +4,10 @@ import bo.edu.ucb.spapp.Sports.App.entity.SpPersona;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 // Creamos una interfaz para poder usar MyBatis y poder hacer consultas a la base de datos de manera mas sencilla.
+
+@Component
 public interface SpCuentaDao {
     @Select("""
             SELECT id_cuenta, id_persona, id_deporte,

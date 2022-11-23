@@ -21,3 +21,6 @@ Accept: application/json
 
 {
 }
+### Consultamos el usuario autenticado
+
+GET http://localhost:25060/api/v1/cuenta/
