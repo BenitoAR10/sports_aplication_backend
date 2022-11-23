@@ -35,9 +35,10 @@ public interface SpLugarEntrenamientoSucursalDao {
             inner join sp_persona c on cu.id_persona = c.id_persona
             inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
             inner join sp_plan_lugar_entrenamiento sple on cp.id_plan_lugar_entrenamiento = sple.id_plan_lugar_entrenamiento
-            where cu.id_cuenta = #{idCuenta}
+            inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_sucursal = sples.id_lugar_entrenamiento_sucursal
+            where sples.id_cuenta = #{idCuenta} and cu.id_cuenta = #{idCliente}
             """)
-    List<EtyHistorialClienteLugarEntrenamiento> encontrarHistorialCliente(Integer idCuenta);
+    List<EtyHistorialClienteLugarEntrenamiento> encontrarHistorialCliente(Integer idCuenta, Integer idCliente);
     //Visualizar los planes que tiene esa sucursal
 
     @Select("""
@@ -47,7 +48,7 @@ public interface SpLugarEntrenamientoSucursalDao {
             where s.id_cuenta = #{idCuenta}
             """)
     List<EtyPlanesEntrenamiento> encontrarPlanesLugar(Integer idCuenta);
-    //insertar un nuevo plan de entrenamiento
+    //insertar un nuevo plan de entrenamiento HECHO
     @Insert("""
             insert into sp_plan_lugar_entrenamiento (id_lugar_entrenamiento_sucursal, cantidad_meses, costo, estado, tx_correo, tx_fecha, tx_host)
             values (#{idLugarEntrenamientoSucursal}, #{cantidadMeses}, #{costo}, true, #{txCorreo}, now(), #{txHost})

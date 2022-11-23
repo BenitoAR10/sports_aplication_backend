@@ -44,9 +44,9 @@ public class LugarEntrenamientoSucursalBl {
 
     }
 
-    public List<EtyHistorialClienteLugarEntrenamiento> encontrarHistorialCliente(int idCuenta) {
+    public List<EtyHistorialClienteLugarEntrenamiento> encontrarHistorialCliente(int idCuenta, int idCliente) {
 
-        List<EtyHistorialClienteLugarEntrenamiento> etyHistorialClienteLugarEntrenamiento = spLugarEntrenamientoSucursalDao.encontrarHistorialCliente(idCuenta);
+        List<EtyHistorialClienteLugarEntrenamiento> etyHistorialClienteLugarEntrenamiento = spLugarEntrenamientoSucursalDao.encontrarHistorialCliente(idCuenta, idCliente);
 
         return etyHistorialClienteLugarEntrenamiento;
     }

@@ -68,8 +68,8 @@ inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_
 where sples.id_cuenta = 3;
 
 
--- Hacer una consulta para ver los planes de comida adquiridos segun el id del servicio de comida
-select c.id_cuenta, p.nombres, p.apellidos, cast (cp.costo_plan as decimal(10,2)), cp.fecha_compra, cp.fecha_fin
+-- Hacer una consulta para ver los planes de comida adquiridos segun el idCuenta del servicio de comida
+select c.id_cuenta, p.nombres, p.apellidos, cast (t.costo_mes as decimal(10,2)), cp.fecha_compra, cp.fecha_fin
 from sp_cuenta c
 inner join sp_persona p on c.id_persona = p.id_persona
 inner join sp_compra_plan cp on c.id_cuenta = cp.id_cuenta
@@ -93,6 +93,10 @@ from sp_cuenta cu
 inner join sp_persona c on cu.id_persona = c.id_persona
 inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
 inner join sp_plan_lugar_entrenamiento sple on cp.id_plan_lugar_entrenamiento = sple.id_plan_lugar_entrenamiento
+inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_sucursal = sples.id_lugar_entrenamiento_sucursal
+where sples.id_cuenta = 3
+and cu.id_cuenta = 15;
+
 where cu.id_cuenta = 15;
 
 
@@ -102,13 +106,13 @@ where cu.id_cuenta = 15;
 
 
 -- ver el historial de planes adquiridos por una persona segun su id en comida
-select c.nombres, c.apellidos, cast(t.costo_mes as decimal(10,2)), t.nombre_plan, cp.fecha_compra, cp.fecha_fin
+select c.nombres, c.apellidos, cast(t.costo_mes as decimal(10,2)), t.nombre_plan, cp.fecha_compra, cp.fecha_fin, cp.detalle_comida
 from sp_cuenta cu
 inner join sp_persona c on cu.id_persona = c.id_persona
 inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
 inner join sp_plan_comida t on cp.id_plan_comida = t.id_plan_comida
 inner join sp_servicio_comida sc on t.id_servicio_comida = sc.id_servicio_comida
-where cu.id_cuenta = 15
+where cu.id_cuenta = 10
 and sc.id_cuenta = 1;
 
 
@@ -130,7 +134,7 @@ inner join sp_lugar_entrenamiento_sucursal s on t.id_lugar_entrenamiento_sucursa
 where s.id_cuenta = 3;
 
 -- ver planes de comida de un servicio de comida segun su id
-select t.nombre_plan, t.costo_mes, t.descripcion
+select t.id_plan_comida, t.nombre_plan, t.costo_mes, t.descripcion
 from sp_plan_comida t
 inner join sp_servicio_comida s on t.id_servicio_comida = s.id_servicio_comida
 where s.id_cuenta = 1;

@@ -31,9 +31,9 @@ public class LugarEntrenamientoSucursalApi {
         return this.lugarEntrenamientoSucursalBl.encontrarDatosCliente(idCuenta);
     }
 
-    @GetMapping("/clientes/cliente/{idCuenta}")
-    public List<EtyHistorialClienteLugarEntrenamiento> historialClienteLugarEntrenamientoApi(@PathVariable(name = "idCuenta") Integer idCuenta){
-        return this.lugarEntrenamientoSucursalBl.encontrarHistorialCliente(idCuenta);
+    @GetMapping("/{idCuenta}/cliente/{idCliente}")
+    public List<EtyHistorialClienteLugarEntrenamiento> historialClienteLugarEntrenamientoApi(@PathVariable(name = "idCuenta") Integer idCuenta, @PathVariable(name = "idCliente") Integer idCliente){
+        return this.lugarEntrenamientoSucursalBl.encontrarHistorialCliente(idCuenta, idCliente);
     }
 
     @GetMapping("/{idCuenta}/planes")
