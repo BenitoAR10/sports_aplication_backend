@@ -278,4 +278,8 @@ SELECT contrasenia FROM sp_cuenta WHERE correo = 'pablex.com';
 -- CONSTRAINT DE UNIQUE para correo en sp_cuenta.
 ALTER TABLE sp_cuenta ADD CONSTRAINT sp_cuenta_correo UNIQUE (correo);
 
-
+SELECT p.nombres, p. apellidos, c.correo
+FROM sp_cuenta c
+         INNER JOIN sp_persona p ON c.id_persona = p.id_persona
+WHERE c.correo = 'amirb@gmail.com'
+  AND c.estado = true

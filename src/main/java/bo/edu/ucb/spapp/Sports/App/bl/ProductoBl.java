@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class ProductoBl {
+<<<<<<< HEAD
     private SpProductoTiendaOfertaDao spProductoTiendaOfertaDao;
 
     public ProductoBl(SpProductoTiendaOfertaDao spProductoTiendaOfertaDao) {
@@ -26,5 +27,11 @@ public class ProductoBl {
         SpProducto spCrearProducto = new SpProducto();
 
     }
+=======
+    private SpProductoDao spProductoDao;
+    private ProductoDto productoDto;
+
+
+>>>>>>> 7d642c2f3084f5dff9530cd5cdb1dd97c4a8e387
 
 }

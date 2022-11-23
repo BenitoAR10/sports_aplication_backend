@@ -2,7 +2,9 @@ package bo.edu.ucb.spapp.Sports.App.dao;
 
 import bo.edu.ucb.spapp.Sports.App.entity.SpServicioComida;
 import org.apache.ibatis.annotations.Insert;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface SpServicioComidaDao {
 
     @Insert("""

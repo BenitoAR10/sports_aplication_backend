@@ -2,9 +2,10 @@ package bo.edu.ucb.spapp.Sports.App.dao;
 
 import bo.edu.ucb.spapp.Sports.App.entity.SpRoles;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public interface SpRolesDao {
     @Select("""
             SELECT roles.id_roles, roles.rol, roles.descripcion, roles.estado, roles.tx_correo, roles.tx_fecha, roles.tx_host
