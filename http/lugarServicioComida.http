@@ -1,0 +1,19 @@
+### Datos del lugar de Servicio de comida
+GET http://localhost:25060/api/v1/LugarComida/1
+### lista de clientes de un lugar de servicio de comida
+GET http://localhost:25060/api/v1/LugarComida/1/clientes
+### Datos de las compras de planes de entrenamiento de un cliente
+GET http://localhost:25060/api/v1/LugarComida/1/cliente/10
+### Datos de las compras de planes de entrenamiento del lugar de servicio de comida
+GET http://localhost:25060/api/v1/LugarComida/1/planes
+### Insertar un nuevo plan de Comida
+POST http://localhost:25060/api/v1/LugarComida/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "idServicioComida": 1,
+    "nombrePlan": "Plan de comida 2",
+    "descripcion": "Descripcion 2",
+    "costoMes": 1200
+}

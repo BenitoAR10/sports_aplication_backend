@@ -1,5 +1,4 @@
 package bo.edu.ucb.spapp.Sports.App.entity;
-
 import java.sql.Date;
 
 public class SpTienda {
@@ -13,15 +12,19 @@ public class SpTienda {
     private String telefono;
     private String nit;
     private String direccion;
-    private Double latitud;
-    private Double longitud;
+    private double latitud;
+    private double longitud;
     private Boolean estado;
     private String tx_correo;
     private Date tx_fecha;
     private String tx_host;
 
+
+    // Crear constructor vacio
     public SpTienda() {
     }
+
+    // Crear constructor con todos los atributos
 
     public SpTienda(Integer idTienda, Integer idCuenta, String nombreTienda, String nombrePropietario, String apellidoPropietario, String fotoTienda, String correo, String telefono, String nit, String direccion, Double latitud, Double longitud, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
         this.idTienda = idTienda;
@@ -41,6 +44,9 @@ public class SpTienda {
         this.tx_fecha = tx_fecha;
         this.tx_host = tx_host;
     }
+
+
+    // Crear getters y setters
 
     public Integer getIdTienda() {
         return idTienda;
@@ -122,19 +128,19 @@ public class SpTienda {
         this.direccion = direccion;
     }
 
-    public Double getLatitud() {
+    public double getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(Double latitud) {
+    public void setLatitud(double latitud) {
         this.latitud = latitud;
     }
 
-    public Double getLongitud() {
+    public double getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(Double longitud) {
+    public void setLongitud(double longitud) {
         this.longitud = longitud;
     }
 
@@ -149,26 +155,7 @@ public class SpTienda {
     public String getTx_correo() {
         return tx_correo;
     }
-
-    public void setTx_correo(String tx_correo) {
-        this.tx_correo = tx_correo;
-    }
-
-    public Date getTx_fecha() {
-        return tx_fecha;
-    }
-
-    public void setTx_fecha(Date tx_fecha) {
-        this.tx_fecha = tx_fecha;
-    }
-
-    public String getTx_host() {
-        return tx_host;
-    }
-
-    public void setTx_host(String tx_host) {
-        this.tx_host = tx_host;
-    }
+    // Crear toString
 
     @Override
     public String toString() {

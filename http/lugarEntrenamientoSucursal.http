@@ -1,3 +1,21 @@
-###
-GET http://localhost:25060/api/v1/LugarEntrenamientoSucursal/2
+### Datos del lugar de entrenamiento Sucursal
+GET http://localhost:25060/api/v1/LugarEntrenamiento/3
+### Datos del de clientes del lugar de entrenamiento Sucursal
+GET http://localhost:25060/api/v1/LugarEntrenamiento/3/clientes
+### Datos de las compras de planes de entrenamiento de un cliente
+GET http://localhost:25060/api/v1/LugarEntrenamiento/3/cliente/10
+### Datos de los planes de entrenamiento de la sucursal
+GET http://localhost:25060/api/v1/LugarEntrenamiento/3/planes
+### Insertar un nuevo plan de entrenamiento
+POST http://localhost:25060/api/v1/LugarEntrenamiento/
+Content-Type: application/json
+Accept: application/json
 
+{
+    "idLugarEntrenamientoSucursal": 1,
+    "costo": 2500,
+    "cantidadMeses": 12,
+    "txCorreo": "prueba@gmail.com",
+    "txHost": "localhost"
+
+}

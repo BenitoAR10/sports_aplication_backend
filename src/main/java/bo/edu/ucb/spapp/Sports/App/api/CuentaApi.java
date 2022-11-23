@@ -4,11 +4,17 @@ package bo.edu.ucb.spapp.Sports.App.api;
 import bo.edu.ucb.spapp.Sports.App.bl.CuentaBl;
 import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
+<<<<<<< HEAD
 import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.EtyCuentaPersona;
 import bo.edu.ucb.spapp.Sports.App.util.AuthUtil;
 import bo.edu.ucb.spapp.Sports.App.util.SpException;
+=======
+
+import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
+
+>>>>>>> 2872f41bc96efdff2f43c85df7fe03114b2cedbc
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;

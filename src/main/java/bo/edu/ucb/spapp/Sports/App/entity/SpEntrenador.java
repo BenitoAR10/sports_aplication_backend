@@ -1,31 +1,34 @@
 
 package bo.edu.ucb.spapp.Sports.App.entity;
 
+import java.sql.Date;
+
 public class SpEntrenador {
     private int idEntrenador;
     private int idCuenta;
     private String nit;
     private String correo;
-    private String foto;
+    private String fotoEntrenador;
     private boolean estado;
+    private String txCorreo;
+    private Date txFecha;
+    private String txHost;
 
-    private String tx_correo;
-    private String tx_fecha;
-    private String tx_host;
+
 
     public SpEntrenador() {
     }
 
-    public SpEntrenador(int idEntrenador, int idCuenta, String nit, String correo, String foto, boolean estado, String tx_correo, String tx_fecha, String tx_host) {
+    public SpEntrenador(int idEntrenador, int idCuenta, String nit, String correo, String fotoEntrenador, boolean estado, String txCorreo, Date txFecha, String txHost) {
         this.idEntrenador = idEntrenador;
         this.idCuenta = idCuenta;
         this.nit = nit;
         this.correo = correo;
-        this.foto = foto;
+        this.fotoEntrenador = fotoEntrenador;
         this.estado = estado;
-        this.tx_correo = tx_correo;
-        this.tx_fecha = tx_fecha;
-        this.tx_host = tx_host;
+        this.txCorreo = txCorreo;
+        this.txFecha = txFecha;
+        this.txHost = txHost;
     }
 
     public int getIdEntrenador() {
@@ -60,12 +63,12 @@ public class SpEntrenador {
         this.correo = correo;
     }
 
-    public String getFoto() {
-        return foto;
+    public String getFotoEntrenador() {
+        return fotoEntrenador;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setFotoEntrenador(String fotoEntrenador) {
+        this.fotoEntrenador = fotoEntrenador;
     }
 
     public boolean isEstado() {
@@ -76,42 +79,27 @@ public class SpEntrenador {
         this.estado = estado;
     }
 
-    public String getTx_correo() {
-        return tx_correo;
+    public String getTxCorreo() {
+        return txCorreo;
     }
 
-    public void setTx_correo(String tx_correo) {
-        this.tx_correo = tx_correo;
+    public void setTxCorreo(String txCorreo) {
+        this.txCorreo = txCorreo;
     }
 
-    public String getTx_fecha() {
-        return tx_fecha;
+    public Date getTxFecha() {
+        return txFecha;
     }
 
-    public void setTx_fecha(String tx_fecha) {
-        this.tx_fecha = tx_fecha;
+    public void setTxFecha(Date txFecha) {
+        this.txFecha = txFecha;
     }
 
-    public String getTx_host() {
-        return tx_host;
+    public String getTxHost() {
+        return txHost;
     }
 
-    public void setTx_host(String tx_host) {
-        this.tx_host = tx_host;
-    }
-
-    @Override
-    public String toString() {
-        return "SpEntrenador{" +
-                "idEntrenador=" + idEntrenador +
-                ", idCuenta=" + idCuenta +
-                ", nit='" + nit + '\'' +
-                ", correo='" + correo + '\'' +
-                ", foto='" + foto + '\'' +
-                ", estado=" + estado +
-                ", tx_correo='" + tx_correo + '\'' +
-                ", tx_fecha='" + tx_fecha + '\'' +
-                ", tx_host='" + tx_host + '\'' +
-                '}';
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
     }
 }
