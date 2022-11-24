@@ -1,0 +1,9 @@
+### Datos del Entrenador en la pantalla de inicio
+GET http://localhost:25060/api/v1/Entrenador/2
+### Datos del de clientes del lugar de entrenamiento Sucursal
+GET http://localhost:25060/api/v1/Entrenador/2/clientes
+### Datos de las compras de planes del entrenador de un cliente
+GET http://localhost:25060/api/v1/Entrenador/2/cliente/10
+### Datos de los planes de un entrenador
+GET http://localhost:25060/api/v1/Entrenador/2/planes
+### Insertar un nuevo plan de entrenamiento

@@ -121,11 +121,14 @@ select c.nombres, c.apellidos, t.cantidad_meses, t.costo, cp.fecha_compra, cp.fe
 from sp_cuenta cu
 inner join sp_persona c on cu.id_persona = c.id_persona
 inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
-inner join sp_tipo_plan_entrenamiento tp on cp.id_tipo_plan_entrenamiento = tp.id_tipo_plan_entrenamiento
-inner join sp_plan_entrenador t on tp.id_plan_entrenador = t.id_plan_entrenador
-inner join sp_entrenador s on t.id_entrenador = s.id_entrenador
-where cu.id_cuenta = 5
-and s.id_cuenta=2;
+inner join sp_plan_entrenador t on cp.id_plan_entrenador = t.id_plan_entrenador
+inner join sp_entrenador se on t.id_plan_entrenador= se.id_entrenador
+where cu.id_cuenta = 10
+and se.id_cuenta = 2;
+
+
+
+select * from sp_compra_plan;
 
 -- ver planes de entrenamiento de un lugar de entrenamiento segun su id
 select s.id_lugar_entrenamiento_sucursal, t.id_plan_lugar_entrenamiento,t.cantidad_meses, t.costo
@@ -140,7 +143,7 @@ inner join sp_servicio_comida s on t.id_servicio_comida = s.id_servicio_comida
 where s.id_cuenta = 1;
 
 -- ver planes de entrenador de un entrenador segun su id
-select t.cantidad_meses, t.costo
+select t.id_plan_entrenador,t.cantidad_meses, t.costo
 from sp_plan_entrenador t
 inner join sp_entrenador s on t.id_entrenador = s.id_entrenador
 where s.id_cuenta = 2;
@@ -163,7 +166,7 @@ from sp_servicio_comida s
 where s.id_cuenta = 1;
 
 -- consulta para ver el entrenador a partir del id de la cuenta de la sucusal
-select p.nombres, p.apellidos, s.foto_entrenador, c.correo
+select s.id_cuenta, p.nombres, p.apellidos, s.foto_entrenador, c.correo
 from sp_entrenador s
 inner join sp_cuenta c on s.id_cuenta = c.id_cuenta
 inner join sp_persona p on c.id_persona = p.id_persona
