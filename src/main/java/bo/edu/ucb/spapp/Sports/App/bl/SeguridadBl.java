@@ -21,12 +21,12 @@ import java.util.List;
 // Creamos una clase que implemente la interfaz de la capa de acceso a datos y la interfaz de la capa de negocio.
 @Service // Service nos indica que podremos inyectar esta clase en otras clases.
 public class SeguridadBl {
-    private final static String JWT_SECRET = "contrasenia";
+    public final static String JWT_SECRET = "contrasenia";
 
-    private SpCuentaDao spCuentaDao;
+    private final  SpCuentaDao spCuentaDao;
 
 
-    private SpRolesDao spRolesDao;
+    private final SpRolesDao spRolesDao;
     // Constructor de la clase.
     public SeguridadBl(SpCuentaDao spCuentaDao, SpRolesDao spRolesDao) {
         this.spCuentaDao = spCuentaDao;
@@ -61,7 +61,9 @@ public class SeguridadBl {
                 for (SpRoles rol: roles) {
                     rolesAdString.add(rol.getRol());
                 }
-                result = generateTokenJwt(credentials.getCorreo(), 300, rolesAdString);
+                // Con esto no sera necesario refrescar token
+                // FIXME: Erro de seguridad los tokens deberian ser de corta duracion.
+                result = generateTokenJwt(credentials.getCorreo(), 30000, rolesAdString);
 
             } else {
                 System.out.println("Las contraseñas no coinciden");
@@ -122,13 +124,6 @@ public class SeguridadBl {
     }
 
 
-    // Este metodo valida un token jwt y retorna si contiene o no el rol
-    public boolean tokenHasRole(String jwt, String role){
-        List<String> roles = JWT.require(Algorithm.HMAC256(JWT_SECRET))
-                .build()
-                .verify(jwt)
-                .getClaim("roles").asList(String.class);
-        return roles.contains(role);
-    }
+
 
 }

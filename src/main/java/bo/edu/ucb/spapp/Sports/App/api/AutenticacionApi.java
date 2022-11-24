@@ -20,16 +20,7 @@ public class AutenticacionApi {
     public AutenticacionApi(SeguridadBl seguridadBl){
         this.seguridadBl = seguridadBl;
     }
-    // Metodo para obtener un usuario por su id.
-    /**
-     * Endpoint para probar la busqueda por llave primaria.
-     * @param idCuenta
-     * @return
-     */
-    @GetMapping("/{idCuenta}")
-    public CuentaDto test(@PathVariable(name = "idCuenta") Integer idCuenta){
-        return this.seguridadBl.getUserByPk(idCuenta);
-    }
+
     /**
      * Endpoint para autenticar un usuario.
      * @param soliAutenticacionDto
