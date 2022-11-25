@@ -2,16 +2,14 @@ package bo.edu.ucb.spapp.Sports.App.dto;
 // Creamos una clase DTO para los datos que queremos retornar al cliente via API.
 public class CuentaDto {
     private Integer idCuenta;
-    private Integer idPersona;
     private Integer idDeporte;
     private String correo;
     // Constructor vacio.
     public CuentaDto() {
     }
 
-    public CuentaDto(Integer idCuenta, Integer idPersona, Integer idDeporte, String correo) {
+    public CuentaDto(Integer idCuenta, Integer idDeporte, String correo) {
         this.idCuenta = idCuenta;
-        this.idPersona = idPersona;
         this.idDeporte = idDeporte;
         this.correo = correo;
     }
@@ -27,13 +25,6 @@ public class CuentaDto {
         this.idCuenta = idCuenta;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
-    }
-
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
-    }
 
     public Integer getIdDeporte() {
         return idDeporte;
@@ -59,7 +50,6 @@ public class CuentaDto {
     public String toString() {
         return "CuentaDto{" +
                 "idCuenta=" + idCuenta +
-                ", idPersona=" + idPersona +
                 ", idDeporte=" + idDeporte +
                 ", correo='" + correo + '\'' +
                 '}';

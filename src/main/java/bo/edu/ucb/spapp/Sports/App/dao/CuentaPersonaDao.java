@@ -1,6 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.dao;
 
 import bo.edu.ucb.spapp.Sports.App.entity.EtyCuentaPersona;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
@@ -18,4 +19,5 @@ public interface CuentaPersonaDao {
               AND c.estado = true
             """)
     public EtyCuentaPersona findByCorreo(String correo);
+
 }

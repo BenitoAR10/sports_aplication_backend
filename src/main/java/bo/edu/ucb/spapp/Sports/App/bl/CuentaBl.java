@@ -23,9 +23,11 @@ public class CuentaBl {
     }
     public void crearCuenta(CrearCuentaDto crearCuentaDto){
         SpCuenta spCuenta = new SpCuenta();
-        spCuenta.setIdPersona(crearCuentaDto.getIdPersona());
         spCuenta.setIdDeporte(crearCuentaDto.getIdDeporte());
         spCuenta.setCorreo(crearCuentaDto.getCorreo());
+        spCuenta.setNombre(crearCuentaDto.getNombre());
+        spCuenta.setApellido(crearCuentaDto.getApellido());
+        spCuenta.setNumeroTelefono(crearCuentaDto.getNumeroTelefono());
         String contrasenia = BCrypt.withDefaults().hashToString(12, crearCuentaDto.getContrasenia().toCharArray());
         crearCuentaDto.getContrasenia();
         spCuenta.setSecret(contrasenia);

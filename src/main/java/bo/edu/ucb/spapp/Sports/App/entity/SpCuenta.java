@@ -5,7 +5,6 @@ import java.util.Objects;
 // Creamos la clase SpCuenta con sus atributos, constructor y metodos get y set
 public class SpCuenta {
     private Integer idCuenta;
-    private Integer idPersona;
     private Integer idDeporte;
     private String correo;
     private String secret;
@@ -13,14 +12,18 @@ public class SpCuenta {
     private String tx_correo;
     private Date tx_fecha;
     private String tx_host;
+
+    private String nombre;
+    private String apellido;
+    private String numeroTelefono;
     // Constructor vacio de la clase.
     public SpCuenta() {
     }
     // Constructor con parametros de la clase.
 
-    public SpCuenta(Integer idCuenta, Integer idPersona, Integer idDeporte, String correo, String secret, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
+
+    public SpCuenta(Integer idCuenta, Integer idDeporte, String correo, String secret, Boolean estado, String tx_correo, Date tx_fecha, String tx_host, String nombre, String apellido, String numeroTelefono) {
         this.idCuenta = idCuenta;
-        this.idPersona = idPersona;
         this.idDeporte = idDeporte;
         this.correo = correo;
         this.secret = secret;
@@ -28,9 +31,10 @@ public class SpCuenta {
         this.tx_correo = tx_correo;
         this.tx_fecha = tx_fecha;
         this.tx_host = tx_host;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.numeroTelefono = numeroTelefono;
     }
-
-    // Metodos get y ser para cada atributo de la clase.
 
     public Integer getIdCuenta() {
         return idCuenta;
@@ -38,14 +42,6 @@ public class SpCuenta {
 
     public void setIdCuenta(Integer idCuenta) {
         this.idCuenta = idCuenta;
-    }
-
-    public Integer getIdPersona() {
-        return idPersona;
-    }
-
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
     }
 
     public Integer getIdDeporte() {
@@ -104,13 +100,34 @@ public class SpCuenta {
         this.tx_host = tx_host;
     }
 
-    // Metodo toString para mostrar los datos de la clase.
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
 
     @Override
     public String toString() {
         return "SpCuenta{" +
                 "idCuenta=" + idCuenta +
-                ", idPersona=" + idPersona +
                 ", idDeporte=" + idDeporte +
                 ", correo='" + correo + '\'' +
                 ", secret='" + secret + '\'' +
@@ -118,6 +135,9 @@ public class SpCuenta {
                 ", tx_correo='" + tx_correo + '\'' +
                 ", tx_fecha=" + tx_fecha +
                 ", tx_host='" + tx_host + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", numeroTelefono='" + numeroTelefono + '\'' +
                 '}';
     }
 

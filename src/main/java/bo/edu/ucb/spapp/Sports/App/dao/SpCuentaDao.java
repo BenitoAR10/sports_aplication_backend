@@ -52,10 +52,11 @@ public interface SpCuentaDao {
 
     @Insert("""
             INSERT INTO sp_cuenta
-               (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+               (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host, nombre, apellido, numero_telefono)
             VALUES
-               (#{idPersona}, #{idDeporte}, #{correo}, #{secret}, true, 'anonymous', now(), 'localhost')
+                (#{idDeporte}, #{correo}, #{secret}, true, 'anonymous', now(), 'localhost', #{nombre}, #{apellido}, #{numeroTelefono})
             """)
+
 
     void crearCuenta(SpCuenta spCuenta);
 

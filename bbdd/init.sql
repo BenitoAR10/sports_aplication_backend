@@ -16,6 +16,9 @@ VALUES ('Carlitos', 'Sucha', false, '580-708-5752', 'Vilares', '2022-06-20', 207
 INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, cat_persona_status, estado, tx_correo, tx_fecha, tx_host)
 VALUES ('Camila', 'Sucha', false, '580-708-5752', 'Vilares', '2022-06-20', 207, 41, 29, 'http://dummyimage.com/133x100.png/ff4444/ffffff', false, true, 'carlitos@gmail.com', now(), '142.158.189.231');
 
+INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, cat_persona_status, estado, tx_correo, tx_fecha, tx_host)
+VALUES ('Camila', 'Sucha', false, '580-708-5752', 'Vilares', '2022-06-20', 207, 41, 29, 'http://dummyimage.com/133x100.png/ff4444/ffffff', false, true, 'anonymus', now(), '142.158.189.231');
+
 SELECT * FROM sp_persona;
 
 -- INSERTS DEPORTE
@@ -29,14 +32,16 @@ SELECT * FROM sp_deporte;
 
 -- INSERTS CUENTA
 
-INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
-VALUES (2, 1, 'amaral@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
-INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
-VALUES (1, 1, 'amirb@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
-INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
-VALUES (26, null, 'carlos@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
-INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
-VALUES (23, null, 'colan@gmail.com', '$2a$12$lZC5vCrthu/3S/NnI2oC5On64GA.TY1JT9qtoVDEdyQq5uIf/OEJq', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+VALUES (1, 'amaral@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+VALUES (1, 'amirb@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+VALUES (null, 'carlos@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+VALUES (null, 'colan@gmail.com', '$2a$12$lZC5vCrthu/3S/NnI2oC5On64GA.TY1JT9qtoVDEdyQq5uIf/OEJq', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+INSERT INTO sp_cuenta (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+VALUES (null, 'colan@gmail.com', '$2a$12$lZC5vCrthu/3S/NnI2oC5On64GA.TY1JT9qtoVDEdyQq5uIf/OEJq', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 SELECT * FROM sp_cuenta;
 
@@ -121,8 +126,8 @@ AS $$
         INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, cat_persona_status, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, estado, tx_correo, tx_fecha, tx_host)
         VALUES ('Camila', 'Lopez', true, '12-3232-4141','La Paz', true,'2022-06-20', 160, 65, 20, 'http://dummyimage.com/133x100.png/ff4444/ffffff', true, 'camilal@gmail.com', now(),'167.130.231.107');
 
-        INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
-        VALUES (1, 1, 'camilal@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+        INSERT INTO sp_cuenta (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+        VALUES (1, 'camilal@gmail.com', 'ACADASAS@13123123', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
 
 END;$$;
 
@@ -141,8 +146,8 @@ CREATE OR REPLACE FUNCTION inst_cuenta()
 returns trigger as
 $$
 BEGIN
-    INSERT INTO sp_cuenta (id_persona, id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
-    VALUES (new.id_persona, 1, '', '', true, 'alampaert1@businessweek.com', now(), '167.130.231.107');
+    INSERT INTO sp_cuenta (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host)
+    VALUES (1, 'hola', 'hola', true, 'anonymus', now(), 'localhost');
 return new;
 END;
 $$
@@ -278,8 +283,42 @@ SELECT contrasenia FROM sp_cuenta WHERE correo = 'pablex.com';
 -- CONSTRAINT DE UNIQUE para correo en sp_cuenta.
 ALTER TABLE sp_cuenta ADD CONSTRAINT sp_cuenta_correo UNIQUE (correo);
 
-SELECT p.nombres, p. apellidos, c.correo
-FROM sp_cuenta c
-         INNER JOIN sp_persona p ON c.id_persona = p.id_persona
-WHERE c.correo = 'amirb@gmail.com'
-  AND c.estado = true
+-- agregar columna nombre a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN nombre VARCHAR(100) ;
+-- agregar columna apellido a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN apellido VARCHAR(100);
+-- agregar columna numero_telefono a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN numero_telefono VARCHAR(100);
+-- agregar columna genero a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN genero VARCHAR(100);
+-- argregar columna ciudad a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN ciudad VARCHAR(100);
+-- agregar columna fecha_nacimiento a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN fecha_nacimiento DATE;
+-- agragar columna altura a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN altura DECIMAL(5,2);
+-- agregar columna peso a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN peso DECIMAL(5,2);
+-- agregar columna indice_masa_corporal a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN indice_masa_corporal Integer;
+-- agregar columna foto a sp_cuenta
+ALTER TABLE sp_cuenta ADD COLUMN foto VARCHAR(500);
+
+-- cambiando campos a nulleables en la tabla sp_cuenta
+
+ALTER TABLE sp_cuenta ALTER COLUMN nombre DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN apellido DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN numero_telefono DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN genero DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN ciudad DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN fecha_nacimiento DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN altura DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN peso DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN indice_masa_corporal DROP NOT NULL;
+ALTER TABLE sp_cuenta ALTER COLUMN foto DROP NOT NULL;
+
+
+
+-- insertar datos en sp_cuenta
+UPDATE sp_cuenta SET nombre = 'Pablo', apellido = 'Gonzalez', numero_telefono = '0987654321' WHERE id_cuenta = 1;
+
