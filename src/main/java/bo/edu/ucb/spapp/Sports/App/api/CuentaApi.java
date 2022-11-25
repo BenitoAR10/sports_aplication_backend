@@ -33,6 +33,11 @@ public class CuentaApi {
     @PostMapping
     public RespuestaDto<String> crearCuenta(@RequestHeader Map<String, String> headers, @RequestBody CrearCuentaDto crearCuentaDto){
         try{
+            Thread.sleep(2000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        try{
             String jwt = AuthUtil.getTokenFromHeader(headers);
             // Si no tiene el rol de super usuario, no puede crear cuentas. Y se lanzara una excepcion.
             AuthUtil.verifyHasRole(jwt, "Agregar entrenamientos"); // Autorizacion para crear cuentas de usuario.

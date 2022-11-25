@@ -28,6 +28,12 @@ public class AutenticacionApi {
      */
     @PostMapping()
     public RespuestaDto<RespAutenticacionDto> authentication(@RequestBody SoliAutenticacionDto soliAutenticacionDto){
+        try{
+            Thread.sleep(2000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
         if (soliAutenticacionDto != null && soliAutenticacionDto.getCorreo() != null && soliAutenticacionDto.getContrasenia() != null) {
             // retorna los tokens, null porque no hay erro y true porque fue exitoso.
             try{
