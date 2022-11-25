@@ -139,7 +139,7 @@ order by op.precio_oferta asc limit 3;
 
 -- Obtener los productos con mayor numero de vistas --
 
-select p.numero_de_vistas, p.nombre, p.marca, pt.precio,  op.precio_oferta
+select p.id_producto, p.numero_de_vistas, p.nombre, p.marca, pt.precio,  op.precio_oferta
 from sp_producto p
   inner join sp_oferta_producto op on p.id_producto = op.id_producto
   inner join sp_producto_tienda pt on p.id_producto = pt.id_producto

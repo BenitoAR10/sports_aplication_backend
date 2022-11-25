@@ -1,7 +1,6 @@
 package bo.edu.ucb.spapp.Sports.App.dto;
 // Creamos una clase DTO para los datos que queremos retornar al cliente via API.
 public class ProductoDto {
-    private int idProducto;
     private String nombre;
     private String marca;
     private Boolean Genero;
@@ -13,22 +12,14 @@ public class ProductoDto {
     public ProductoDto() {
     }
 
-    public ProductoDto(int idProducto, String nombre, String marca, Boolean Genero, double peso, int amortiguacion) {
-        this.idProducto = idProducto;
+    public ProductoDto( String nombre, String marca, Boolean Genero, double peso, int amortiguacion) {
+
         this.nombre = nombre;
         this.marca = marca;
         this.Genero = Genero;
         this.peso = peso;
         this.amortiguacion = amortiguacion;
         this.talla = talla;
-    }
-
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
     }
 
     public String getNombre() {
@@ -82,7 +73,7 @@ public class ProductoDto {
     //toString
     @Override
     public String toString() {
-        return "ProductoDto{" + "idProducto=" + idProducto + ", nombre=" + nombre + ", marca=" + marca + ", Genero=" + Genero + ", peso=" + peso + ", amortiguacion=" + amortiguacion + ", talla=" + talla + '}';
+        return "ProductoDto{"+"nombre=" + nombre + ", marca=" + marca + ", Genero=" + Genero + ", peso=" + peso + ", amortiguacion=" + amortiguacion + ", talla=" + talla + '}';
     }
 
 }
