@@ -9,8 +9,8 @@ public interface CuentaUsuarioDao {
 
     @Insert(
             """
-            INSERTO INTO sp_cuenta_grupos
-            (id_cuenta, id_grupo, estado, tx_correo, tx_fecha, tx_host)
+            INSERT INTO sp_cuenta_grupos
+            (id_cuenta, id_grupos, estado, tx_correo, tx_fecha, tx_host)
             VALUES
             (#{idCuenta}, 1, true, 'anonymous', now(), 'localhost')
             """)

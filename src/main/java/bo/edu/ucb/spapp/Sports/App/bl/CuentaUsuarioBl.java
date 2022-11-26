@@ -31,6 +31,7 @@ public class CuentaUsuarioBl {
        this.spCuentaDao.crearCuenta(spCuenta);
 
        Integer idCuenta = spCuentaDao.findIdByCorreo(crearCuentaDto.getCorreo());
+       System.out.println(idCuenta);
 
        this.cuentaUsuarioDao.cuentaGrupoUsuario(idCuenta);
    }

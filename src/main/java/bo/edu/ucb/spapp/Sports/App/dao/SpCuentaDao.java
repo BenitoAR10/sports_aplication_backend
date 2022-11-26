@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public interface SpCuentaDao {
     // Buscar por id
     @Select("""
-            SELECT id_cuenta, id_persona, id_deporte,
+            SELECT id_cuenta, id_deporte,
                correo, contrasenia, estado, tx_correo, tx_fecha, tx_host
             FROM
                 sp_cuenta
@@ -41,6 +41,16 @@ public interface SpCuentaDao {
             """)
     String findSecretByCorreo(String correo);
 
+    @Select("""
+            SELECT id_cuenta, id_deporte,
+               correo, contrasenia, estado, tx_correo, tx_fecha, tx_host
+            FROM
+                sp_cuenta
+            WHERE
+                correo = #{correo}
+                AND estado = true
+            """)
+    SpCuenta findByCorreo(String correo);
 
 
     @Insert("""

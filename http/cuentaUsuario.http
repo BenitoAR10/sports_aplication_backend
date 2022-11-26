@@ -1,0 +1,14 @@
+### Creamos nuevo usuario
+
+POST http://localhost:25060/api/v1/cuenta/usuario/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idDeporte": 1,
+  "correo": "vladymir@gmail.com",
+  "contrasenia": "123456789",
+  "nombre": "Vladymir",
+  "apellido": "Gomez",
+  "numeroTelefono": "123456789"
+}
