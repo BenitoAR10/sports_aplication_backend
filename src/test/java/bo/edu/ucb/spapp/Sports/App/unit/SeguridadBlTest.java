@@ -1,12 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.unit;
 
-import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
-import bo.edu.ucb.spapp.Sports.App.dto.RespAutenticacionDto;
-import bo.edu.ucb.spapp.Sports.App.dto.SoliAutenticacionDto;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 
 // @SpringBootTest Esto me permite hacer pruebas de integracion con la base de datos.

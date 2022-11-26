@@ -9,7 +9,6 @@ import bo.edu.ucb.spapp.Sports.App.entity.*;
 
 import bo.edu.ucb.spapp.Sports.App.entity.EtyLugarEntrenamiento;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

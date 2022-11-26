@@ -12,11 +12,10 @@ public interface CuentaPersonaDao {
      * Buscar cuenta y nombre
      */
     @Select("""
-            SELECT p.nombres, p. apellidos, c.correo
-            FROM sp_cuenta c
-                     INNER JOIN sp_persona p ON c.id_persona = p.id_persona
-            WHERE c.correo = #{correo}
-              AND c.estado = true
+            SELECT nombres, apellidos, correo
+                FROM sp_cuenta          
+            WHERE correo = #{correo}
+              AND estado = true
             """)
     public EtyCuentaPersona findByCorreo(String correo);
 

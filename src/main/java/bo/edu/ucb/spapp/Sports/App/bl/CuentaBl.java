@@ -5,7 +5,6 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import bo.edu.ucb.spapp.Sports.App.dao.CuentaPersonaDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
-import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.EtyCuentaPersona;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.springframework.stereotype.Service;
@@ -25,12 +24,12 @@ public class CuentaBl {
         SpCuenta spCuenta = new SpCuenta();
         spCuenta.setIdDeporte(crearCuentaDto.getIdDeporte());
         spCuenta.setCorreo(crearCuentaDto.getCorreo());
-        spCuenta.setNombre(crearCuentaDto.getNombre());
-        spCuenta.setApellido(crearCuentaDto.getApellido());
+        spCuenta.setNombres(crearCuentaDto.getNombre());
+        spCuenta.setApellidos(crearCuentaDto.getApellido());
         spCuenta.setNumeroTelefono(crearCuentaDto.getNumeroTelefono());
         String contrasenia = BCrypt.withDefaults().hashToString(12, crearCuentaDto.getContrasenia().toCharArray());
         crearCuentaDto.getContrasenia();
-        spCuenta.setSecret(contrasenia);
+        spCuenta.setContrasena(contrasenia);
         this.spCuentaDao.crearCuenta(spCuenta);
     }
 

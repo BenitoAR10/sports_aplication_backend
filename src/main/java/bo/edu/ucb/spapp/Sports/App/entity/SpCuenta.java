@@ -1,41 +1,51 @@
 package bo.edu.ucb.spapp.Sports.App.entity;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
-// Creamos la clase SpCuenta con sus atributos, constructor y metodos get y set
-public class SpCuenta {
+
+public class SpCuenta{
     private Integer idCuenta;
     private Integer idDeporte;
     private String correo;
-    private String secret;
+    private String contrasenia;
+    private String nombres;
+    private String apellidos;
+    private String numeroTelefono;
+    private String genero;
+    private String ciudad;
+    private String fechaNacimiento;
+    private String altura;
+    private String peso;
+    private String indiceMasaCorporal;
+    private String foto;
     private Boolean estado;
     private String tx_correo;
     private Date tx_fecha;
     private String tx_host;
 
-    private String nombre;
-    private String apellido;
-    private String numeroTelefono;
-    // Constructor vacio de la clase.
-    public SpCuenta() {
+    public SpCuenta(){
     }
-    // Constructor con parametros de la clase.
 
-
-    public SpCuenta(Integer idCuenta, Integer idDeporte, String correo, String secret, Boolean estado, String tx_correo, Date tx_fecha, String tx_host, String nombre, String apellido, String numeroTelefono) {
+    public SpCuenta(Integer idCuenta, Integer idDeporte, String correo, String contrasenia, String nombres, String apellidos, String numeroTelefono, String genero, String ciudad, String fechaNacimiento, String altura, String peso, String indiceMasaCorporal, String foto, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
         this.idCuenta = idCuenta;
         this.idDeporte = idDeporte;
         this.correo = correo;
-        this.secret = secret;
+        this.contrasenia = contrasenia;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.numeroTelefono = numeroTelefono;
+        this.genero = genero;
+        this.ciudad = ciudad;
+        this.fechaNacimiento = fechaNacimiento;
+        this.altura = altura;
+        this.peso = peso;
+        this.indiceMasaCorporal = indiceMasaCorporal;
+        this.foto = foto;
         this.estado = estado;
         this.tx_correo = tx_correo;
         this.tx_fecha = tx_fecha;
         this.tx_host = tx_host;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.numeroTelefono = numeroTelefono;
     }
-
     public Integer getIdCuenta() {
         return idCuenta;
     }
@@ -60,12 +70,92 @@ public class SpCuenta {
         this.correo = correo;
     }
 
-    public String getSecret() {
-        return secret;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setSecret(String secret) {
-        this.secret = secret;
+    public void setContrasena(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getAltura() {
+        return altura;
+    }
+
+    public void setAltura(String altura) {
+        this.altura = altura;
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public void setPeso(String peso) {
+        this.peso = peso;
+    }
+
+    public String getIndiceMasaCorporal() {
+        return indiceMasaCorporal;
+    }
+
+    public void setIndiceMasaCorporal(String indiceMasaCorporal) {
+        this.indiceMasaCorporal = indiceMasaCorporal;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public Boolean getEstado() {
@@ -100,59 +190,39 @@ public class SpCuenta {
         this.tx_host = tx_host;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getNumeroTelefono() {
-        return numeroTelefono;
-    }
-
-    public void setNumeroTelefono(String numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
-    }
-
     @Override
     public String toString() {
         return "SpCuenta{" +
                 "idCuenta=" + idCuenta +
                 ", idDeporte=" + idDeporte +
                 ", correo='" + correo + '\'' +
-                ", secret='" + secret + '\'' +
+                ", contrasenia='" + contrasenia + '\'' +
+                ", nombres='" + nombres + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", numeroTelefono='" + numeroTelefono + '\'' +
+                ", genero='" + genero + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                ", altura='" + altura + '\'' +
+                ", peso='" + peso + '\'' +
+                ", indiceMasaCorporal='" + indiceMasaCorporal + '\'' +
+                ", foto='" + foto + '\'' +
                 ", estado=" + estado +
                 ", tx_correo='" + tx_correo + '\'' +
                 ", tx_fecha=" + tx_fecha +
                 ", tx_host='" + tx_host + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", numeroTelefono='" + numeroTelefono + '\'' +
                 '}';
     }
-
-    // Metodo equals para comparar los datos de la clase.
-    // En este caso solo comparamos el idCuenta.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SpCuenta spCuenta = (SpCuenta) o;
-        return idCuenta.equals(spCuenta.idCuenta);
+        SpCuenta cuenta = (SpCuenta) o;
+        return Objects.equals(idCuenta, cuenta.idCuenta) ;
     }
-    // Metodo hashCode para comparar el idCuenta.
+
     @Override
     public int hashCode() {
         return Objects.hash(idCuenta);
     }
-} // Fin de la clase SpCuenta.
+}
