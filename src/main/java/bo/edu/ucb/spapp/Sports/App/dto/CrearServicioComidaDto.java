@@ -1,5 +1,5 @@
 package bo.edu.ucb.spapp.Sports.App.dto;
-
+// clase dto CrearServicioComidaDto que representa los datos que se enviaran al API para crear un servicio de comida
 public class CrearServicioComidaDto {
     private Integer idCuenta;
     private String nombreLugar;

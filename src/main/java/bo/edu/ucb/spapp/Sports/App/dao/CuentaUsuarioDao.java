@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface CuentaUsuarioDao {
-
+    // Insert para asignar un rol de usuario a una cuenta
     @Insert(
             """
             INSERT INTO sp_cuenta_grupos

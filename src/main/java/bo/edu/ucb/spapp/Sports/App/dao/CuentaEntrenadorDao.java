@@ -3,9 +3,11 @@ package bo.edu.ucb.spapp.Sports.App.dao;
 import org.apache.ibatis.annotations.Insert;
 import org.springframework.stereotype.Component;
 
+
+
 @Component
 public interface CuentaEntrenadorDao {
-
+    // Insert para asiganar el rol de entrenador a una cuenta
     @Insert(
             """
             INSERT INTO sp_cuenta_grupos

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface CuentaTiendaDao {
+    // Insert para asignar el rol de agregar tienda a una cuenta
     @Insert(
             """
             INSERT INTO sp_cuenta_grupos

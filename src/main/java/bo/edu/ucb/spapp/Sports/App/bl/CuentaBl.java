@@ -17,6 +17,8 @@ public class CuentaBl {
 
         this.spCuentaDao = spCuentaDao;
     }
+
+    // Metodo para crear una cuenta
     public void crearCuenta(CrearCuentaDto crearCuentaDto){
         SpCuenta spCuenta = new SpCuenta();
         spCuenta.setIdDeporte(crearCuentaDto.getIdDeporte());
@@ -29,7 +31,7 @@ public class CuentaBl {
         spCuenta.setContrasena(contrasenia);
         this.spCuentaDao.crearCuenta(spCuenta);
     }
-
+    // Metodo para obtener los datos de una cuenta por medio del correo
     public SpCuenta findByCorreo(String correo) {
         return spCuentaDao.findByCorreo(correo);
     }

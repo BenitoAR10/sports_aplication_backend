@@ -31,6 +31,7 @@ public interface SpCuentaDao {
             """)
     Integer findIdByCorreo(String correo);
 
+    // Busqueda de contraseña por el correo de la cuenta
     @Select("""
             SELECT contrasenia
             FROM
@@ -40,6 +41,8 @@ public interface SpCuentaDao {
                 AND estado = true
             """)
     String findSecretByCorreo(String correo);
+
+    // Busqueda de usuario por el correo de la cuenta
 
     @Select("""
             SELECT id_cuenta, id_deporte,
@@ -52,6 +55,8 @@ public interface SpCuentaDao {
             """)
     SpCuenta findByCorreo(String correo);
 
+
+    // Creacion de una cuenta con los campos obligatorios
 
     @Insert("""
             INSERT INTO sp_cuenta

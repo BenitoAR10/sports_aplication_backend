@@ -3,6 +3,8 @@ package bo.edu.ucb.spapp.Sports.App.entity;
 import java.sql.Date;
 import java.util.Objects;
 
+
+// Clase entidad SpCuenta con todos los atributos de la tabla sp_cuenta de la base de datos.
 public class SpCuenta{
     private Integer idCuenta;
     private Integer idDeporte;
@@ -23,8 +25,11 @@ public class SpCuenta{
     private Date tx_fecha;
     private String tx_host;
 
+    // Contructor sin parametros
     public SpCuenta(){
     }
+
+    // Contructor con parametros
 
     public SpCuenta(Integer idCuenta, Integer idDeporte, String correo, String contrasenia, String nombres, String apellidos, String numeroTelefono, String genero, String ciudad, String fechaNacimiento, String altura, String peso, String indiceMasaCorporal, String foto, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
         this.idCuenta = idCuenta;
@@ -46,6 +51,8 @@ public class SpCuenta{
         this.tx_fecha = tx_fecha;
         this.tx_host = tx_host;
     }
+
+    // Metodos get y set de todos los atributos de la clase.
     public Integer getIdCuenta() {
         return idCuenta;
     }
@@ -190,6 +197,7 @@ public class SpCuenta{
         this.tx_host = tx_host;
     }
 
+    // Metodo toString de la clase.
     @Override
     public String toString() {
         return "SpCuenta{" +
@@ -213,6 +221,8 @@ public class SpCuenta{
                 ", tx_host='" + tx_host + '\'' +
                 '}';
     }
+
+    // Metodo equals para compara por idCuenta.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -14,12 +14,12 @@ public class CuentaServicioComidaBl {
     private SpCuentaDao spCuentaDao;
 
     private CuentaServicioComidaDao cuentaServicioComidaDao;
-
+    // Contructor
     public CuentaServicioComidaBl(SpCuentaDao spCuentaDao, CuentaServicioComidaDao cuentaServicioComidaDao) {
         this.spCuentaDao = spCuentaDao;
         this.cuentaServicioComidaDao = cuentaServicioComidaDao;
     }
-
+    // Metodo para crear una cuenta de servicio de comida
     public void crearCuentaServicioComida(CrearCuentaDto crearCuentaDto){
         SpCuenta spCuenta = new SpCuenta();
         spCuenta.setIdDeporte(crearCuentaDto.getIdDeporte());
@@ -32,6 +32,7 @@ public class CuentaServicioComidaBl {
         spCuenta.setContrasena(contrasenia);
         this.spCuentaDao.crearCuenta(spCuenta);
 
+        // Asiganmos el id de la cuenta al grupo de servicio de comida para la autorizacion
         Integer idCuenta = spCuentaDao.findIdByCorreo(crearCuentaDto.getCorreo());
         this.cuentaServicioComidaDao.cuentaGrupoServicioComida(idCuenta);
 

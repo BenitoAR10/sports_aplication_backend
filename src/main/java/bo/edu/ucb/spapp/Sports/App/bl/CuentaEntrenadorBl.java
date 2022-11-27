@@ -14,12 +14,12 @@ public class CuentaEntrenadorBl {
     private SpCuentaDao spCuentaDao;
 
     private CuentaEntrenadorDao cuentaEntrenadorDao;
-
+    // Contructor
     public CuentaEntrenadorBl(SpCuentaDao spCuentaDao, CuentaEntrenadorDao cuentaEntrenadorDao) {
         this.spCuentaDao = spCuentaDao;
         this.cuentaEntrenadorDao = cuentaEntrenadorDao;
     }
-
+    // Metodo para crear una cuenta de entrenador
     public void crearCuentaEntrenador(CrearCuentaDto crearCuentaDto){
         SpCuenta spCuenta = new SpCuenta();
         spCuenta.setIdDeporte(crearCuentaDto.getIdDeporte());
@@ -32,6 +32,7 @@ public class CuentaEntrenadorBl {
         spCuenta.setContrasena(contrasenia);
         this.spCuentaDao.crearCuenta(spCuenta);
 
+        // Asiganmos el id de la cuenta al grupo de entrenadores para la autorizacion
         Integer idCuenta = spCuentaDao.findIdByCorreo(crearCuentaDto.getCorreo());
         this.cuentaEntrenadorDao.cuentaGrupoEntrenador(idCuenta);
     }

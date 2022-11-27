@@ -1,5 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.dto;
 
+
+// Clase dto CrearCuentaDto que represemta los datos que se enviaran al API para crear una cuenta
 public class CrearCuentaDto {
     private Integer idDeporte;
     private String correo;

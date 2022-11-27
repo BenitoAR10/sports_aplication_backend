@@ -14,12 +14,12 @@ public class CuentaTiendaBl {
     private SpCuentaDao spCuentaDao;
 
     private CuentaTiendaDao cuentaTiendaDao;
-
+    // Contructor
     public CuentaTiendaBl(SpCuentaDao spCuentaDao, CuentaTiendaDao cuentaTiendaDao) {
         this.spCuentaDao = spCuentaDao;
         this.cuentaTiendaDao = cuentaTiendaDao;
     }
-
+    // Metodo para crear una cuenta de tienda
     public void crearCuentaTienda(CrearCuentaDto crearCuentaDto){
         SpCuenta spCuenta = new SpCuenta();
         spCuenta.setIdDeporte(crearCuentaDto.getIdDeporte());
@@ -31,7 +31,7 @@ public class CuentaTiendaBl {
         crearCuentaDto.getContrasenia();
         spCuenta.setContrasena(contrasenia);
         this.spCuentaDao.crearCuenta(spCuenta);
-
+        //  Asiganmos el id de la cuenta al grupo de tiendas para la autorizacion
         Integer idCuenta = spCuentaDao.findIdByCorreo(crearCuentaDto.getCorreo());
         this.cuentaTiendaDao.cuentaGrupoTienda(idCuenta);
     }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface CuentaServicioLgEntrenamientoDao {
+    // Insert para asignar el rol de Servicio lugar de entrenamiento a una cuenta
     @Insert(
             """
             INSERT INTO sp_cuenta_grupos

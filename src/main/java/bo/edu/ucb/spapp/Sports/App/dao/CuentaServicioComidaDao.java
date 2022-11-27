@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 
 public interface CuentaServicioComidaDao {
+    // Insert para asiganar el rol de servicio de comida a una cuenta
     @Insert(
             """
             INSERT INTO sp_cuenta_grupos
