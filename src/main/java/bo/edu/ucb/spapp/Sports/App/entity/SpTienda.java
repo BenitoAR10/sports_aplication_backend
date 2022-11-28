@@ -12,36 +12,54 @@ public class SpTienda {
     private String nombrePropietario;
     private String apellidoPropietario;
     private String fotoTienda;
+<<<<<<< HEAD
+=======
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
     private String correo;
     private String telefono;
     private String nit;
     private String direccion;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
     private double latitud;
     private double longitud;
     private Boolean estado;
 
+<<<<<<< HEAD
+=======
 
 
 
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
     private String tx_correo;
     private Date tx_fecha;
     private String tx_host;
 
+<<<<<<< HEAD
+ // Crear constructor vacio
+    public SpTienda() {
+    }
+=======
 
 
     public SpTienda() {
     }
 
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
 
     // Crear constructor con todos los atributos
 
     public SpTienda(Integer idTienda, Integer idCuenta, String nombreTienda, String nombrePropietario, String apellidoPropietario, String fotoTienda, String correo, String telefono, String nit, String direccion, Double latitud, Double longitud, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
+<<<<<<< HEAD
+=======
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
         this.idTienda = idTienda;
         this.idCuenta = idCuenta;
         this.nombreTienda = nombreTienda;
@@ -60,10 +78,13 @@ public class SpTienda {
         this.tx_host = tx_host;
     }
 
+<<<<<<< HEAD
+=======
 
     // Crear getters y setters
 
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
     public Integer getIdTienda() {
         return idTienda;
     }
@@ -159,25 +180,34 @@ public class SpTienda {
     public void setLongitud(double longitud) {
         this.longitud = longitud;
     }
+<<<<<<< HEAD
+=======
 
 
 
 
 
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
     public Boolean getEstado() {
         return estado;
     }
 
     public void setEstado(Boolean estado) {
+<<<<<<< HEAD
+=======
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
         this.estado = estado;
     }
 
     public String getTx_correo() {
         return tx_correo;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
 
     public void setTx_correo(String tx_correo) {
         this.tx_correo = tx_correo;
@@ -199,7 +229,10 @@ public class SpTienda {
         this.tx_host = tx_host;
     }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
     // Crear toString
 
     @Override
@@ -224,4 +257,7 @@ public class SpTienda {
                 '}';
     }
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f

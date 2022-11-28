@@ -1,6 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.entity;
 
 public class EtyLugarEntrenador {
+    private int idEntrenador;
     private int idCuenta;
     private String nombres;
     private String apellidos;
@@ -13,7 +14,8 @@ public class EtyLugarEntrenador {
     public EtyLugarEntrenador() {
     }
 
-    public EtyLugarEntrenador(int idCuenta, String nombres, String apellidos, String fotoEntrenador, String correo, boolean estado, String txCorreo, String txHost) {
+    public EtyLugarEntrenador(int idEntrenador, int idCuenta, String nombres, String apellidos, String fotoEntrenador, String correo, boolean estado, String txCorreo, String txHost) {
+        this.idEntrenador = idEntrenador;
         this.idCuenta = idCuenta;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -86,5 +88,13 @@ public class EtyLugarEntrenador {
 
     public void setTxHost(String txHost) {
         this.txHost = txHost;
+    }
+
+    public int getIdEntrenador() {
+        return idEntrenador;
+    }
+
+    public void setIdEntrenador(int idEntrenador) {
+        this.idEntrenador = idEntrenador;
     }
 }

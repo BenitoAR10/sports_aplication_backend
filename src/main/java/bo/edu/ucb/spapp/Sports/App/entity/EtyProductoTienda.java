@@ -1,6 +1,6 @@
-package bo.edu.ucb.spapp.Sports.App.dto;
+package bo.edu.ucb.spapp.Sports.App.entity;
 
-public class ProductoTiendaDto {
+public class EtyProductoTienda {
     private String nombreTienda;
     private String fotoTienda;
     private String telefono;
@@ -17,10 +17,10 @@ public class ProductoTiendaDto {
     private double precio;
     private Boolean estado;
 
-    public ProductoTiendaDto() {
+    public EtyProductoTienda() {
     }
 
-    public ProductoTiendaDto(String nombreTienda, String fotoTienda, String telefono, String direccion, double latitud, double longitud, String nombre, String imagen, String marca, Boolean genero, double peso, int amortiguacion, double talla, double precio, Boolean estado) {
+    public EtyProductoTienda(String nombreTienda, String fotoTienda, String telefono, String direccion, double latitud, double longitud, String nombre, String imagen, String marca, Boolean genero, double peso, int amortiguacion, double talla, double precio, Boolean estado) {
         this.nombreTienda = nombreTienda;
         this.fotoTienda = fotoTienda;
         this.telefono = telefono;
@@ -158,9 +158,8 @@ public class ProductoTiendaDto {
         this.estado = estado;
     }
 
-    //toString
     @Override
     public String toString() {
-        return "ProductoTiendaDto{" + "nombreTienda=" + nombreTienda + ", fotoTienda=" + fotoTienda + ", telefono=" + telefono + ", direccion=" + direccion + ", latitud=" + latitud + ", longitud=" + longitud + ", nombre=" + nombre + ", imagen=" + imagen + ", marca=" + marca + ", genero=" + genero + ", peso=" + peso + ", amortiguacion=" + amortiguacion + ", talla=" + talla + ", precio=" + precio + ", estado=" + estado + '}';
+        return "EtyProductoTienda{" + "nombreTienda=" + nombreTienda + ", fotoTienda=" + fotoTienda + ", telefono=" + telefono + ", direccion=" + direccion + ", latitud=" + latitud + ", longitud=" + longitud + ", nombre=" + nombre + ", imagen=" + imagen + ", marca=" + marca + ", genero=" + genero + ", peso=" + peso + ", amortiguacion=" + amortiguacion + ", talla=" + talla + ", precio=" + precio + ", estado=" + estado + '}';
     }
 }

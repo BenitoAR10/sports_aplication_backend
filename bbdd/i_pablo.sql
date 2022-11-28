@@ -191,3 +191,10 @@ select * from sp_producto;
 --SELECT * from sp_oferta_cuenta;
 --SELECT * from sp_producto_tienda;
 --SELECT * from sp_producto_cuenta;
+
+SELECT t.nombre_tienda, t.foto_tienda, t.telefono, t.direccion, t.latitud, t.longitud,
+       p.nombre,p.imagen,p.marca, p.genero, p.peso, p.amortiguacion, p.talla,pt.precio, p.estado
+FROM sp_producto p
+INNER JOIN sp_producto_tienda pt ON p.id_producto = pt.id_producto
+INNER JOIN sp_tienda t ON t.id_tienda = pt.id_tienda
+WHERE p.estado = true;

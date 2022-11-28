@@ -1,6 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.dto;
 
 public class LugarEntrenadorDto {
+    private int idEntrenador;
     private int idCuenta;
     private String nombres;
     private String apellidos;
@@ -10,7 +11,8 @@ public class LugarEntrenadorDto {
     public LugarEntrenadorDto() {
     }
 
-    public LugarEntrenadorDto(int idCuenta, String nombres, String apellidos, String fotoEntrenador, String correo) {
+    public LugarEntrenadorDto(int idEntrenador, int idCuenta, String nombres, String apellidos, String fotoEntrenador, String correo) {
+        this.idEntrenador = idEntrenador;
         this.idCuenta = idCuenta;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -56,5 +58,13 @@ public class LugarEntrenadorDto {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public int getIdEntrenador() {
+        return idEntrenador;
+    }
+
+    public void setIdEntrenador(int idEntrenador) {
+        this.idEntrenador = idEntrenador;
     }
 }
