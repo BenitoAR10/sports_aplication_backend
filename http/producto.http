@@ -1,4 +1,26 @@
 
-### Datos de los productos
-GET http://localhost:25060/api/v1/producto/5
+### Datos de los productos top 3
+GET http://localhost:25060/api/v1/productoTiendaOferta/5
 
+### Datos de un producto y tienda
+GET http://localhost:25060/api/v1/productoTienda/5
+
+### Datos los productos en la base de datos
+GET http://localhost:25060/api/v1/productos/5
+
+### Creamos un nuevo producto
+POST http://localhost:25060/api/v1/producto/
+Content-Type: application/json
+Accept: application/json
+#Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xhbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGNvbWlkYSJdLCJpc3MiOiJ1Y2IiLCJyZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjY5MDEyNDIzfQ.wAEVAhm53NnJBN-R3DRGysUSamBEWiSML5_P5UyPo2o
+
+{
+    "idProducto": 6,
+    "nombre": "Terra Hunter 200",
+    "descripcion": "Imparable sobre cualquier terreno",
+    "imagen": "/file/img/terra_hunter_200.jpg",
+    "marca": "Nike",
+    "tipoProducto": "Tennis",
+    "estado": true,
+    "color": "Azul"
+}
