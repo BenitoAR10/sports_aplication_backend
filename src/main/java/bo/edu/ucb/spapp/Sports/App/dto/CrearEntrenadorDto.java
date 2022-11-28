@@ -1,5 +1,5 @@
 package bo.edu.ucb.spapp.Sports.App.dto;
-
+// CLase dto CrearEntradorDto que representa los datos que se enviaran al API para crear un entrenador
 public class CrearEntrenadorDto {
     private Integer idCuenta;
     private String fotoEntrenador;

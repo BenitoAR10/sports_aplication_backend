@@ -1,0 +1,14 @@
+### Crear nueva cuenta
+
+POST http://localhost:25060/api/v1/cuenta/servicio-comida/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idDeporte": null,
+  "correo": "scomida@gmail.com",
+  "contrasenia": "123456789",
+  "nombre": "Vladymir",
+  "apellido": "Gomez",
+  "numeroTelefono": "123456789"
+}

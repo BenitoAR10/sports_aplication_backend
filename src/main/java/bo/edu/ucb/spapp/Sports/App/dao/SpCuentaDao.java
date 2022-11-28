@@ -1,6 +1,6 @@
 package bo.edu.ucb.spapp.Sports.App.dao;
 
-import bo.edu.ucb.spapp.Sports.App.entity.SpPersona;
+
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -9,8 +9,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface SpCuentaDao {
+    // Buscar por id
     @Select("""
-            SELECT id_cuenta, id_persona, id_deporte,
+            SELECT id_cuenta, id_deporte,
                correo, contrasenia, estado, tx_correo, tx_fecha, tx_host
             FROM
                 sp_cuenta
@@ -19,18 +20,18 @@ public interface SpCuentaDao {
                 AND estado = true
             """)
     SpCuenta findByPrimarykey(Integer idCuenta);
-
+    // Buscar por de id por su correo
     @Select("""
-            SELECT id_cuenta, id_persona, id_deporte,
-               correo, contrasenia, estado, tx_correo, tx_fecha, tx_host
+            SELECT id_cuenta
             FROM
                 sp_cuenta
             WHERE
-                id_cuenta = #{correo}
+                correo = #{correo}
                 AND estado = true
             """)
-    SpCuenta findByCorreo(String correo);
+    Integer findIdByCorreo(String correo);
 
+    // Busqueda de contraseña por el correo de la cuenta
     @Select("""
             SELECT contrasenia
             FROM
@@ -41,20 +42,27 @@ public interface SpCuentaDao {
             """)
     String findSecretByCorreo(String correo);
 
+    // Busqueda de usuario por el correo de la cuenta
 
-    @Insert("""
-            INSERT INTO sp_persona (nombres, apellidos, genero, numero_telefono, ciudad, cat_persona_status, fecha_nacimiento, altura, peso, indice_masa_corporal, foto, estado, tx_correo, tx_fecha, tx_host)
-            VALUES
-                (#{nombres}, #{apellidos}, #{genero}, #{numeroTelefono}, #{ciudad}, #{catPersonaStatus}, #{fechaNacimiento}, #{altura}, #{peso}, #{indiceMasaCorporal}, #{foto}, true, 'anonymous', now(), 'localhost')
+    @Select("""
+            SELECT id_cuenta, id_deporte,
+               correo, contrasenia, estado, tx_correo, tx_fecha, tx_host
+            FROM
+                sp_cuenta
+            WHERE
+                correo = #{correo}
+                AND estado = true
             """)
+    SpCuenta findByCorreo(String correo);
 
-    void crearPersona(SpPersona spCrearCuenta);
+
+    // Creacion de una cuenta con los campos obligatorios
 
     @Insert("""
             INSERT INTO sp_cuenta
-               (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host, nombre, apellido, numero_telefono)
+               (id_deporte, correo, contrasenia, estado, tx_correo, tx_fecha, tx_host, nombres, apellidos, numero_telefono)
             VALUES
-                (#{idDeporte}, #{correo}, #{secret}, true, 'anonymous', now(), 'localhost', #{nombre}, #{apellido}, #{numeroTelefono})
+                (#{idDeporte}, #{correo}, #{contrasenia}, true, 'anonymous', now(), 'localhost', #{nombres}, #{apellidos}, #{numeroTelefono})
             """)
 
 

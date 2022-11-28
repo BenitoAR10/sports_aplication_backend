@@ -6,7 +6,7 @@ import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
-import bo.edu.ucb.spapp.Sports.App.entity.EtyCuentaPersona;
+import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import bo.edu.ucb.spapp.Sports.App.util.AuthUtil;
 import bo.edu.ucb.spapp.Sports.App.util.SpException;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
@@ -67,7 +67,7 @@ public class CuentaApi {
      * @return
      */
     @GetMapping("/")
-    public RespuestaDto<EtyCuentaPersona> getUserFromToken(@RequestHeader Map<String, String> headers){
+    public RespuestaDto<SpCuenta> getUserFromToken(@RequestHeader Map<String, String> headers){
         try{
             String correo = AuthUtil.isUserAuthenticated(AuthUtil.getTokenFromHeader(headers));
             return new RespuestaDto<>(this.cuentaBl.findByCorreo(correo), null, true);

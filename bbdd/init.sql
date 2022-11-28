@@ -288,3 +288,17 @@ ALTER TABLE sp_cuenta ALTER COLUMN foto DROP NOT NULL;
 -- insertar datos en sp_cuenta
 UPDATE sp_cuenta SET nombre = 'Pablo', apellido = 'Gonzalez', numero_telefono = '0987654321' WHERE id_cuenta = 1;
 
+SELECT id_cuenta
+FROM
+    sp_cuenta
+WHERE
+        correo = 'amirb@gmail.com'
+  AND estado = true
+
+SELECT id_cuenta, id_deporte,
+       correo, contrasenia, estado, tx_correo, tx_fecha, tx_host
+FROM
+    sp_cuenta
+WHERE
+        id_cuenta = 1
+  AND estado = true

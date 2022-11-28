@@ -4,13 +4,9 @@ import bo.edu.ucb.spapp.Sports.App.dao.SpLugarEntrenadorDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpLugarEntrenamientoSucursalDao;
 
 import bo.edu.ucb.spapp.Sports.App.dto.LugarEntrenadorDto;
-import bo.edu.ucb.spapp.Sports.App.dto.LugarEntrenamientoSucursalDto;
 
 import bo.edu.ucb.spapp.Sports.App.dto.PlanEntrenadorDto;
-import bo.edu.ucb.spapp.Sports.App.dto.PlanesEntrenamientoDto;
 import bo.edu.ucb.spapp.Sports.App.entity.*;
-
-import bo.edu.ucb.spapp.Sports.App.entity.EtyLugarEntrenamiento;
 
 import org.springframework.stereotype.Service;
 

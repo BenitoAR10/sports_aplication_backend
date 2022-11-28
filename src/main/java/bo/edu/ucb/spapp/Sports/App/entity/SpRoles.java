@@ -1,5 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.entity;
 
+
+// Clase entidad SpRoles que representa la tabla sp_roles de la base de datos
 public class SpRoles {
     private Integer idRoles;
     private String rol;
@@ -9,8 +11,12 @@ public class SpRoles {
     private String tx_fecha;
     private String tx_host;
 
+
+    // Contructor sin parametros
     public SpRoles() {
     }
+
+    // Contructor con parametros
 
     public SpRoles(Integer idRoles, String rol, String descripcion, Boolean estado, String tx_correo, String tx_fecha, String tx_host) {
         this.idRoles = idRoles;
@@ -21,7 +27,7 @@ public class SpRoles {
         this.tx_fecha = tx_fecha;
         this.tx_host = tx_host;
     }
-
+    // Metodos get y set de todos los atributos de la clase.
     public Integer getIdRoles() {
         return idRoles;
     }
@@ -77,7 +83,7 @@ public class SpRoles {
     public void setTx_host(String tx_host) {
         this.tx_host = tx_host;
     }
-
+    // Metodo toString de la clase
     @Override
     public String toString() {
         return "SpRoles{" +
