@@ -41,7 +41,7 @@ public class LugarEntrenamientoSucursalApi {
         return this.lugarEntrenamientoSucursalBl.encontrarPlanes(idCuenta);
     }
 
-    @PostMapping
+    @PostMapping("/plan")
     public RespuestaDto<PlanesEntrenamientoDto> crearPlanesEntrenamiento(@RequestBody PlanesEntrenamientoDto planesEntrenamientoDto){
         if (planesEntrenamientoDto != null && planesEntrenamientoDto.getCantidadMeses() != null && planesEntrenamientoDto.getCosto() != null){
             this.lugarEntrenamientoSucursalBl.insertarPlanEntrenamiento(planesEntrenamientoDto);

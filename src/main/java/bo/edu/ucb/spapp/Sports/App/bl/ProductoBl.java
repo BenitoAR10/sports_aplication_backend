@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class ProductoBl {
+<<<<<<< HEAD
 
     private SpProductoDao spProductoDao;
     //Constructor
@@ -20,4 +21,25 @@ public class ProductoBl {
         return spProducto;
     }
 
+=======
+
+    private SpProductoTiendaOfertaDao spProductoTiendaOfertaDao;
+
+    public ProductoBl(SpProductoTiendaOfertaDao spProductoTiendaOfertaDao) {
+
+        this.spProductoTiendaOfertaDao = spProductoTiendaOfertaDao;
+    }
+
+    public List<EtyProductoTiendaOferta> mostrarTopProductos(int idProducto) {
+        List<EtyProductoTiendaOferta> etyProductoTiendaOferta = spProductoTiendaOfertaDao.findTop3ProductosMasVistos(idProducto);
+        return etyProductoTiendaOferta;
+    }
+
+    public void crearProducto(ProductoDto productoDto){
+        SpProducto spCrearProducto = new SpProducto();
+
+    }
+
+
+>>>>>>> e3bb72bbde93653b787131aee73fb52d34fcd49f
 }

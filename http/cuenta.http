@@ -3,13 +3,15 @@
 POST http://localhost:25060/api/v1/cuenta/
 Content-Type: application/json
 Accept: application/json
-//Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWFyYWxAZ21haWwuY29tIiwicm9sZXMiOlsidXN1YXJpbyJdLCJpc3MiOiJ1Y2IiLCJyZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjY5MDAwMTU2fQ.v6SSsB_YMMo8_vr81JiCeI1I95vluqm4eQh3RYOjiwc
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk0MzgzMjZ9.lAApnWTs3OeUmrdPWsDpGq69HHnLvUI7OUtWQPmXKLw
 
 {
-    "idPersona": 27,
     "idDeporte": 1,
-    "correo": "andre@gmail.com",
-    "contrasenia": "123456789"
+    "correo": "pepito@gmail.com",
+    "contrasenia": "123456789",
+    "nombre": "Andres",
+    "apellido": "Gomez",
+    "numeroTelefono": "123456789"
 }
 
 
@@ -25,4 +27,4 @@ Accept: application/json
 GET http://localhost:25060/api/v1/cuenta/
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2NjkyMTEwMDB9.lZOBDKfsE-PMP5rnJuDmVF5MyrgttLmW1sw8v1RwB6w
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk0MzYwMjh9.zhXHlq8qT89akZYuR4_AWMbyrn6YY_Ssanb3tMNR530

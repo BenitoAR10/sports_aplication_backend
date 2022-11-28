@@ -13,7 +13,7 @@ Accept: application/json
 
 {
     "idServicioComida": 1,
-    "nombrePlan": "Plan de comida 2",
-    "descripcion": "Descripcion 2",
-    "costoMes": 1200
+    "nombrePlan": "Plan 0 grasa",
+    "descripcion": "sape",
+    "costoMes": 800
 }

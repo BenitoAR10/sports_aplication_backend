@@ -1,11 +1,12 @@
 
 package bo.edu.ucb.spapp.Sports.App.entity;
+import java.math.BigDecimal;
 import java.sql.Date;
 
 public class SpPlanEntrenador {
     private int idPlanEntrenador;
     private int idEntrenador;
-    private double costo;
+    private BigDecimal costo;
     private int cantidadMeses;
     private boolean estado;
     private String txCorreo;
@@ -15,7 +16,7 @@ public class SpPlanEntrenador {
     public SpPlanEntrenador() {
     }
 
-    public SpPlanEntrenador(int idPlanEntrenador, int idEntrenador, double costo, int cantidadMeses, boolean estado, String txCorreo, Date txFecha, String txHost) {
+    public SpPlanEntrenador(int idPlanEntrenador, int idEntrenador, BigDecimal costo, int cantidadMeses, boolean estado, String txCorreo, Date txFecha, String txHost) {
         this.idPlanEntrenador = idPlanEntrenador;
         this.idEntrenador = idEntrenador;
         this.costo = costo;
@@ -42,11 +43,11 @@ public class SpPlanEntrenador {
         this.idEntrenador = idEntrenador;
     }
 
-    public double getCosto() {
+    public BigDecimal getCosto() {
         return costo;
     }
 
-    public void setCosto(double costo) {
+    public void setCosto(BigDecimal costo) {
         this.costo = costo;
     }
 

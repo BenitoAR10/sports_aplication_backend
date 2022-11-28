@@ -1,9 +1,12 @@
 package bo.edu.ucb.spapp.Sports.App.dto;
 
+import java.math.BigDecimal;
+
 public class PlanEntrenadorDto {
     private int idPlanEntrenador;
+    private int idEntrenador;
     private int cantidadMeses;
-    private double costo;
+    private BigDecimal costo;
     private boolean estado;
     private String txCorreo;
     private String txHost;
@@ -11,8 +14,9 @@ public class PlanEntrenadorDto {
     public PlanEntrenadorDto() {
     }
 
-    public PlanEntrenadorDto(int idPlanEntrenador, int cantidadMeses, double costo, boolean estado, String txCorreo, String txHost) {
+    public PlanEntrenadorDto(int idPlanEntrenador, int idEntrenador, int cantidadMeses, BigDecimal costo, boolean estado, String txCorreo, String txHost) {
         this.idPlanEntrenador = idPlanEntrenador;
+        this.idEntrenador = idEntrenador;
         this.cantidadMeses = cantidadMeses;
         this.costo = costo;
         this.estado = estado;
@@ -36,11 +40,11 @@ public class PlanEntrenadorDto {
         this.cantidadMeses = cantidadMeses;
     }
 
-    public double getCosto() {
+    public BigDecimal getCosto() {
         return costo;
     }
 
-    public void setCosto(double costo) {
+    public void setCosto(BigDecimal costo) {
         this.costo = costo;
     }
 
@@ -66,5 +70,13 @@ public class PlanEntrenadorDto {
 
     public void setTxHost(String txHost) {
         this.txHost = txHost;
+    }
+
+    public int getIdEntrenador() {
+        return idEntrenador;
+    }
+
+    public void setIdEntrenador(int idEntrenador) {
+        this.idEntrenador = idEntrenador;
     }
 }

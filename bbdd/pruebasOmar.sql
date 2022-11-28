@@ -187,4 +187,62 @@ WHERE
 insert into sp_plan_lugar_entrenamiento (id_lugar_entrenamiento_sucursal, cantidad_meses, costo, estado, tx_correo, tx_fecha,  tx_host)
 values (1, 8, 1200, true, 'host', now(), 'localhost');
 
+------------------------------------------------------------ SELECTS 2.0
+--1 Datos al iniciar sesion entrenador
+select * from sp_entrenador where id_cuenta = 2;
+select s.id_cuenta, c.nombres, c.apellidos, s.foto_entrenador, c.correo
+from sp_entrenador s
+         inner join sp_cuenta c on s.id_cuenta = c.id_cuenta
+where s.id_cuenta = 2;
+--planes del entrenador
+select t.id_plan_entrenador,t.cantidad_meses, CAST(t.costo as decimal(10,2)), t.estado
+from sp_plan_entrenador t
+         inner join sp_entrenador s on t.id_entrenador = s.id_entrenador
+where s.id_cuenta = 2
+  and  t.estado = true;
+--compra de planes de un cliente
+select cu.nombres, cu.apellidos, t.cantidad_meses, CAST(t.costo as decimal(10,2)), cp.fecha_compra, cp.fecha_fin
+from sp_cuenta cu
+         inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
+         inner join sp_plan_entrenador t on cp.id_plan_entrenador = t.id_plan_entrenador
+         inner join sp_entrenador se on t.id_plan_entrenador= se.id_entrenador
+where cu.id_cuenta = 10
+  and se.id_cuenta = 2;
+-- ver todos los clientes de un entrenador
+select c.id_cuenta, c.nombres, c.apellidos, se.foto_entrenador, c.correo, CAST(t.costo as decimal(10,2)), cp.fecha_compra, cp.fecha_fin
+from sp_cuenta c
+         inner join sp_compra_plan cp on c.id_cuenta = cp.id_cuenta
+         inner join sp_plan_entrenador t on cp.id_plan_entrenador = t.id_plan_entrenador
+         inner join sp_entrenador se on t.id_plan_entrenador= se.id_entrenador
+where se.id_cuenta = 2
+and cp.fecha_fin < now();
+--agregar un plan de entrenamiento en sp_plan_entrenador
+insert into sp_plan_entrenador (id_entrenador, cantidad_meses, costo, estado, tx_correo, tx_fecha, tx_host)
+values (1, 8, 1200, true, 'host', now(), 'localhost');
+
+select * from sp_plan_entrenador
+
+--ver todos los clientes de lugar entrenamiento sucursal
+select c.id_cuenta, c.nombres, c.apellidos, sple.cantidad_meses, sple.costo,cp.fecha_compra, cp.fecha_fin, cast (cp.costo_plan as decimal(10,2))
+from sp_cuenta c
+         inner join sp_compra_plan cp on c.id_cuenta = cp.id_cuenta
+         inner join sp_plan_lugar_entrenamiento sple on cp.id_plan_lugar_entrenamiento = sple.id_plan_lugar_entrenamiento
+         inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_sucursal = sples.id_lugar_entrenamiento_sucursal
+where sples.id_cuenta = 3
+
+select cu.nombres, cu.apellidos, sple.cantidad_meses, sple.costo, cp.fecha_compra, cp.fecha_fin, cp.estado
+from sp_cuenta cu
+         inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
+         inner join sp_plan_lugar_entrenamiento sple on cp.id_plan_lugar_entrenamiento = sple.id_plan_lugar_entrenamiento
+         inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_sucursal = sples.id_lugar_entrenamiento_sucursal
+where sples.id_cuenta = #{idCuenta} and cu.id_cuenta = #{idCliente}
+
+
+
+select c.id_cuenta, c.nombres, c.apellidos, cast (t.costo_mes as decimal(10,2)), cp.fecha_compra, cp.fecha_fin, cp.estado
+from sp_cuenta c
+         inner join sp_compra_plan cp on c.id_cuenta = cp.id_cuenta
+         inner join sp_plan_comida t on cp.id_plan_comida = t.id_plan_comida
+         inner join sp_servicio_comida sc on t.id_servicio_comida = sc.id_servicio_comida
+where sc.id_cuenta = 1
 

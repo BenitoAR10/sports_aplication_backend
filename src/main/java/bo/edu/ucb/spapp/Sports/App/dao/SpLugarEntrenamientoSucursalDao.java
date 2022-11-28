@@ -4,9 +4,10 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.SelectProvider;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
-
+@Controller
 public interface SpLugarEntrenamientoSucursalDao {
     //Visualizar los datos de la sucursal del negocio en la pantalla de inicio  HECHO
     @Select("""
@@ -19,23 +20,21 @@ public interface SpLugarEntrenamientoSucursalDao {
     //Visualizar los clientes de esa sucursal HECHO
 
     @Select("""
-            select c.id_cuenta, p.nombres, p.apellidos, sple.cantidad_meses, sple.costo,cp.fecha_compra, cp.fecha_fin, cast (cp.costo_plan as decimal(10,2))
+            select c.id_cuenta, c.nombres, c.apellidos, sple.cantidad_meses, sple.costo,cp.fecha_compra, cp.fecha_fin, cast (cp.costo_plan as decimal(10,2))
             from sp_cuenta c
-            inner join sp_persona p on c.id_persona = p.id_persona
-            inner join sp_compra_plan cp on c.id_cuenta = cp.id_cuenta
-            inner join sp_plan_lugar_entrenamiento sple on cp.id_plan_lugar_entrenamiento = sple.id_plan_lugar_entrenamiento
-            inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_sucursal = sples.id_lugar_entrenamiento_sucursal
+                     inner join sp_compra_plan cp on c.id_cuenta = cp.id_cuenta
+                     inner join sp_plan_lugar_entrenamiento sple on cp.id_plan_lugar_entrenamiento = sple.id_plan_lugar_entrenamiento
+                     inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_sucursal = sples.id_lugar_entrenamiento_sucursal
             where sples.id_cuenta = #{idCuenta}
             """)
     List<EtyClientesLugarEntrenamiento> encontrarClientesLugar(Integer idCuenta);
     //Visualizar el historial de planes comprados en esa sucursal por un cliente
     @Select("""
-            select c.nombres, c.apellidos, sple.cantidad_meses, sple.costo, cp.fecha_compra, cp.fecha_fin, cp.estado
+            select cu.nombres, cu.apellidos, sple.cantidad_meses, sple.costo, cp.fecha_compra, cp.fecha_fin, cp.estado
             from sp_cuenta cu
-            inner join sp_persona c on cu.id_persona = c.id_persona
-            inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
-            inner join sp_plan_lugar_entrenamiento sple on cp.id_plan_lugar_entrenamiento = sple.id_plan_lugar_entrenamiento
-            inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_sucursal = sples.id_lugar_entrenamiento_sucursal
+                     inner join sp_compra_plan cp on cu.id_cuenta = cp.id_cuenta
+                     inner join sp_plan_lugar_entrenamiento sple on cp.id_plan_lugar_entrenamiento = sple.id_plan_lugar_entrenamiento
+                     inner join sp_lugar_entrenamiento_sucursal sples on sple.id_lugar_entrenamiento_sucursal = sples.id_lugar_entrenamiento_sucursal
             where sples.id_cuenta = #{idCuenta} and cu.id_cuenta = #{idCliente}
             """)
     List<EtyHistorialClienteLugarEntrenamiento> encontrarHistorialCliente(Integer idCuenta, Integer idCliente);

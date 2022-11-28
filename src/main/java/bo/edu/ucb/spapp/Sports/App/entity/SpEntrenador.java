@@ -3,6 +3,7 @@ package bo.edu.ucb.spapp.Sports.App.entity;
 
 import java.sql.Date;
 
+// Clase entidad SpEntrenador que representa la tabla sp_entrenador de la base de datos
 public class SpEntrenador {
     private int idEntrenador;
     private int idCuenta;
@@ -15,10 +16,10 @@ public class SpEntrenador {
     private String txHost;
 
 
-
+    // Contructor sin parametros
     public SpEntrenador() {
     }
-
+    // Contructor con parametros
     public SpEntrenador(int idEntrenador, int idCuenta, String nit, String correo, String fotoEntrenador, boolean estado, String txCorreo, Date txFecha, String txHost) {
         this.idEntrenador = idEntrenador;
         this.idCuenta = idCuenta;
@@ -30,7 +31,7 @@ public class SpEntrenador {
         this.txFecha = txFecha;
         this.txHost = txHost;
     }
-
+    // Metodos get y set de todos los atributos de la clase.
     public int getIdEntrenador() {
         return idEntrenador;
     }

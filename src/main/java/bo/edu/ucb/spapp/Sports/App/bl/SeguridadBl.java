@@ -37,7 +37,7 @@ public class SeguridadBl {
         SpCuenta spCuenta = spCuentaDao.findByPrimarykey(idCuenta);
         // Transformamos la entidad de bbdd a un DTO para
         // retornar al cliente via API (Data Transfer Object)
-        CuentaDto cuentaDto = new CuentaDto(spCuenta.getIdCuenta(), spCuenta.getIdPersona(), spCuenta.getIdDeporte(), spCuenta.getCorreo());
+        CuentaDto cuentaDto = new CuentaDto(spCuenta.getIdCuenta(), spCuenta.getIdDeporte(), spCuenta.getCorreo());
         return cuentaDto;
     }
     // Este metodo se encarga de la autenticacion de usuarios, va a buscar la contraseña

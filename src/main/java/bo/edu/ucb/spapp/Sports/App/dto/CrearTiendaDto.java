@@ -1,5 +1,5 @@
 package bo.edu.ucb.spapp.Sports.App.dto;
-
+// Clase dto CrearTiendaDto que representa los datos que se enviaran al API para crear una tienda
 public class CrearTiendaDto {
     private Integer idCuenta;
     private String nombreTienda;
