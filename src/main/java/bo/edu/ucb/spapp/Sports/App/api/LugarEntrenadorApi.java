@@ -4,6 +4,7 @@ import bo.edu.ucb.spapp.Sports.App.bl.LugarEntrenadorBl;
 
 import bo.edu.ucb.spapp.Sports.App.dto.LugarEntrenadorDto;
 import bo.edu.ucb.spapp.Sports.App.dto.PlanEntrenadorDto;
+import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.EtyHistorialEntrenador;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +32,19 @@ public class LugarEntrenadorApi {
         return this.lugarEntrenadorBl.encontrarDatosEntrenador(idCuenta);
     }
 
+    @GetMapping("/{idEntrenador}/clientesActivos")
+    public List<EtyHistorialEntrenador> clientesActivosEntrenador(@PathVariable(name = "idEntrenador") Integer idEntrenador){
+        return this.lugarEntrenadorBl.todosLosClientes(idEntrenador);
+    }
+
+    @PostMapping("/plan")
+    public RespuestaDto<PlanEntrenadorDto> CrearPlanEntrenador (@RequestBody PlanEntrenadorDto planEntrenadorDto) {
+        if (planEntrenadorDto.getCosto()!= null && planEntrenadorDto.getCantidadMeses() >0) {
+            this.lugarEntrenadorBl.agregarPlanesEntrenador(planEntrenadorDto);
+            return new RespuestaDto<>(planEntrenadorDto, "Plan creado correctamente", true);
+        }else {
+            return new RespuestaDto<>(null, "Error al crear el plan", false);
+        }
+    }
 
 }

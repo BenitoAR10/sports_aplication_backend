@@ -14,6 +14,7 @@ import bo.edu.ucb.spapp.Sports.App.entity.EtyLugarEntrenamiento;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 @Service
@@ -28,6 +29,7 @@ public class LugarEntrenadorBl {
 
         EtyLugarEntrenador etyLugarEntrenador = spLugarEntrenadorDao.obtenerEntrenadorPorIdCuenta(idCuenta);
         LugarEntrenadorDto lugarEntrenadorDto = new LugarEntrenadorDto();
+        lugarEntrenadorDto.setIdEntrenador(etyLugarEntrenador.getIdEntrenador());
         lugarEntrenadorDto.setIdCuenta(etyLugarEntrenador.getIdCuenta());
         lugarEntrenadorDto.setNombres(etyLugarEntrenador.getNombres());
         lugarEntrenadorDto.setApellidos(etyLugarEntrenador.getApellidos());
@@ -59,6 +61,22 @@ public class LugarEntrenadorBl {
         return etyHistorialEntrenador;
 
     }
+    public List<EtyHistorialEntrenador> todosLosClientes(int idEntrenador) {
+
+        List<EtyHistorialEntrenador> etyHistorialEntrenador = spLugarEntrenadorDao.obtenerPlanesActivosEntrenador(idEntrenador);
+
+        return etyHistorialEntrenador;
+
+    }
+    public void agregarPlanesEntrenador(PlanEntrenadorDto planEntrenadorDto) {
+        SpPlanEntrenador spPlanEntrenador = new SpPlanEntrenador();
+        spPlanEntrenador.setIdEntrenador(planEntrenadorDto.getIdEntrenador());
+        spPlanEntrenador.setCantidadMeses(planEntrenadorDto.getCantidadMeses());
+        spPlanEntrenador.setCosto(planEntrenadorDto.getCosto());
+        this.spLugarEntrenadorDao.agregarPlanEntrenador(spPlanEntrenador);
+    }
+
+
 
 
 }

@@ -9,11 +9,13 @@ public class EtyClientesServicioComida {
     private String fechaFin;
     private String nombrePlan;
     private String detalleComida;
+    private String estado;
+
 
     public EtyClientesServicioComida() {
     }
 
-    public EtyClientesServicioComida(int idCuenta, String nombres, String apellidos, double costoMes, String fechaCompra, String fechaFin, String nombrePlan, String detalleComida) {
+    public EtyClientesServicioComida(int idCuenta, String nombres, String apellidos, double costoMes, String fechaCompra, String fechaFin, String nombrePlan, String detalleComida, String estado) {
         this.idCuenta = idCuenta;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -22,6 +24,7 @@ public class EtyClientesServicioComida {
         this.fechaFin = fechaFin;
         this.nombrePlan = nombrePlan;
         this.detalleComida = detalleComida;
+        this.estado = estado;
     }
 
     public int getIdCuenta() {
@@ -88,5 +91,11 @@ public class EtyClientesServicioComida {
         this.detalleComida = detalleComida;
     }
 
+    public String getEstado() {
+        return estado;
+    }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }

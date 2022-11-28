@@ -16,12 +16,11 @@ public interface SpLugarServicioComidaDao {
     SpServicioComida encontrarServicioComida(Integer idCuenta);
     @Select(
             """
-            select c.id_cuenta, p.nombres, p.apellidos, cast (t.costo_mes as decimal(10,2)), cp.fecha_compra, cp.fecha_fin
+            select c.id_cuenta, c.nombres, c.apellidos, cast (t.costo_mes as decimal(10,2)), cp.fecha_compra, cp.fecha_fin, cp.estado
             from sp_cuenta c
-            inner join sp_persona p on c.id_persona = p.id_persona
-            inner join sp_compra_plan cp on c.id_cuenta = cp.id_cuenta
-            inner join sp_plan_comida t on cp.id_plan_comida = t.id_plan_comida
-            inner join sp_servicio_comida sc on t.id_servicio_comida = sc.id_servicio_comida
+                     inner join sp_compra_plan cp on c.id_cuenta = cp.id_cuenta
+                     inner join sp_plan_comida t on cp.id_plan_comida = t.id_plan_comida
+                     inner join sp_servicio_comida sc on t.id_servicio_comida = sc.id_servicio_comida
             where sc.id_cuenta = #{idCuenta}
             """)
     List<EtyClientesServicioComida> encontrarClientesServicioComida(Integer idCuenta);
