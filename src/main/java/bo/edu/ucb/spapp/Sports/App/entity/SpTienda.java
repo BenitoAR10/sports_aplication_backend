@@ -12,29 +12,27 @@ public class SpTienda {
     private String nombrePropietario;
     private String apellidoPropietario;
     private String fotoTienda;
-
     private String correo;
     private String telefono;
     private String nit;
     private String direccion;
 
-
     private double latitud;
     private double longitud;
     private Boolean estado;
-
-
-
-
 
     private String tx_correo;
     private Date tx_fecha;
     private String tx_host;
 
 
-
+ // Crear constructor vacio
     public SpTienda() {
     }
+
+
+
+
 
 
 
@@ -59,9 +57,6 @@ public class SpTienda {
         this.tx_fecha = tx_fecha;
         this.tx_host = tx_host;
     }
-
-
-    // Crear getters y setters
 
 
     public Integer getIdTienda() {
@@ -165,6 +160,8 @@ public class SpTienda {
 
 
 
+
+
     public Boolean getEstado() {
         return estado;
     }
@@ -177,7 +174,6 @@ public class SpTienda {
     public String getTx_correo() {
         return tx_correo;
     }
-
 
     public void setTx_correo(String tx_correo) {
         this.tx_correo = tx_correo;
@@ -224,4 +220,3 @@ public class SpTienda {
                 '}';
     }
 }
-

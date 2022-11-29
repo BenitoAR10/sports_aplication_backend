@@ -2,7 +2,6 @@ package bo.edu.ucb.spapp.Sports.App.dao;
 
 
 import bo.edu.ucb.spapp.Sports.App.entity.EtyProductoTiendaOferta;
-import bo.edu.ucb.spapp.Sports.App.entity.SpProducto;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Controller;
 

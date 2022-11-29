@@ -2,78 +2,70 @@ package bo.edu.ucb.spapp.Sports.App.dto;
 // Creamos una clase DTO para los datos que queremos retornar al cliente via API.
 public class ProductoDto {
     private String nombre;
+    private String descripcion;
+    private String imagen;
     private String marca;
-    private Boolean Genero;
-    private double peso;
-    private int amortiguacion;
-
-    private double talla;
-
+    private String tipoProducto;
+    private Boolean estado;
+    private String color;
     public ProductoDto() {
     }
-
-    public ProductoDto( String nombre, String marca, Boolean Genero, double peso, int amortiguacion) {
-
+    public ProductoDto(String nombre, String descripcion, String imagen, String marca, String tipoProducto, Boolean estado, String color) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
         this.marca = marca;
-        this.Genero = Genero;
-        this.peso = peso;
-        this.amortiguacion = amortiguacion;
-        this.talla = talla;
+        this.tipoProducto = tipoProducto;
+        this.estado = estado;
+        this.color = color;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
     public String getMarca() {
         return marca;
     }
-
     public void setMarca(String marca) {
         this.marca = marca;
     }
-
-    public Boolean getGenero() {
-        return Genero;
+    public String getTipoProducto() {
+        return tipoProducto;
+    }
+    public void setTipoProducto(String tipoProducto) {
+        this.tipoProducto = tipoProducto;
+    }
+    public Boolean getEstado() {
+        return estado;
+    }
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+    public String getColor() {
+        return color;
     }
 
-    public void setGenero(Boolean Genero) {
-        this.Genero = Genero;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
-    public int getAmortiguacion() {
-        return amortiguacion;
-    }
-
-    public void setAmortiguacion(int amortiguacion) {
-        this.amortiguacion = amortiguacion;
-    }
-
-    public double getTalla() {
-        return talla;
-    }
-
-    public void setTalla(double talla) {
-        this.talla = talla;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     //toString
     @Override
     public String toString() {
-        return "ProductoDto{"+"nombre=" + nombre + ", marca=" + marca + ", Genero=" + Genero + ", peso=" + peso + ", amortiguacion=" + amortiguacion + ", talla=" + talla + '}';
+        return "ProductoDto{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen + ", marca=" + marca + ", tipoProducto=" + tipoProducto + ", estado=" + estado + ", color=" + color + '}';
     }
-
 }

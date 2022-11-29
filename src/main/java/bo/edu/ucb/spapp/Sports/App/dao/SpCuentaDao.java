@@ -5,6 +5,8 @@ import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 // Creamos una interfaz para poder usar MyBatis y poder hacer consultas a la base de datos de manera mas sencilla.
 
 @Component
@@ -67,6 +69,18 @@ public interface SpCuentaDao {
 
 
     void crearCuenta(SpCuenta spCuenta);
+
+    // Obtener grupo de la cuenta
+    @Select("""
+            SELECT grupo FROM sp_grupos
+                JOIN sp_cuenta_grupos ON sp_grupos.id_grupos = sp_cuenta_grupos.id_grupos
+                JOIN sp_cuenta ON sp_cuenta_grupos.id_cuenta = sp_cuenta.id_cuenta
+            WHERE sp_cuenta.correo = #{correo}
+                AND sp_grupos.estado = true
+                AND sp_cuenta_grupos.estado = true
+                AND sp_cuenta.estado = true
+            """)
+    List<String> findGruposByCorreo(String correo);
 
 
 
