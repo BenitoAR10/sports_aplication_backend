@@ -246,3 +246,5 @@ from sp_cuenta c
          inner join sp_servicio_comida sc on t.id_servicio_comida = sc.id_servicio_comida
 where sc.id_cuenta = 1
 
+
+select*from sp_cuenta
