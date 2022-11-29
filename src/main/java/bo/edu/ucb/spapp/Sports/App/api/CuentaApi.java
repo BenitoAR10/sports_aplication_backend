@@ -14,6 +14,7 @@ import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -75,6 +76,20 @@ public class CuentaApi {
             return new RespuestaDto<>(null, e.getMessage(), false);
         }
 
+    }
+
+    // Metodo para obtener los grupos a los que pertenece una cuenta.
+
+    @GetMapping("/grupos")
+    public RespuestaDto<RespuestaDto> getGrupos(@RequestHeader Map<String, String> headers){
+        try{
+            String jwt = AuthUtil.getTokenFromHeader(headers);
+            String correo = AuthUtil.isUserAuthenticated(jwt);
+            RespuestaDto<List<String>> respuestaDto = new RespuestaDto<>(seguridadBl.getGrupos(correo), "chao mundo", true);
+            return new RespuestaDto<>(respuestaDto, "hola mundo", true);
+        } catch (SpException e){
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
     }
 
 

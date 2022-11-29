@@ -123,6 +123,10 @@ public class SeguridadBl {
         return result;
     }
 
+    public List<String> getGrupos(String correo) {
+        return spCuentaDao.findGruposByCorreo(correo);
+    }
+
 
 
 

@@ -28,3 +28,10 @@ GET http://localhost:25060/api/v1/cuenta/
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk0MzYwMjh9.zhXHlq8qT89akZYuR4_AWMbyrn6YY_Ssanb3tMNR530
+
+
+### Consultamos los grupos del usuario autenticado
+GET http://localhost:25060/api/v1/cuenta/grupos
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk3MTkzNzZ9.nlLEgoKo_alhzKzrpZmP-rzfL6ejGrKkLh8y7oJi0XI
