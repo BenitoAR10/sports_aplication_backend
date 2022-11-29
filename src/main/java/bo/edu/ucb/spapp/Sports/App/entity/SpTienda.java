@@ -5,7 +5,6 @@ import java.sql.Date;
 
 public class SpTienda {
 
-
     private Integer idTienda;
     private Integer idCuenta;
     private String nombreTienda;
@@ -20,15 +19,15 @@ public class SpTienda {
     private double latitud;
     private double longitud;
     private Boolean estado;
+
     private String tx_correo;
     private Date tx_fecha;
     private String tx_host;
- // Crear constructor vacio
 
+
+ // Crear constructor vacio
     public SpTienda() {
     }
-
-
     // Crear constructor con todos los atributos
 
     public SpTienda(Integer idTienda, Integer idCuenta, String nombreTienda, String nombrePropietario, String apellidoPropietario, String fotoTienda, String correo, String telefono, String nit, String direccion, Double latitud, Double longitud, Boolean estado, String tx_correo, Date tx_fecha, String tx_host) {
