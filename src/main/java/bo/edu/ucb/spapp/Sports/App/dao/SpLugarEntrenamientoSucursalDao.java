@@ -50,7 +50,7 @@ public interface SpLugarEntrenamientoSucursalDao {
     //insertar un nuevo plan de entrenamiento HECHO
     @Insert("""
             insert into sp_plan_lugar_entrenamiento (id_lugar_entrenamiento_sucursal, cantidad_meses, costo, estado, tx_correo, tx_fecha, tx_host)
-            values (#{idLugarEntrenamientoSucursal}, #{cantidadMeses}, #{costo}, true, #{txCorreo}, now(), #{txHost})
+            values (#{idLugarEntrenamientoSucursal}, #{cantidadMeses}, #{costo}, true, 'admin@gmail.com', now(), 'localhost')
             """)
     void insertarPlanEntrenamiento(SpPlanLugarEntrenamiento spPlanLugarEntrenamiento);
     //editar un plan de entrenamiento

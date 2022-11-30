@@ -2,6 +2,7 @@ package bo.edu.ucb.spapp.Sports.App.dao;
 
 
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
+import bo.edu.ucb.spapp.Sports.App.entity.SpGrupo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
@@ -76,11 +77,11 @@ public interface SpCuentaDao {
                 JOIN sp_cuenta_grupos ON sp_grupos.id_grupos = sp_cuenta_grupos.id_grupos
                 JOIN sp_cuenta ON sp_cuenta_grupos.id_cuenta = sp_cuenta.id_cuenta
             WHERE sp_cuenta.correo = #{correo}
-                AND sp_grupos.estado = true
-                AND sp_cuenta_grupos.estado = true
-                AND sp_cuenta.estado = true
+              AND sp_grupos.estado = true
+              AND sp_cuenta_grupos.estado = true
+              AND sp_cuenta.estado = true
             """)
-    List<String> findGruposByCorreo(String correo);
+    List<String>findGruposByCorreo(String correo);
 
 
 

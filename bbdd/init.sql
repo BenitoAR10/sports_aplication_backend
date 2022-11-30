@@ -311,3 +311,5 @@ WHERE sp_cuenta.correo = 'amirb@gmail.com'
 AND sp_grupos.estado = true
 AND sp_cuenta_grupos.estado = true
 AND sp_cuenta.estado = true
+
+select * from sp_grupos

@@ -20,24 +20,46 @@ public class LugarServicioComidaApi {
     }
 
     @GetMapping("/{idCuenta}")
-    public LugarComidaDto LugarComidaApi(@PathVariable(name = "idCuenta") Integer idCuenta){
-           return this.lugarServicioComidaBl.encontrarDatosLugar(idCuenta);
+    public RespuestaDto<LugarComidaDto> LugarComidaApi(@PathVariable(name = "idCuenta") Integer idCuenta){
+        try {
+            LugarComidaDto lugarComidaDto = lugarServicioComidaBl.encontrarDatosLugar(idCuenta);
+            return new RespuestaDto<>(lugarComidaDto, null, true);
+        } catch (Exception e) {
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
 
     }
     @GetMapping("/{idCuenta}/clientes")
-    public List<EtyClientesServicioComida> LugarComidaClientesApi(@PathVariable(name = "idCuenta") Integer idCuenta){
-           return this.lugarServicioComidaBl.encontrarDatosClientes(idCuenta);
+    public RespuestaDto<List<EtyClientesServicioComida>> LugarComidaClientesApi(@PathVariable(name = "idCuenta") Integer idCuenta){
+        try {
+            List<EtyClientesServicioComida> lista = lugarServicioComidaBl.encontrarDatosClientes(idCuenta);
+            return new RespuestaDto<>(lista, null, true);
+        } catch (Exception e) {
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
+
 
     }
 
     @GetMapping("/{idComida}/cliente/{idCuenta}")
-    public List<EtyClientesServicioComida> LugarComidaServicioComidaApi(@PathVariable(name = "idCuenta") Integer idCuenta, @PathVariable(name = "idComida") Integer idComida){
-           return this.lugarServicioComidaBl.encontrarDatosServicioComida(idCuenta, idComida);
+    public RespuestaDto<List<EtyClientesServicioComida>> LugarComidaServicioComidaApi(@PathVariable(name = "idCuenta") Integer idCuenta, @PathVariable(name = "idComida") Integer idComida){
+        try {
+            List<EtyClientesServicioComida> lista = lugarServicioComidaBl.encontrarDatosServicioComida(idCuenta, idComida);
+            return new RespuestaDto<>(lista, null, true);
+        } catch (Exception e) {
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
 
     }
     @GetMapping("/{idCuenta}/planes")
-    public List<PlanesComidaDto> LugarComidaPlanesApi(@PathVariable(name = "idCuenta") Integer idCuenta){
-           return this.lugarServicioComidaBl.encontrarDatosPlanesComida(idCuenta);
+    public RespuestaDto<List<PlanesComidaDto>> LugarComidaPlanesApi(@PathVariable(name = "idCuenta") Integer idCuenta){
+        try {
+            List<PlanesComidaDto> lista = lugarServicioComidaBl.encontrarDatosPlanesComida(idCuenta);
+            return new RespuestaDto<>(lista, null, true);
+        } catch (Exception e) {
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
+
 
     }
     @PostMapping

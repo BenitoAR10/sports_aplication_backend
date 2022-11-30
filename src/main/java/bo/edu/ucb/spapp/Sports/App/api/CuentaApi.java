@@ -7,6 +7,7 @@ import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
+import bo.edu.ucb.spapp.Sports.App.entity.SpGrupo;
 import bo.edu.ucb.spapp.Sports.App.util.AuthUtil;
 import bo.edu.ucb.spapp.Sports.App.util.SpException;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
@@ -14,6 +15,7 @@ import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -81,12 +83,13 @@ public class CuentaApi {
     // Metodo para obtener los grupos a los que pertenece una cuenta.
 
     @GetMapping("/grupos")
-    public RespuestaDto<RespuestaDto> getGrupos(@RequestHeader Map<String, String> headers){
+    public RespuestaDto<List<String>> getGrupos(@RequestHeader Map<String, String> headers){
         try{
             String jwt = AuthUtil.getTokenFromHeader(headers);
             String correo = AuthUtil.isUserAuthenticated(jwt);
-            RespuestaDto<List<String>> respuestaDto = new RespuestaDto<>(seguridadBl.getGrupos(correo), "chao mundo", true);
-            return new RespuestaDto<>(respuestaDto, "hola mundo", true);
+            List<String > grupos = this.seguridadBl.getGrupos(correo);
+
+            return new RespuestaDto<>(grupos, null, true);
         } catch (SpException e){
             return new RespuestaDto<>(null, e.getMessage(), false);
         }

@@ -9,13 +9,11 @@ import bo.edu.ucb.spapp.Sports.App.entity.*;
 
 import bo.edu.ucb.spapp.Sports.App.entity.EtyLugarEntrenamiento;
 
-<<<<<<< HEAD
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-=======
->>>>>>> f7f3ae7422582cf03db5f5e8368c909ad03113e3
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -70,9 +68,7 @@ public class LugarEntrenamientoSucursalBl {
         spPlanLugarEntrenamiento.setIdLugarEntrenamientoSucursal(planesEntrenamientoDto.getIdLugarEntrenamientoSucursal());
         spPlanLugarEntrenamiento.setCosto(planesEntrenamientoDto.getCosto());
         spPlanLugarEntrenamiento.setCantidadMeses(planesEntrenamientoDto.getCantidadMeses());
-        spPlanLugarEntrenamiento.setTxCorreo(planesEntrenamientoDto.getTxCorreo());
-        spPlanLugarEntrenamiento.setTxFecha(planesEntrenamientoDto.getTxFecha());
-        spPlanLugarEntrenamiento.setTxHost(planesEntrenamientoDto.getTxHost());
+
 
         this.spLugarEntrenamientoSucursalDao.insertarPlanEntrenamiento(spPlanLugarEntrenamiento);
     }
