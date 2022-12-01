@@ -23,7 +23,7 @@ public interface CuentaTiendaDao {
             INSERT INTO sp_tienda
             (id_cuenta, nombre_tienda, nombre_propietario, apellido_propietario, foto_tienda, correo, telefon, nit, direccion, latitud, longitud, estado, tx_correo, tx_fecha, tx_host)
             VALUES
-            (#{idCuenta}, #{nombreTienda}, #{nombrePropietario}, #{apellidoPropietario}, #{fotoTienda}, #{correo}, #{telefono}, #{nit}, #{direccion}, #{latitud}, #{longitud}, true, 'anonymous', now(), 'localhost')
+            (#{idCuenta}, #{nombreTienda}, #{nombrePropietario}, #{apellidoPropietario}, #{fotoTienda}, #{correo}, #{telefono}, #{nit}, #{direccion}, 161645.12, 161645.12, true, 'anonymous', now(), 'localhost')
             """)
 
     void datosTienda(SpTienda spTienda);

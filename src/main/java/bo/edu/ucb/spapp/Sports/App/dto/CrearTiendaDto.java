@@ -5,11 +5,13 @@ public class CrearTiendaDto {
     private String nombreTienda;
     private String nombrePropietario;
     private String apellidoPropietario;
+
     private String nit;
     private String telefono;
     private String correo;
     private String foto;
     private String direccion;
+
 
     public CrearTiendaDto() {
     }
@@ -111,5 +113,33 @@ public class CrearTiendaDto {
                 ", foto='" + foto + '\'' +
                 ", direccion='" + direccion + '\'' +
                 '}';
+    }
+
+    public boolean validarDatos(){
+        if (this.nombreTienda == null || this.nombreTienda.isEmpty()){
+            return false;
+        }
+        if (this.nombrePropietario == null || this.nombrePropietario.isEmpty()){
+            return false;
+        }
+        if (this.apellidoPropietario == null || this.apellidoPropietario.isEmpty()){
+            return false;
+        }
+        if (this.nit == null || this.nit.isEmpty()){
+            return false;
+        }
+        if (this.telefono == null || this.telefono.isEmpty()){
+            return false;
+        }
+        if (this.correo == null || this.correo.isEmpty()){
+            return false;
+        }
+        if (this.foto == null || this.foto.isEmpty()){
+            return false;
+        }
+        if (this.direccion == null || this.direccion.isEmpty()){
+            return false;
+        }
+        return true;
     }
 }
