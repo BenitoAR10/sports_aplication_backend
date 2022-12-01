@@ -1,5 +1,6 @@
 package bo.edu.ucb.spapp.Sports.App.bl;
 
+import bo.edu.ucb.spapp.Sports.App.dao.CuentaServicioComidaDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpServicioComidaDao;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearServicioComidaDto;
@@ -12,9 +13,12 @@ public class ServicioComidaBl {
     private SpServicioComidaDao spServicioComidaDao;
     private SpCuentaDao spCuentaDao;
 
-    public ServicioComidaBl(SpServicioComidaDao spServicioComidaDao, SpCuentaDao spCuentaDao) {
+    private CuentaServicioComidaDao cuentaServicioComidaDao;
+
+    public ServicioComidaBl(SpServicioComidaDao spServicioComidaDao, SpCuentaDao spCuentaDao, CuentaServicioComidaDao cuentaServicioComidaDao) {
         this.spServicioComidaDao = spServicioComidaDao;
         this.spCuentaDao = spCuentaDao;
+        this.cuentaServicioComidaDao = cuentaServicioComidaDao;
     }
     public void crearServicioComida(CrearServicioComidaDto crearServicioComidaDto) {
         SpServicioComida spCrearSercioComida = new SpServicioComida();
@@ -45,7 +49,7 @@ public class ServicioComidaBl {
         servicioComida.setDireccion(crearServicioComidaDto.getDireccion());
         servicioComida.setLongitud(crearServicioComidaDto.getLongitud());
         servicioComida.setLatitud(crearServicioComidaDto.getLatitud());
-        this.spServicioComidaDao.crearServicioComida(servicioComida);
+        this.cuentaServicioComidaDao.datosServicioComida(servicioComida);
     }
 
 }
