@@ -5,6 +5,7 @@ import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
 import bo.edu.ucb.spapp.Sports.App.bl.ServicioComidaBl;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearServicioComidaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
+import bo.edu.ucb.spapp.Sports.App.util.AuthUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -29,6 +30,28 @@ public class ServicioComidaApi {
             this.servicioComidaBl.crearServicioComida(crearServicioComidaDto);
             return new RespuestaDto<>(crearServicioComidaDto, "Servicio de comida creado correctamente", true);
         }else {
+            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
+        }
+    }
+
+    // Registro de datos de servicio comida
+    @PostMapping()
+    public RespuestaDto<String> cargarDatosServicioComida(@RequestHeader Map<String, String> headers, @RequestBody CrearServicioComidaDto crearServicioComidaDto){
+        if(crearServicioComidaDto.validarDatos()){
+            try{
+                Thread.sleep(2000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            try{
+                String jwt = AuthUtil.getTokenFromHeader(headers);
+                String correo = AuthUtil.isUserAuthenticated(jwt);
+                servicioComidaBl.cargarDatosServicioComida(correo, crearServicioComidaDto);
+                return new RespuestaDto<>("Datos cargados correctamente", null, true);
+            } catch (Exception e){
+                return new RespuestaDto<>(null, e.getMessage(), false);
+            }
+        }else{
             return new RespuestaDto<>(null, "Credenciales incorrectas", false);
         }
     }
