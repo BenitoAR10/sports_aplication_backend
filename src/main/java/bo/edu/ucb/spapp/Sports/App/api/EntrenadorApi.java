@@ -4,6 +4,7 @@ import bo.edu.ucb.spapp.Sports.App.bl.EntrenadorBl;
 import bo.edu.ucb.spapp.Sports.App.bl.SeguridadBl;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearEntrenadorDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
+import bo.edu.ucb.spapp.Sports.App.util.AuthUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -22,12 +23,25 @@ public class EntrenadorApi {
     }
 
 
-    // Metodo para verificar si los campos estan vacios o no y si no estan vacios, se crea el entrenador.
-    @PostMapping
-    public RespuestaDto<CrearEntrenadorDto> crearEntrenador(@RequestBody CrearEntrenadorDto crearEntrenadorDto){
-        if (crearEntrenadorDto != null && crearEntrenadorDto.getIdCuenta() != null && crearEntrenadorDto.getFotoEntrenador() != null && crearEntrenadorDto.getNit() != null && crearEntrenadorDto.getCorreo() != null){
-            this.entrenadorBl.crearEntrenador(crearEntrenadorDto);
-            return new RespuestaDto<>(crearEntrenadorDto, "Entrenador creado correctamente", true);
+
+
+    // Registro de entrenador
+    @PostMapping()
+    public RespuestaDto<String> cargarDatosEntrenador(@RequestHeader Map<String, String> headers, @RequestBody CrearEntrenadorDto crearEntrenadorDto){
+        if(crearEntrenadorDto.validarDatos()){
+            try{
+                Thread.sleep(2000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            try{
+                String jwt = AuthUtil.getTokenFromHeader(headers);
+                String correo = AuthUtil.isUserAuthenticated(jwt);
+                entrenadorBl.cargarDatosEntrenador(correo, crearEntrenadorDto);
+                return new RespuestaDto<>("Datos cargados correctamente", null, true);
+            } catch (Exception e){
+                return new RespuestaDto<>(null, e.getMessage(), false);
+            }
         }else{
             return new RespuestaDto<>(null, "Credenciales incorrectas", false);
         }
@@ -51,6 +65,17 @@ public class EntrenadorApi {
             return Map.of("message", "Entrenador creado");
         } else {
             return Map.of("message", "El usuario no tiene permisos para crear un entrenador");
+        }
+    }
+
+      // Metodo para verificar si los campos estan vacios o no y si no estan vacios, se crea el entrenador.
+    @PostMapping
+    public RespuestaDto<CrearEntrenadorDto> crearEntrenador(@RequestBody CrearEntrenadorDto crearEntrenadorDto){
+        if (crearEntrenadorDto != null && crearEntrenadorDto.getIdCuenta() != null && crearEntrenadorDto.getFotoEntrenador() != null && crearEntrenadorDto.getNit() != null && crearEntrenadorDto.getCorreo() != null){
+            this.entrenadorBl.crearEntrenador(crearEntrenadorDto);
+            return new RespuestaDto<>(crearEntrenadorDto, "Entrenador creado correctamente", true);
+        }else{
+            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
         }
     }
     */

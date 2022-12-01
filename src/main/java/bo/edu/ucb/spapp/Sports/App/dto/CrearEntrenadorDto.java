@@ -57,4 +57,20 @@ public class CrearEntrenadorDto {
                 ", correo='" + correo + '\'' +
                 '}';
     }
+
+    public boolean validarDatos(){
+        if(idCuenta == null){
+            return false;
+        }
+        if(correo == null  || correo.isEmpty()){
+            return false;
+        }
+        if(fotoEntrenador == null || fotoEntrenador.isEmpty()){
+            return false;
+        }
+        if(nit == null || nit.isEmpty()){
+            return false;
+        }
+            return true;
+    }
 }
