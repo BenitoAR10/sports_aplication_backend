@@ -17,3 +17,17 @@ Accept: application/json
     "cantidadMeses": 10
 
 }
+
+### Insertar datos a una sucursal
+POST http://localhost:25060/api/v1/LugarEntrenamiento
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer
+
+{
+  "idCuenta": 1,
+  "nombrePropietario": "Juan",
+  "apellidoPropietario": "Perez",
+  "telefono": "123456789",
+  "direccion": "Calle 123"
+}

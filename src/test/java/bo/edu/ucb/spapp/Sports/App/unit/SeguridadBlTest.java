@@ -1,6 +1,5 @@
 package bo.edu.ucb.spapp.Sports.App.unit;
 
-import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
 import org.junit.jupiter.api.Test;
 
 

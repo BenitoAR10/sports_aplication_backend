@@ -134,4 +134,38 @@ public class CrearServicioComidaDto {
                 ", longitud=" + longitud +
                 '}';
     }
+
+    public boolean validarDatos(){
+        if (this.nombreLugar == null || this.nombreLugar.isEmpty()){
+            return false;
+        }
+        if (this.logo == null || this.logo.isEmpty()){
+            return false;
+        }
+        if (this.nombrePropietario == null || this.nombrePropietario.isEmpty()){
+            return false;
+        }
+        if (this.apellidoPropietario == null || this.apellidoPropietario.isEmpty()){
+            return false;
+        }
+        if (this.nit == null || this.nit.isEmpty()){
+            return false;
+        }
+        if (this.telefono == null || this.telefono.isEmpty()){
+            return false;
+        }
+        if (this.correo == null || this.correo.isEmpty()){
+            return false;
+        }
+        if (this.direccion == null || this.direccion.isEmpty()){
+            return false;
+        }
+        if (this.latitud == 0){
+            return false;
+        }
+        if (this.longitud == 0){
+            return false;
+        }
+        return true;
+    }
 }

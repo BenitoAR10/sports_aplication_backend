@@ -3,17 +3,17 @@
 POST http://localhost:25060/api/v1/tienda/
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXJsb3NAZ21haWwuY29tIiwicm9sZXMiOlsiQWdyZWdhciB0aWVuZGEiXSwiaXNzIjoidWNiIiwicmVmcmVzaCI6ZmFsc2UsImV4cCI6MTY2OTAwOTEyMn0.VM-_9DRKkUAJ64wZD1M4F-xOHBvuuVM_Jnnk6sHqJ7A
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aWVuZGExQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFncmVnYXIgdGllbmRhIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk5NTYzMzl9.u0Cmr48KW5OkundYrYCsAgSPK_SiaHlUx_hhoSCheuU
 
 {
   "idCuenta": 1,
   "nombreTienda": "Tienda 1",
   "nombrePropietario": "Propietario 1",
   "apellidoPropietario": "Apellido 1",
-  "nit": "123456789",
-  "telefono": "123456789",
-  "correo": "tienda1@gmail.com",
   "foto": "foto1.jpg",
+  "correo": "tienda5@gmail.com",
+  "telefono": "123456789",
+  "nit": "123456789",
   "direccion": "Calle 1"
 }
 

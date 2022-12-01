@@ -5,16 +5,21 @@ public class CrearTiendaDto {
     private String nombreTienda;
     private String nombrePropietario;
     private String apellidoPropietario;
+
     private String nit;
     private String telefono;
     private String correo;
     private String foto;
     private String direccion;
 
+    private String latitud;
+    private String longitud;
+
+
     public CrearTiendaDto() {
     }
 
-    public CrearTiendaDto(Integer idCuenta, String nombreTienda, String nombrePropietario, String apellidoPropietario, String nit, String telefono, String correo, String foto, String direccion) {
+    public CrearTiendaDto(Integer idCuenta, String nombreTienda, String nombrePropietario, String apellidoPropietario, String nit, String telefono, String correo, String foto, String direccion, String latitud, String longitud) {
         this.idCuenta = idCuenta;
         this.nombreTienda = nombreTienda;
         this.nombrePropietario = nombrePropietario;
@@ -24,6 +29,8 @@ public class CrearTiendaDto {
         this.correo = correo;
         this.foto = foto;
         this.direccion = direccion;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public Integer getIdCuenta() {
@@ -98,11 +105,27 @@ public class CrearTiendaDto {
         this.direccion = direccion;
     }
 
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
+    }
+
     @Override
     public String toString() {
         return "CrearTiendaDto{" +
                 "idCuenta=" + idCuenta +
-                "nombreTienda='" + nombreTienda + '\'' +
+                ", nombreTienda='" + nombreTienda + '\'' +
                 ", nombrePropietario='" + nombrePropietario + '\'' +
                 ", apellidoPropietario='" + apellidoPropietario + '\'' +
                 ", nit='" + nit + '\'' +
@@ -110,6 +133,36 @@ public class CrearTiendaDto {
                 ", correo='" + correo + '\'' +
                 ", foto='" + foto + '\'' +
                 ", direccion='" + direccion + '\'' +
+                ", latitud='" + latitud + '\'' +
+                ", longitud='" + longitud + '\'' +
                 '}';
+    }
+
+    public boolean validarDatos(){
+        if (this.nombreTienda == null || this.nombreTienda.isEmpty()){
+            return false;
+        }
+        if (this.nombrePropietario == null || this.nombrePropietario.isEmpty()){
+            return false;
+        }
+        if (this.apellidoPropietario == null || this.apellidoPropietario.isEmpty()){
+            return false;
+        }
+        if (this.nit == null || this.nit.isEmpty()){
+            return false;
+        }
+        if (this.telefono == null || this.telefono.isEmpty()){
+            return false;
+        }
+        if (this.correo == null || this.correo.isEmpty()){
+            return false;
+        }
+        if (this.foto == null || this.foto.isEmpty()){
+            return false;
+        }
+        if (this.direccion == null || this.direccion.isEmpty()){
+            return false;
+        }
+        return true;
     }
 }

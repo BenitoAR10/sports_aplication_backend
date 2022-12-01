@@ -1,15 +1,18 @@
 package bo.edu.ucb.spapp.Sports.App.api;
 
 import bo.edu.ucb.spapp.Sports.App.bl.LugarEntrenamientoSucursalBl;
+import bo.edu.ucb.spapp.Sports.App.dto.CrearLugarEntrenamientoSucursalDto;
 import bo.edu.ucb.spapp.Sports.App.dto.LugarEntrenamientoSucursalDto;
 import bo.edu.ucb.spapp.Sports.App.dto.PlanesEntrenamientoDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.EtyClientesLugarEntrenamiento;
 import bo.edu.ucb.spapp.Sports.App.entity.EtyHistorialClienteLugarEntrenamiento;
 import bo.edu.ucb.spapp.Sports.App.entity.EtyPlanesEntrenamiento;
+import bo.edu.ucb.spapp.Sports.App.util.AuthUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController // Restcontroller nos indica que esta clase es una API.
 @RequestMapping("/api/v1/LugarEntrenamiento") // Indicamos la ruta de la API.
@@ -17,7 +20,8 @@ public class LugarEntrenamientoSucursalApi {
 
     LugarEntrenamientoSucursalBl lugarEntrenamientoSucursalBl;
 
-    public LugarEntrenamientoSucursalApi(LugarEntrenamientoSucursalBl lugarEntrenamientoSucursalBl){
+
+    public LugarEntrenamientoSucursalApi(LugarEntrenamientoSucursalBl lugarEntrenamientoSucursalBl) {
         this.lugarEntrenamientoSucursalBl = lugarEntrenamientoSucursalBl;
     }
     //forma correcta de hacerlo
@@ -74,6 +78,27 @@ public class LugarEntrenamientoSucursalApi {
             return new RespuestaDto<>(null, "Credenciales incorrectas", false);
         }
 
+    }
+
+    @PostMapping()
+    public RespuestaDto<String> cargarDatosSucursal (@RequestHeader Map<String, String> headers, @RequestBody CrearLugarEntrenamientoSucursalDto crearLugarEntrenamientoSucursalDto){
+        if(crearLugarEntrenamientoSucursalDto.validarDatos()){
+            try{
+                Thread.sleep(2000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            try{
+                String jwt = AuthUtil.getTokenFromHeader(headers);
+                String correo = AuthUtil.isUserAuthenticated(jwt);
+                lugarEntrenamientoSucursalBl.cargarDatosSucursal(correo, crearLugarEntrenamientoSucursalDto);
+                return new RespuestaDto<>("Datos cargados correctamente", null, true);
+            }catch (Exception e){
+                return new RespuestaDto<>(null, e.getMessage(), false);
+            }
+        }else {
+            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
+        }
     }
 
 

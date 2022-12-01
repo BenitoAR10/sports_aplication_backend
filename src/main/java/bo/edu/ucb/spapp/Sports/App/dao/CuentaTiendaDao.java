@@ -1,6 +1,7 @@
 package bo.edu.ucb.spapp.Sports.App.dao;
 
 
+import bo.edu.ucb.spapp.Sports.App.entity.SpTienda;
 import org.apache.ibatis.annotations.Insert;
 import org.springframework.stereotype.Component;
 
@@ -15,4 +16,5 @@ public interface CuentaTiendaDao {
             (#{idCuenta}, 3, true, 'anonymous', now(), 'localhost')
             """)
     void cuentaGrupoTienda(Integer idCuenta);
+
 }

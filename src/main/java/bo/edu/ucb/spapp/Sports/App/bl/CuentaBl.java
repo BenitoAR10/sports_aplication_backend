@@ -7,8 +7,6 @@ import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service // Lo marcamos como service para que Spring lo pueda inyectar.
 public class CuentaBl {
     private SpCuentaDao spCuentaDao;

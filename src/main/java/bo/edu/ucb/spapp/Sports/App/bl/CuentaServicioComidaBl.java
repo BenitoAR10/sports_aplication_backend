@@ -4,7 +4,6 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import bo.edu.ucb.spapp.Sports.App.dao.CuentaServicioComidaDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
-import bo.edu.ucb.spapp.Sports.App.dto.CrearServicioComidaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.springframework.stereotype.Service;
 
