@@ -22,20 +22,7 @@ public class CuentaTiendaApi {
         this.cuentaTiendaBl = cuentaTiendaBl;
         this.tiendaBl = tiendaBl;
     }
-    @PostMapping
-    public RespuestaDto<String> crearCuentaUsuario(@RequestBody CrearCuentaDto crearCuentaDto){
-        try{
-            Thread.sleep(2000);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        try{
-            cuentaTiendaBl.crearCuentaTienda(crearCuentaDto);
-            return new RespuestaDto<>("Cuenta creada correctamente", null, true);
-        } catch (Exception e){
-            return new RespuestaDto<>(null, e.getMessage(), false);
-        }
-    }
+
 
     @PostMapping()
     public RespuestaDto<String> cargarDatosTienda(@RequestHeader Map<String, String> headers, @RequestBody CrearTiendaDto crearTiendaDto){
@@ -57,4 +44,21 @@ public class CuentaTiendaApi {
             return new RespuestaDto<>(null, "Credenciales incorrectas", false);
         }
     }
+
+    /*
+     @PostMapping
+    public RespuestaDto<String> crearCuentaUsuario(@RequestBody CrearCuentaDto crearCuentaDto){
+        try{
+            Thread.sleep(2000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        try{
+            cuentaTiendaBl.crearCuentaTienda(crearCuentaDto);
+            return new RespuestaDto<>("Cuenta creada correctamente", null, true);
+        } catch (Exception e){
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
+    }
+     */
 }

@@ -10,31 +10,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServicioComidaBl {
 
-    private SpServicioComidaDao spServicioComidaDao;
     private SpCuentaDao spCuentaDao;
 
     private CuentaServicioComidaDao cuentaServicioComidaDao;
 
-    public ServicioComidaBl(SpServicioComidaDao spServicioComidaDao, SpCuentaDao spCuentaDao, CuentaServicioComidaDao cuentaServicioComidaDao) {
-        this.spServicioComidaDao = spServicioComidaDao;
+    public ServicioComidaBl(SpCuentaDao spCuentaDao, CuentaServicioComidaDao cuentaServicioComidaDao) {
         this.spCuentaDao = spCuentaDao;
         this.cuentaServicioComidaDao = cuentaServicioComidaDao;
     }
-    public void crearServicioComida(CrearServicioComidaDto crearServicioComidaDto) {
-        SpServicioComida spCrearSercioComida = new SpServicioComida();
-        spCrearSercioComida.setIdCuenta(crearServicioComidaDto.getIdCuenta());
-        spCrearSercioComida.setNombreLugar(crearServicioComidaDto.getNombreLugar());
-        spCrearSercioComida.setLogo(crearServicioComidaDto.getLogo());
-        spCrearSercioComida.setNombrePropietario(crearServicioComidaDto.getNombrePropietario());
-        spCrearSercioComida.setApellidoPropietario(crearServicioComidaDto.getApellidoPropietario());
-        spCrearSercioComida.setNit(crearServicioComidaDto.getNit());
-        spCrearSercioComida.setTelefono(crearServicioComidaDto.getTelefono());
-        spCrearSercioComida.setCorreo(crearServicioComidaDto.getCorreo());
-        spCrearSercioComida.setDireccion(crearServicioComidaDto.getDireccion());
-        spCrearSercioComida.setLongitud(crearServicioComidaDto.getLongitud());
-        spCrearSercioComida.setLatitud(crearServicioComidaDto.getLatitud());
-        this.spServicioComidaDao.crearServicioComida(spCrearSercioComida);
-    }
+
 
     public void cargarDatosServicioComida(String correo, CrearServicioComidaDto crearServicioComidaDto){
         SpServicioComida servicioComida = new SpServicioComida();
@@ -51,5 +35,23 @@ public class ServicioComidaBl {
         servicioComida.setLatitud(crearServicioComidaDto.getLatitud());
         this.cuentaServicioComidaDao.datosServicioComida(servicioComida);
     }
+
+    /*
+     public void crearServicioComida(CrearServicioComidaDto crearServicioComidaDto) {
+        SpServicioComida spCrearSercioComida = new SpServicioComida();
+        spCrearSercioComida.setIdCuenta(crearServicioComidaDto.getIdCuenta());
+        spCrearSercioComida.setNombreLugar(crearServicioComidaDto.getNombreLugar());
+        spCrearSercioComida.setLogo(crearServicioComidaDto.getLogo());
+        spCrearSercioComida.setNombrePropietario(crearServicioComidaDto.getNombrePropietario());
+        spCrearSercioComida.setApellidoPropietario(crearServicioComidaDto.getApellidoPropietario());
+        spCrearSercioComida.setNit(crearServicioComidaDto.getNit());
+        spCrearSercioComida.setTelefono(crearServicioComidaDto.getTelefono());
+        spCrearSercioComida.setCorreo(crearServicioComidaDto.getCorreo());
+        spCrearSercioComida.setDireccion(crearServicioComidaDto.getDireccion());
+        spCrearSercioComida.setLongitud(crearServicioComidaDto.getLongitud());
+        spCrearSercioComida.setLatitud(crearServicioComidaDto.getLatitud());
+        this.spServicioComidaDao.crearServicioComida(spCrearSercioComida);
+    }
+     */
 
 }

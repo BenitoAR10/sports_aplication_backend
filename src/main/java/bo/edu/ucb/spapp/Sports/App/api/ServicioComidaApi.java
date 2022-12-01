@@ -23,16 +23,6 @@ public class ServicioComidaApi {
         this.seguridadBl = seguridadBl;
     }
 
-    // Metodo para verificar si los campos no estan vacios
-    @PostMapping
-    public RespuestaDto<CrearServicioComidaDto> crearServicioComida(@RequestBody CrearServicioComidaDto crearServicioComidaDto){
-        if(crearServicioComidaDto != null && crearServicioComidaDto.getIdCuenta() != null && crearServicioComidaDto.getNombreLugar() != null && crearServicioComidaDto.getNombrePropietario() != null && crearServicioComidaDto.getApellidoPropietario() != null && crearServicioComidaDto.getNit() != null && crearServicioComidaDto.getTelefono() != null && crearServicioComidaDto.getCorreo()!= null && crearServicioComidaDto.getDireccion() != null && crearServicioComidaDto.getLatitud() != 0 && crearServicioComidaDto.getLongitud() != 0 && crearServicioComidaDto.getIdCuenta() != 0){
-            this.servicioComidaBl.crearServicioComida(crearServicioComidaDto);
-            return new RespuestaDto<>(crearServicioComidaDto, "Servicio de comida creado correctamente", true);
-        }else {
-            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
-        }
-    }
 
     // Registro de datos de servicio comida
     @PostMapping()

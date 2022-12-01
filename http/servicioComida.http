@@ -3,7 +3,7 @@
 POST http://localhost:25060/api/v1/comida
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xhbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGNvbWlkYSJdLCJpc3MiOiJ1Y2IiLCJyZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjY5MDEyNDIzfQ.wAEVAhm53NnJBN-R3DRGysUSamBEWiSML5_P5UyPo2o
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzY29taWRhMkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGNvbWlkYSJdLCJpc3MiOiJ1Y2IiLCJyZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjY5OTU1NzI1fQ.qnZMFc23dJMI-Onfe5NZ6zzmpzhJr_60fnb2IGIKjdI
 
 {
   "idCuenta": 29,
