@@ -5,6 +5,7 @@ import bo.edu.ucb.spapp.Sports.App.bl.TiendaBl;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearPersonaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearTiendaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespuestaDto;
+import bo.edu.ucb.spapp.Sports.App.util.AuthUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -21,15 +22,31 @@ public class TiendaApi {
         this.seguridadBl = seguridadBl;
     }
     // Metodo para verificar si los campos estan vacios o no y si no estan vacios, se crea la tienda.
-    @PostMapping
-    public RespuestaDto<CrearTiendaDto>  crearTienda(@RequestBody CrearTiendaDto crearTiendaDto){
-        if(crearTiendaDto != null && crearTiendaDto.getNombreTienda() != null && crearTiendaDto.getNombrePropietario() != null && crearTiendaDto.getApellidoPropietario() != null && crearTiendaDto.getNit() != null && crearTiendaDto.getTelefono() != null && crearTiendaDto.getCorreo() != null && crearTiendaDto.getFoto() != null && crearTiendaDto.getDireccion() != null ){
-            this.tiendaBl.crearTienda(crearTiendaDto);
-            return new RespuestaDto<>(crearTiendaDto, "Tienda creada correctamente", true);
+
+    @PostMapping()
+    public RespuestaDto<String> cargarDatosTienda(@RequestHeader Map<String, String> headers, @RequestBody CrearTiendaDto crearTiendaDto){
+        if(crearTiendaDto.validarDatos()){
+            try{
+                Thread.sleep(2000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            try{
+                String jwt = AuthUtil.getTokenFromHeader(headers);
+                String correo = AuthUtil.isUserAuthenticated(jwt);
+                tiendaBl.cargarDatosTienda(correo, crearTiendaDto);
+                return new RespuestaDto<>("Datos cargados correctamente", null, true);
+            } catch (Exception e){
+                return new RespuestaDto<>(null, e.getMessage(), false);
+            }
         }else{
             return new RespuestaDto<>(null, "Credenciales incorrectas", false);
         }
     }
+
+
+
+
 
     // Metodo de autorizacion para crear una tienda
     /*
@@ -53,6 +70,16 @@ public class TiendaApi {
             return Map.of("message", "El usuario no tiene permisos para crear una tienda");
         }
 
+    }
+
+    @PostMapping
+    public RespuestaDto<CrearTiendaDto>  crearTienda(@RequestBody CrearTiendaDto crearTiendaDto){
+        if(crearTiendaDto != null && crearTiendaDto.getNombreTienda() != null && crearTiendaDto.getNombrePropietario() != null && crearTiendaDto.getApellidoPropietario() != null && crearTiendaDto.getNit() != null && crearTiendaDto.getTelefono() != null && crearTiendaDto.getCorreo() != null && crearTiendaDto.getFoto() != null && crearTiendaDto.getDireccion() != null ){
+            this.tiendaBl.crearTienda(crearTiendaDto);
+            return new RespuestaDto<>(crearTiendaDto, "Tienda creada correctamente", true);
+        }else{
+            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
+        }
     }
     */
 

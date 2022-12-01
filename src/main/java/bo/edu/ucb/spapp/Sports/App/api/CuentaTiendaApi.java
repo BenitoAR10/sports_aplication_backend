@@ -22,31 +22,7 @@ public class CuentaTiendaApi {
         this.cuentaTiendaBl = cuentaTiendaBl;
         this.tiendaBl = tiendaBl;
     }
-
-
-    @PostMapping()
-    public RespuestaDto<String> cargarDatosTienda(@RequestHeader Map<String, String> headers, @RequestBody CrearTiendaDto crearTiendaDto){
-        if(crearTiendaDto.validarDatos()){
-            try{
-                Thread.sleep(2000);
-            } catch (InterruptedException e){
-                e.printStackTrace();
-            }
-            try{
-                String jwt = AuthUtil.getTokenFromHeader(headers);
-                String correo = AuthUtil.isUserAuthenticated(jwt);
-                tiendaBl.cargarDatosTienda(correo, crearTiendaDto);
-                return new RespuestaDto<>("Datos cargados correctamente", null, true);
-            } catch (Exception e){
-                return new RespuestaDto<>(null, e.getMessage(), false);
-            }
-        }else{
-            return new RespuestaDto<>(null, "Credenciales incorrectas", false);
-        }
-    }
-
-    /*
-     @PostMapping
+    @PostMapping
     public RespuestaDto<String> crearCuentaUsuario(@RequestBody CrearCuentaDto crearCuentaDto){
         try{
             Thread.sleep(2000);
@@ -60,5 +36,6 @@ public class CuentaTiendaApi {
             return new RespuestaDto<>(null, e.getMessage(), false);
         }
     }
-     */
+
+
 }
