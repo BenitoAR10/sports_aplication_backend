@@ -11,7 +11,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aWVuZGExQ
   "nombrePropietario": "Propietario 1",
   "apellidoPropietario": "Apellido 1",
   "foto": "foto1.jpg",
-  "correo": "tienda1@gmail.com",
+  "correo": "tienda5@gmail.com",
   "telefono": "123456789",
   "nit": "123456789",
   "direccion": "Calle 1"

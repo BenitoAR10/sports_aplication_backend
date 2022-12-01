@@ -4,7 +4,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "correo": "tienda1@gmail.com",
+  "correo": "entrenador12@gmail.com",
   "contrasenia": "123456789"
 }
 ### Autenticacion incorrecta

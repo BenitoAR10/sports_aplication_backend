@@ -7,12 +7,16 @@ import org.springframework.stereotype.Component;
 @Component
 public interface SpTiendaDao {
 
+
+    // Insert para llenar los datos de  sp_tienda
+
     @Insert("""
-            INSERT INTO sp_tienda 
-                (id_cuenta, nombre_tienda, nombre_propietario, apellido_propietario, nit, telefono, correo, foto_tienda, direccion, estado, tx_correo, tx_fecha, tx_host)
+            INSERT INTO sp_tienda
+            (id_cuenta, nombre_tienda, nombre_propietario, apellido_propietario, foto_tienda, correo, telefono, nit, direccion, latitud, longitud, estado, tx_correo, tx_fecha, tx_host)
             VALUES
-                (#{idCuenta}, #{nombreTienda}, #{nombrePropietario}, #{apellidoPropietario}, #{nit}, #{telefono}, #{correo}, #{fotoTienda}, #{direccion}, true, 'anonymous', now(), 'localhost')
+            (#{idCuenta}, #{nombreTienda}, #{nombrePropietario}, #{apellidoPropietario}, #{fotoTienda}, #{correo}, #{telefono}, #{nit}, #{direccion}, 15.5, 15.5, true, 'anonymous', now(), 'localhost')
             """)
-    void crearTienda(SpTienda spTienda);
+
+    void datosTienda(SpTienda spTienda);
 
 }

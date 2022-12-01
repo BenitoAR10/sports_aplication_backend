@@ -12,11 +12,14 @@ public class CrearTiendaDto {
     private String foto;
     private String direccion;
 
+    private String latitud;
+    private String longitud;
+
 
     public CrearTiendaDto() {
     }
 
-    public CrearTiendaDto(Integer idCuenta, String nombreTienda, String nombrePropietario, String apellidoPropietario, String nit, String telefono, String correo, String foto, String direccion) {
+    public CrearTiendaDto(Integer idCuenta, String nombreTienda, String nombrePropietario, String apellidoPropietario, String nit, String telefono, String correo, String foto, String direccion, String latitud, String longitud) {
         this.idCuenta = idCuenta;
         this.nombreTienda = nombreTienda;
         this.nombrePropietario = nombrePropietario;
@@ -26,6 +29,8 @@ public class CrearTiendaDto {
         this.correo = correo;
         this.foto = foto;
         this.direccion = direccion;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public Integer getIdCuenta() {
@@ -100,11 +105,27 @@ public class CrearTiendaDto {
         this.direccion = direccion;
     }
 
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
+    }
+
     @Override
     public String toString() {
         return "CrearTiendaDto{" +
                 "idCuenta=" + idCuenta +
-                "nombreTienda='" + nombreTienda + '\'' +
+                ", nombreTienda='" + nombreTienda + '\'' +
                 ", nombrePropietario='" + nombrePropietario + '\'' +
                 ", apellidoPropietario='" + apellidoPropietario + '\'' +
                 ", nit='" + nit + '\'' +
@@ -112,6 +133,8 @@ public class CrearTiendaDto {
                 ", correo='" + correo + '\'' +
                 ", foto='" + foto + '\'' +
                 ", direccion='" + direccion + '\'' +
+                ", latitud='" + latitud + '\'' +
+                ", longitud='" + longitud + '\'' +
                 '}';
     }
 

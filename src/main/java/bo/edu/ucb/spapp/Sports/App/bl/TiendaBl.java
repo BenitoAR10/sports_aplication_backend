@@ -22,12 +22,6 @@ public class TiendaBl {
         this.cuentaTiendaDao = cuentaTiendaDao;
     }
 
-    public void crearTienda(CrearTiendaDto crearTiendaDto){
-        SpTienda spCrearTienda = new SpTienda();
-
-
-    }
-
     public void cargarDatosTienda(String correo, CrearTiendaDto crearTiendaDto){
         SpTienda tienda = new SpTienda();
         tienda.setIdCuenta(spCuentaDao.findIdByCorreo(correo));
@@ -35,10 +29,11 @@ public class TiendaBl {
         tienda.setNombrePropietario(crearTiendaDto.getNombrePropietario());
         tienda.setApellidoPropietario(crearTiendaDto.getApellidoPropietario());
         tienda.setFotoTienda(crearTiendaDto.getFoto());
+        tienda.setCorreo(crearTiendaDto.getCorreo());
         tienda.setTelefono(crearTiendaDto.getTelefono());
         tienda.setNit(crearTiendaDto.getNit());
         tienda.setDireccion(crearTiendaDto.getDireccion());
-        this.cuentaTiendaDao.datosTienda(tienda);
+        this.spTiendaDao.datosTienda(tienda);
     }
 
 
