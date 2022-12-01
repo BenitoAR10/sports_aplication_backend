@@ -12,7 +12,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "idLugarEntrenamientoSucursal": 1,
+    "idLugarEntrenamientoSucursal": 2,
     "costo": 7777,
     "cantidadMeses": 10
 

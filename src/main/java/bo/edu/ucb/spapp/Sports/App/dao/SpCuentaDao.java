@@ -48,7 +48,7 @@ public interface SpCuentaDao {
     // Busqueda de usuario por el correo de la cuenta
 
     @Select("""
-            SELECT id_cuenta, id_deporte,
+            SELECT id_cuenta, id_deporte, nombres, apellidos, numero_telefono, genero, ciudad,
                correo, contrasenia, estado, tx_correo, tx_fecha, tx_host
             FROM
                 sp_cuenta
