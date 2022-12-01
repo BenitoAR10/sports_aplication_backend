@@ -1,17 +1,15 @@
 package bo.edu.ucb.spapp.Sports.App.bl;
 
+import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpLugarEntrenamientoSucursalDao;
 
+import bo.edu.ucb.spapp.Sports.App.dto.CrearLugarEntrenamientoSucursalDto;
 import bo.edu.ucb.spapp.Sports.App.dto.LugarEntrenamientoSucursalDto;
 
 import bo.edu.ucb.spapp.Sports.App.dto.PlanesEntrenamientoDto;
 import bo.edu.ucb.spapp.Sports.App.entity.*;
 
 import bo.edu.ucb.spapp.Sports.App.entity.EtyLugarEntrenamiento;
-
-
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
 
 import org.springframework.stereotype.Service;
@@ -22,13 +20,14 @@ import java.util.List;
 
 public class LugarEntrenamientoSucursalBl {
     private final SpLugarEntrenamientoSucursalDao spLugarEntrenamientoSucursalDao;
+    private SpCuentaDao spCuentaDao;
 
 
-    public LugarEntrenamientoSucursalBl(SpLugarEntrenamientoSucursalDao spLugarEntrenamientoSucursalDao) {
+    public LugarEntrenamientoSucursalBl(SpLugarEntrenamientoSucursalDao spLugarEntrenamientoSucursalDao, SpCuentaDao spCuentaDao) {
         this.spLugarEntrenamientoSucursalDao = spLugarEntrenamientoSucursalDao;
+        this.spCuentaDao = spCuentaDao;
 
     }
-
     public LugarEntrenamientoSucursalDto encontrarDatosLugar(int idCuenta) {
 
         EtyLugarEntrenamiento etyLugarEntrenamiento = spLugarEntrenamientoSucursalDao.encontrarDatosLugar(idCuenta);
@@ -71,5 +70,15 @@ public class LugarEntrenamientoSucursalBl {
 
 
         this.spLugarEntrenamientoSucursalDao.insertarPlanEntrenamiento(spPlanLugarEntrenamiento);
+    }
+
+    public void cargarDatosSucursal(String correo, CrearLugarEntrenamientoSucursalDto crearLugarEntrenamientoSucursalDto){
+        SpLugarEntrenamientoSucursal spLugarEntrenamientoSucursal = new SpLugarEntrenamientoSucursal();
+        spLugarEntrenamientoSucursal.setIdCuenta(spCuentaDao.findIdByCorreo(correo));
+        spLugarEntrenamientoSucursal.setNombreEncargado(crearLugarEntrenamientoSucursalDto.getNombre_encargado());
+        spLugarEntrenamientoSucursal.setApellidoEncargado(crearLugarEntrenamientoSucursalDto.getApellido_encargado());
+        spLugarEntrenamientoSucursal.setTelefonoSucursal(crearLugarEntrenamientoSucursalDto.getTelefono_sucursal());
+        spLugarEntrenamientoSucursal.setDireccion(crearLugarEntrenamientoSucursalDto.getDireccion());
+        this.spLugarEntrenamientoSucursalDao.cargarDatosSucursal(spLugarEntrenamientoSucursal);
     }
 }

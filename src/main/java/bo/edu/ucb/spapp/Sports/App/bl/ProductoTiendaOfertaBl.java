@@ -1,7 +1,6 @@
 package bo.edu.ucb.spapp.Sports.App.bl;
 
 import bo.edu.ucb.spapp.Sports.App.dao.SpProductoTiendaOfertaDao;
-import bo.edu.ucb.spapp.Sports.App.entity.EtyProductoTienda;
 import bo.edu.ucb.spapp.Sports.App.entity.EtyProductoTiendaOferta;
 
 import java.util.List;

@@ -1,7 +1,6 @@
 package bo.edu.ucb.spapp.Sports.App.bl;
 
 import bo.edu.ucb.spapp.Sports.App.dao.SpLugarEntrenadorDao;
-import bo.edu.ucb.spapp.Sports.App.dao.SpLugarEntrenamientoSucursalDao;
 
 import bo.edu.ucb.spapp.Sports.App.dto.LugarEntrenadorDto;
 
@@ -10,7 +9,6 @@ import bo.edu.ucb.spapp.Sports.App.entity.*;
 
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 @Service

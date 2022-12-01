@@ -61,6 +61,13 @@ public interface SpLugarEntrenamientoSucursalDao {
             """)
     void editarPlanEntrenamiento(SpPlanLugarEntrenamiento spPlanLugarEntrenamiento);
 
+    @Insert("""
+            INSERT INTO sp_lugar_entrenamiento_sucursal
+            (id_cuenta, nombre_encargado, apellido_encargado, telefono_sucursal, direccion, latitud, longitud, estado, tx_correo, tx_fecha, tx_host)
+            VALUES
+            (#{idCuenta}, #{nombreEncargado}, #{apellidoEncargado}, #{telefonoSucursal}, #{direccion}, 15.123, 15.1236, true, 'anonymous', now(), 'localhost')
+            """)
+    void cargarDatosSucursal(SpLugarEntrenamientoSucursal spLugarEntrenamientoSucursal);
 
 
 }

@@ -6,7 +6,6 @@ import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearCuentaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Service
 public class CuentaServicioLgEntrenamientoBl {

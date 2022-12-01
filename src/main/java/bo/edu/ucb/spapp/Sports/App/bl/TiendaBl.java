@@ -3,7 +3,6 @@ package bo.edu.ucb.spapp.Sports.App.bl;
 
 import bo.edu.ucb.spapp.Sports.App.dao.CuentaTiendaDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
-import bo.edu.ucb.spapp.Sports.App.dao.SpRolesDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpTiendaDao;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearTiendaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpTienda;

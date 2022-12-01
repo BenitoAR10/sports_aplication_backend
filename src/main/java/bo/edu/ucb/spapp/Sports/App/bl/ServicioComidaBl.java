@@ -2,7 +2,6 @@ package bo.edu.ucb.spapp.Sports.App.bl;
 
 import bo.edu.ucb.spapp.Sports.App.dao.CuentaServicioComidaDao;
 import bo.edu.ucb.spapp.Sports.App.dao.SpCuentaDao;
-import bo.edu.ucb.spapp.Sports.App.dao.SpServicioComidaDao;
 import bo.edu.ucb.spapp.Sports.App.dto.CrearServicioComidaDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpServicioComida;
 import org.springframework.stereotype.Service;
