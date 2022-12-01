@@ -19,22 +19,44 @@ public class LugarEntrenadorApi {
     }
 
     @GetMapping("/{idCuenta}/planes")
-    public List<PlanEntrenadorDto> datosEntrenadorApi(@PathVariable(name = "idCuenta") Integer idCuenta){
-        return this.lugarEntrenadorBl.encontrarPlanEntrenador(idCuenta);
+    public RespuestaDto<List<PlanEntrenadorDto>> datosEntrenadorApi(@PathVariable(name = "idCuenta") Integer idCuenta){
+        try {
+            List<PlanEntrenadorDto> lista = lugarEntrenadorBl.encontrarPlanEntrenador(idCuenta);
+            return new RespuestaDto<>(lista, null, true);
+        } catch (Exception e) {
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
+
     }
 
     @GetMapping("/{idEntrenador}/cliente/{idCliente}")
-    public List<EtyHistorialEntrenador> historialdelcliente(@PathVariable(name = "idEntrenador") Integer idEntrenador, @PathVariable(name = "idCliente") Integer idCliente){
-        return this.lugarEntrenadorBl.historialDeCliente(idEntrenador, idCliente);
+    public RespuestaDto<List<EtyHistorialEntrenador>> historialdelcliente(@PathVariable(name = "idEntrenador") Integer idEntrenador, @PathVariable(name = "idCliente") Integer idCliente){
+        try {
+            List<EtyHistorialEntrenador> lista = lugarEntrenadorBl.historialDeCliente(idEntrenador, idCliente);
+            return new RespuestaDto<>(lista, null, true);
+        } catch (Exception e) {
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
+
     }
     @GetMapping("/{idCuenta}")
-    public LugarEntrenadorDto datosEntrenador(@PathVariable(name = "idCuenta") Integer idCuenta){
-        return this.lugarEntrenadorBl.encontrarDatosEntrenador(idCuenta);
+    public RespuestaDto<LugarEntrenadorDto> datosEntrenador(@PathVariable(name = "idCuenta") Integer idCuenta){
+        try {
+            LugarEntrenadorDto lugarEntrenadorDto = lugarEntrenadorBl.encontrarDatosEntrenador(idCuenta);
+            return new RespuestaDto<>(lugarEntrenadorDto, null, true);
+        } catch (Exception e) {
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
     }
 
     @GetMapping("/{idEntrenador}/clientesActivos")
-    public List<EtyHistorialEntrenador> clientesActivosEntrenador(@PathVariable(name = "idEntrenador") Integer idEntrenador){
-        return this.lugarEntrenadorBl.todosLosClientes(idEntrenador);
+    public RespuestaDto<List<EtyHistorialEntrenador>> clientesActivosEntrenador(@PathVariable(name = "idEntrenador") Integer idEntrenador){
+        try {
+            List<EtyHistorialEntrenador> lista = lugarEntrenadorBl.todosLosClientes(idEntrenador);
+            return new RespuestaDto<>(lista, null, true);
+        } catch (Exception e) {
+            return new RespuestaDto<>(null, e.getMessage(), false);
+        }
     }
 
     @PostMapping("/plan")

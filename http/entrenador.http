@@ -1,12 +1,12 @@
-### Creamos entrenado
+### Agregar datos de entrenador
 POST http://localhost:25060/api/v1/entrenador/
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2NjkwMTQwMjJ9.FjahHLGb57USkOUCvjabodYKTGieZaOdafVvUXt9E_g
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbnRyZW5hZG9yMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk4OTc1NzV9.vb9FiYsWyGh2gBSMM1EUOIRDOdxr9VrWVVuwgfYUEmg
 
 {
   "idCuenta": 2,
   "fotoEntrenador": "https://cdn.bulbagarden.net/upload/thumb/5/5f/Red_%28anime%29.png/250px-Red_%28anime%29.png",
   "nit": "123456789",
-  "correo": "entrenador@gmail.com"
+  "correo": "entrenador1@gmail.com"
 }

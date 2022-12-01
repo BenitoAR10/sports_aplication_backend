@@ -24,13 +24,13 @@ select * from sp_entrenador;
 -- Insercion de datos de prueba en la tabla de sucursal de entrenamiento
 INSERT INTO sp_lugar_entrenamiento_sucursal (id_lugar_entrenamiento, id_cuenta, nombre_encargado, apellido_encargado,
                                              telefono_sucursal, direccion, latitud, longitud, estado, tx_correo, tx_fecha, tx_host)
-values ('1', '3', 'Empleado Felix', 'apellido prueba1', '77111', 'calle 1', '-10.55', '44.33', 'true', 'algo@email.com', '2022-01-01', '128.66.2.1');
+values ('1', '61', 'Empleado Pepe', 'Pinto', '77111', 'calle 100', '-10.55', '44.33', 'true', 'energym@email.com', '2022-01-01', '128.66.2.1');
 
 select * from sp_lugar_entrenamiento_sucursal;
 --Fin de la insercion de datos de prueba en las tablas de lugares
 -- insercion de datos de prueba para los planes
 INSERT INTO sp_plan_lugar_entrenamiento (id_lugar_entrenamiento_sucursal, costo, cantidad_meses, estado, tx_correo, tx_fecha, tx_host)
-values ('1', '700', '2', 'true', 'algo@email.com', '2022-01-01', '192.150.2.3');
+values ('2', '700', '2', 'true', 'algo@email.com', '2022-01-01', '192.150.2.3');
 
 select * from sp_plan_lugar_entrenamiento;
 
@@ -49,10 +49,10 @@ select * from sp_plan_entrenador;
 
 -- insercion de datos en la tabla sp_compra_plan
 insert into sp_compra_plan (id_cuenta, id_plan_entrenador, id_plan_lugar_entrenamiento, id_plan_comida, costo_plan, fecha_compra, fecha_fin, estado,tx_correo, tx_fecha, tx_host)
-values ('10', '1','1','1', '2800', '2021-01-01', '2021-04-01', true,'algo@gmail.com', '2022-01-01', '100.25.2.1');
+values ('10', '1','5','1', '2800', '2021-01-01', '2021-04-01', true,'algo@gmail.com', '2022-01-01', '100.25.2.1');
 
 insert into sp_compra_plan (id_cuenta, id_plan_entrenador, id_plan_lugar_entrenamiento, id_plan_comida, costo_plan, fecha_compra, fecha_fin, estado,tx_correo, tx_fecha, tx_host)
-values ('15','1','1','1', '3500', '2021-02-02', '2021-03-03', true,'algo@gmail.com', '2022-01-01', '100.25.2.1');
+values ('15','1','5','1', '3500', '2021-02-02', '2021-03-03', true,'algo@gmail.com', '2022-01-01', '100.25.2.1');
 
 select * from sp_compra_plan;
 delete from sp_compra_plan;
@@ -245,4 +245,24 @@ from sp_cuenta c
          inner join sp_plan_comida t on cp.id_plan_comida = t.id_plan_comida
          inner join sp_servicio_comida sc on t.id_servicio_comida = sc.id_servicio_comida
 where sc.id_cuenta = 1
+
+
+select*from sp_cuenta
+
+SELECT grupo FROM sp_grupos
+    JOIN sp_cuenta_grupos ON sp_grupos.id_grupos = sp_cuenta_grupos.id_grupos
+    JOIN sp_cuenta ON sp_cuenta_grupos.id_cuenta = sp_cuenta.id_cuenta
+WHERE sp_cuenta.correo = 'amirb@gmail.com'
+  AND sp_grupos.estado = true
+  AND sp_cuenta_grupos.estado = true
+  AND sp_cuenta.estado = true
+
+select * from sp_lugar_entrenamiento_sucursal
+
+select * from sp_compra_plan
+
+--actualizar los nombres de la id_cuenta 10
+
+select * from sp_plan_lugar_entrenamiento
+
 

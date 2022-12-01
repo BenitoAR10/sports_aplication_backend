@@ -3,11 +3,11 @@
 POST http://localhost:25060/api/v1/cuenta/
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk0MzgzMjZ9.lAApnWTs3OeUmrdPWsDpGq69HHnLvUI7OUtWQPmXKLw
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk3MDY2OTR9.5FcoK32teaT7Bw0UR64kSNQkQsF4ZsRGwL3huTVCYds
 
 {
     "idDeporte": 1,
-    "correo": "pepito@gmail.com",
+    "correo": "omi@gmail.com",
     "contrasenia": "123456789",
     "nombre": "Andres",
     "apellido": "Gomez",
@@ -19,6 +19,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnb
 POST http://localhost:25060/api/v1/cuenta/
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer
 //Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWFyYWxAZ21haWwuY29tIiwicm9sZXMiOlsidXN1YXJpbyJdLCJpc3MiOiJ1Y2IiLCJyZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjY5MDAwMTU2fQ.v6SSsB_YMMo8_vr81JiCeI1I95vluqm4eQh3RYOjiwc
 
 {
@@ -27,4 +28,12 @@ Accept: application/json
 GET http://localhost:25060/api/v1/cuenta/
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk0MzYwMjh9.zhXHlq8qT89akZYuR4_AWMbyrn6YY_Ssanb3tMNR530
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk4OTM3NDJ9.OEq1LIkEtKl369DgYlyDZENw3XSOyj0Am9A8rfi_TW4
+
+
+
+### Consultamos los grupos del usuario autenticado y vemos a que grupo corresponde
+GET http://localhost:25060/api/v1/cuenta/grupos
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlyYkBnbWFpbC5jb20iLCJyb2xlcyI6WyJBZ3JlZ2FyIGVudHJlbmFtaWVudG9zIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk3Nzc5Nzh9.bDk7e7ACGxcMF9R2LV070d4eKlL9cjCXY3nPgYM0Tcc

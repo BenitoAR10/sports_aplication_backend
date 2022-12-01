@@ -302,3 +302,14 @@ FROM
 WHERE
         id_cuenta = 1
   AND estado = true
+
+
+SELECT grupo FROM sp_grupos
+JOIN sp_cuenta_grupos ON sp_grupos.id_grupos = sp_cuenta_grupos.id_grupos
+JOIN sp_cuenta ON sp_cuenta_grupos.id_cuenta = sp_cuenta.id_cuenta
+WHERE sp_cuenta.correo = 'amirb@gmail.com'
+AND sp_grupos.estado = true
+AND sp_cuenta_grupos.estado = true
+AND sp_cuenta.estado = true
+
+select * from sp_grupos

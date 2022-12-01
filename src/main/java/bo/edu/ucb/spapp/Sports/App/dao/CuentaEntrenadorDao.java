@@ -1,5 +1,6 @@
 package bo.edu.ucb.spapp.Sports.App.dao;
 
+import bo.edu.ucb.spapp.Sports.App.entity.SpEntrenador;
 import org.apache.ibatis.annotations.Insert;
 import org.springframework.stereotype.Component;
 
@@ -17,5 +18,6 @@ public interface CuentaEntrenadorDao {
             """)
 
     void cuentaGrupoEntrenador(Integer idCuenta);
+
 
 }

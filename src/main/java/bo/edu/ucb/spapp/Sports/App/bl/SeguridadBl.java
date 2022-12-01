@@ -7,6 +7,7 @@ import bo.edu.ucb.spapp.Sports.App.dto.CuentaDto;
 import bo.edu.ucb.spapp.Sports.App.dto.RespAutenticacionDto;
 import bo.edu.ucb.spapp.Sports.App.dto.SoliAutenticacionDto;
 import bo.edu.ucb.spapp.Sports.App.entity.SpCuenta;
+import bo.edu.ucb.spapp.Sports.App.entity.SpGrupo;
 import bo.edu.ucb.spapp.Sports.App.entity.SpRoles;
 import bo.edu.ucb.spapp.Sports.App.util.SpException;
 import com.auth0.jwt.JWT;
@@ -121,6 +122,10 @@ public class SeguridadBl {
             throw new SpException("La cuenta y la contraseña son incorrectos", e);
         }
         return result;
+    }
+
+    public List<String> getGrupos(String correo) {
+        return spCuentaDao.findGruposByCorreo(correo);
     }
 
 

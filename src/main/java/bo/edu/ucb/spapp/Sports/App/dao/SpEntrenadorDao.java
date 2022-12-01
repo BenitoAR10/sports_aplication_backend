@@ -6,11 +6,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface SpEntrenadorDao {
+
+    // Insert para la tabla entrenador
+
     @Insert("""
             INSERT INTO sp_entrenador
-                (id_cuenta, nit, correo, foto_entrenador, estado, tx_correo, tx_fecha, tx_host)
+            (id_cuenta, nit , correo, foto_entrenador, estado, tx_correo, tx_fecha, tx_host)
             VALUES
-                (#{idCuenta}, #{nit}, #{correo}, #{foto}, true, 'anonymous', now(), 'localhost')
+            (#{idCuenta}, #{nit}, #{correo}, #{fotoEntrenador}, true, 'anonymous', now(), 'localhost')
             """)
     void crearEntrenador(SpEntrenador spEntrenador);
+
+
 }
