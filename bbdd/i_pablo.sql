@@ -118,7 +118,67 @@ insert into sp_producto_cuenta (id_tienda_producto, id_cuenta, estado,tx_correo,
 insert into sp_producto_cuenta (id_tienda_producto, id_cuenta, estado,tx_correo,tx_fecha,tx_host) values (6, 24, true, 'cbettinsonm@rambler.ru', '2022-09-14', '255.196.196.3');
 
 
+
+--INSERTS EXTRAS DE PRUEBA
+--SP PRODUCTO
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('Super Tenix', 'descripcion1', 'https://i.pinimg.com/originals/3f/d8/1d/3fd81d48ed9eb2472229999886401fbb.jpg', 'Telecom Italia S.P.A.', true, null, null, null, 96, 17, 'tenis','Azul',38.5, true, 'swasling0@arizona.edu', '2022/3/8', '192.168.0.1');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('XtraFast', 'descripcion2', 'https://ca-times.brightspotcdn.com/dims4/default/4d86add/2147483647/strip/true/crop/934x662+0+0/resize/1200x851!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fd6%2F18%2F7a906adc4c969e98740f9ba70d72%2Fscreen-shot-2020-01-29-at-4.03.34%20PM.png', 'Fifth Street Senior Floating Rate Corp.', true, 48.98, 13, 66, 84, 91, 'tenis','Negro',34, false, 'jswatheridge1@bloomberg.com', '2022/12/20', '192.168.0.3');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('TodoTerreno', 'descripcion3', 'https://cdn.deporprive.com/198730-large_default/friendly-url-autogeneration-failed.jpg', 'Shoe Carnival, Inc.', true, null, null, null, 20, 24, 'tenis','Rojo',null, true, 'mholme2@cnbc.com', '2021/1/2', '192.168.0.3');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('Flash', 'descripcion4', 'https://www.sport.es/labolsadelcorredor/wp-content/uploads/2020/04/07A-B-Adidas-Asweetrain-H.jpg', 'Huntington Bancshares Incorporated', true, 69.2, 26, 57, 81, 70, 'Cian','Azul',36, true, 'tryson3@squarespace.com', '2022/10/14', '192.168.0.4');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('Revolt', 'descripcion5', 'https://www.sport.es/labolsadelcorredor/wp-content/uploads/2020/04/10A-Skechers-Skech-Air-Dynamight-H.jpg', 'Isramco, Inc.', true, null, null, null, 22, 64, 'tenis','Verde',null, true, 'cphlipon4@sun.com', '2022/2/2', '192.168.0.5');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('Ultra', 'descripcion1', 'https://media.revistagq.com/photos/6039ec7e054faa7026818368/1:1/w_2000,h_2000,c_limit/mejores-zapatillas-gimnasio-reebok-flexagon-Energy-3-MemoryTech.jpg', 'Telecom Italia S.P.A.', true, null, null, null, 96, 17, 'tenis','Azul',38.5, false, 'swasling0@arizona.edu', '2022/3/8', '192.168.0.1');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('Mcquen', 'descripcion2', '', 'Fifth Street Senior Floating Rate Corp.', true, 48.98, 13, 66, 84, 91, 'tenis','Negro',34, true, 'jswatheridge1@bloomberg.com', '2022/12/20', '192.168.0.3');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('Superrapido', 'descripcion3', 'https://media.vogue.mx/photos/5e78ee0b0a96cb000828f3d5/master/w_320%2Cc_limit/tenis-para-hacer-ejercicio-adidas.JPG', 'Shoe Carnival, Inc.', true, null, null, null, 20, 24, 'tenis','Rojo',null, true, 'mholme2@cnbc.com', '2021/1/2', '192.168.0.3');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('Fasthunter', 'descripcion4', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/nike-1587541481.jpg?crop=0.922xw:0.519xh;0.0363xw,0.205xh&resize=480:*', 'Huntington Bancshares Incorporated', true, 69.2, 26, 57, 81, 70, 'tenis','Azul',36, true, 'tryson3@squarespace.com', '2022/10/14', '192.168.0.4');
+insert into sp_producto (nombre, descripcion, imagen, marca, genero, peso, amortiguacion, pisada, numero_de_vistas, numero_de_comparaciones, tipo_producto, color, talla, estado, tx_correo, tx_fecha, tx_host) values ('Golden Tennis', 'descripcion5', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/00-1587547103.jpg?crop=0.667759306953875xw:1xh;center,top&resize=480:*', 'Isramco, Inc.', true, null, null, null, 22, 64, 'tenis','Verde',null, true, 'cphlipon4@sun.com', '2022/2/2', '192.168.0.5');
+select * from sp_producto;
+
+
 SELECT  * from sp_producto;
+SHOW max_connections;
+SELECT count(*) FROM pg_stat_activity;
+
+
+--SP PRODUCTO TIENDA
+
+
+--------------SP_PRODUCTO_TIENDA-------------------
+
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (1, 2, 8.51, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (2, 2, 3.07, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (3, 2, 1.39, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (1, 3, 0.54, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (5, 6, 4.91, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (3, 3, 6.27, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (4, 6, 9.44, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (2, 7, 0.96, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (1, 3, 7.86, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+insert into sp_producto_tienda (id_producto, id_tienda, precio, estado,tx_correo,tx_fecha,tx_host) values (3, 7, 0.26, true, 'rstronach1@google.pl', '2022/8/28', '52.42.47.42');
+
+--SP_OFERTA_PRODUCTO
+
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (9, 5, 6, 1.70, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (10, 4, 3,5.88, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (3, 3, 3, 8.36, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (4, 2, 6, 2.44, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (3, 1, 6, 0.93, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (7, 1, 3, 3.09, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (5, 3, 7, 1.68, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (3, 1, 7, 6.76, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (10, 2, 2,2.92, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+insert into sp_oferta_producto (id_ofertas, id_producto, id_tienda, precio_oferta, estado,tx_correo,tx_fecha,tx_host) values (7, 5, 3, 1.77, true, 'vbloxland9@latimes.com', '2022/10/12', '153.105.252.220');
+select * from sp_oferta_producto;
+
+
+
+
+
+
+
+
+
+
+
 
 -- MY QUERYS FOR THE APP--
 
@@ -189,9 +249,9 @@ select * from sp_producto;
 --SELECT * from sp_ofertas;
 --SELECT * from sp_oferta_producto;
 --SELECT * from sp_oferta_cuenta;
---SELECT * from sp_producto_tienda;
+SELECT * from sp_producto_tienda;
 --SELECT * from sp_producto_cuenta;
-
+Select * from sp_cuenta;
 SELECT t.nombre_tienda, t.foto_tienda, t.telefono, t.direccion, t.latitud, t.longitud,
        p.nombre,p.imagen,p.marca, p.genero, p.peso, p.amortiguacion, p.talla,pt.precio, p.estado
 FROM sp_producto p

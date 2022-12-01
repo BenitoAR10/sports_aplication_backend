@@ -2,8 +2,6 @@ package bo.edu.ucb.spapp.Sports.App.bl;
 
 import bo.edu.ucb.spapp.Sports.App.dao.SpProductoDao;
 import bo.edu.ucb.spapp.Sports.App.dto.ProductoDto;
-import bo.edu.ucb.spapp.Sports.App.dao.SpProductoTiendaOfertaDao;
-import bo.edu.ucb.spapp.Sports.App.entity.EtyProductoTiendaOferta;
 import bo.edu.ucb.spapp.Sports.App.entity.SpProducto;
 
 import org.springframework.stereotype.Service;
@@ -21,16 +19,6 @@ public class ProductoBl {
     public List<SpProducto> mostrarProducto (int idProducto) {
         List<SpProducto> spProducto = spProductoDao.findAll(idProducto);
         return spProducto;
-    }
-
-
-    private SpProductoTiendaOfertaDao spProductoTiendaOfertaDao;
-
-
-
-    public List<EtyProductoTiendaOferta> mostrarTopProductos(int idProducto) {
-        List<EtyProductoTiendaOferta> etyProductoTiendaOferta = spProductoTiendaOfertaDao.findTop3ProductosMasVistos(idProducto);
-        return etyProductoTiendaOferta;
     }
 
     public void crearProducto(ProductoDto productoDto){
